@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="ARCPSGUI.Security.ucUser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="295" d:DesignWidth="575">
+    <Grid Background="#FFE8E8E8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition  Width="95" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="5" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="5" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="110*" />
+        </Grid.RowDefinitions>
+
+
+        <Viewbox Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="0" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
+            <Label Content="Authentication" />
+        </Viewbox>
+        <Viewbox Grid.Column="1" Grid.ColumnSpan="3"  Grid.Row="2"  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
+            <Label Content="User" />
+        </Viewbox>
+
+        <Viewbox Grid.Column="4" Grid.ColumnSpan="3"  Grid.Row="2"   HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
+            <Label Content="GUI"  />
+        </Viewbox>
+        
+        <Viewbox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left"  VerticalAlignment="Stretch" Stretch="None">
+            <Label Content="Employee Name"/>
+        </Viewbox>
+        <Viewbox Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left"  VerticalAlignment="Stretch"  Stretch="None">
+            <Label Content="User Name"/>
+        </Viewbox>
+
+        <Viewbox Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left"  VerticalAlignment="Stretch"  Stretch="None">
+            <Label Content="Password"/>
+        </Viewbox>
+        <Viewbox Grid.Column="1" Grid.Row="10" HorizontalAlignment="Left"  VerticalAlignment="Stretch"  Stretch="None">
+            <Label Content="Re-Type Password"/>
+        </Viewbox>
+
+        <TextBox  Grid.Column="3" Grid.Row="4" Name="txtEmployeeName" Visibility="Hidden"/>
+        <ComboBox  Grid.Column="3" Grid.Row="4" Name="cmbEmployeeName" Visibility="Visible" SelectionChanged="cmbEmployeeName_SelectionChanged" />
+        <TextBox  Grid.Column="3" Grid.Row="6" Name="txtUserName" />
+        <PasswordBox  Grid.Column="3" Grid.Row="8" Name="txtPwd" MaxLength="10" />
+        <PasswordBox  Grid.Column="3" Grid.Row="10" Name="txtRePwd" MaxLength="10" />
+
+        <Button Content="New"  Grid.Column="1" Grid.Row="12" Name="btnNew" Template="{DynamicResource GlassButton}"   Style="{StaticResource BtnWhiteForeGround}" Click="btnNew_Click" HorizontalAlignment="Right" Width="73" Margin="0,0,17,0" />
+        <Button Content="Save"  Grid.Column="1" Grid.Row="12" Name="btnSave" Template="{DynamicResource GlassButton}"   Style="{StaticResource BtnWhiteForeGround}" Click="btnSave_Click" HorizontalAlignment="Right" Width="73" Margin="0,0,172,0" Grid.ColumnSpan="3" />
+        <Button Content="Delete"  Grid.Column="3" Grid.Row="12" Name="btnDelete" Template="{DynamicResource GlassButton}" 
+                Style="{StaticResource BtnWhiteForeGround}"  HorizontalAlignment="Right" Width="73" Margin="0,0,91,0" Click="btnDelete_Click" />
+        <Button Content="Cancel"  Grid.Column="3" Grid.Row="12" Name="btnCancel" Template="{DynamicResource GlassButton}"   Style="{StaticResource BtnWhiteForeGround}"  HorizontalAlignment="Right" Width="73" Margin="0,0,11,0" Click="btnCancel_Click" />
+        
+        <WindowsFormsHost Grid.Column="5" Grid.Row="4" Grid.RowSpan="9" HorizontalAlignment="Stretch" 
+                               Name="WindowsFormsHost" VerticalAlignment="Stretch" Loaded="WindowsFormsHost_Loaded">
+        </WindowsFormsHost>
+    </Grid>
+</UserControl>

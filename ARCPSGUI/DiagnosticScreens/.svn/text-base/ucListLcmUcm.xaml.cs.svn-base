@@ -1,0 +1,350 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Windows.Threading;
+using ARCPSGUI.MachineUI;
+
+namespace ARCPSGUI.Machines
+{
+    /// <summary>
+    /// Interaction logic for ucListLcmUcm.xaml
+    /// </summary>
+    public partial class ucListLcmUcm : UserControl, IDisposable
+    {
+        public bool isReadTaskCompleted = false;
+
+        bool isReadLcmUcmCommandState = true;
+        bool isReadLcmUcmMachineValues = false;
+        frmHome g_frmHome = null;
+
+        private static bool enableRefresh = true;
+        public static bool EnableRefresh
+        {
+            get { return enableRefresh; }
+            set
+            {
+                enableRefresh = value;
+                ucLcmUcm.enableRefresh = value;
+            }
+        }
+
+        public ucListLcmUcm(frmHome frmHome)
+        {
+            InitializeComponent();
+            this.g_frmHome = frmHome;
+            CreateUCM();
+            CreateLCM();
+            CreateVLC();
+        }
+
+
+        void CreateUCM()
+        {
+            int ucmNumber = 1;
+            int ucmFloor = 9;
+
+            for (int row = 0; row < 18; row++) //18
+            {
+
+                if (row % 2 != 0) continue;
+                if (row == 10)
+                {
+                    ucmFloor -= 1;
+                    continue;
+                }
+                ucmNumber = 1;
+                for (int col = 0; col < 13; col++)//13
+                {
+                    //  if (col == 0) continue;
+                    //  if ((col % 2) == 0) continue;
+
+                    if (col == 2 || col == 6 || col == 10)
+                    {
+
+                        CreateUCM(row, col, ucmNumber, ucmFloor);
+                        ucmNumber += 1;
+
+                    }
+
+
+                }
+                ucmFloor -= 1;
+            }
+
+
+        }
+        void CreateUCM(int row, int col, int ucmNumber, int ucmFloor)
+        {
+
+            string channel = "CH" + ucmFloor.ToString() + "3" + ucmNumber.ToString();
+            string machineName = GetUCMMachineName(ucmNumber, ucmFloor);
+            string caption = "UCM " + ucmNumber.ToString(); //"UCM " + ucmNumber.ToString();
+            Viewbox vwChild = new Viewbox();
+            vwChild.Stretch = Stretch.Fill;
+            vwChild.Tag = 1;//Represent ucm
+            ucLcmUcm machine = new ucLcmUcm(channel, machineName, caption, false, ucmNumber, ucmFloor, this.g_frmHome);
+           // UserControl1 machine = new UserControl1(channel, machineName, caption, false); 
+            
+            machine.Name = "ucm" + row.ToString();
+            vwChild.Child = machine;
+            vwChild.Width = double.NaN;
+            vwChild.Height = double.NaN;
+            Grid.SetColumn(vwChild, col);
+            Grid.SetRow(vwChild, row);
+            grdMachineHolder.Children.Add(vwChild);
+        
+        }
+        string GetUCMChannel(int row, int col)
+        {
+            string channel = "";
+            //Create Channel
+            switch (row)
+            {
+                case 9:
+                case 8:
+                case 7:
+                case 6:
+                case 5:
+                    channel = "CH" + row.ToString() + "3" + (col).ToString();
+                    break;
+                case 4:
+                case 3:
+                case 2:
+                case 1:
+                    channel = "CH" + (row - 1).ToString() + "3" + (col).ToString();
+                    break;
+                default:
+                    break;
+            }
+            return channel;
+        }
+        string GetUCMMachineName(int ucmNumber, int floor)
+        {
+            string machineName = "";
+
+
+            //Create Machine Name
+            switch (floor)
+            {
+
+                case 9:
+                case 8:
+                case 3:
+                case 2:
+                case 1:
+                    machineName = "UCM_FLR0" + (floor).ToString() + "_0" + (ucmNumber).ToString();
+                    break;
+                case 7:
+                case 6:
+                case 5:
+                    machineName = "UCM_FLR" + (floor).ToString() + "_0" + (ucmNumber).ToString();
+                    break;
+
+                default:
+                    break;
+            }
+            return machineName;
+        }
+
+        string GetLCMMachineName(int lcmNo)
+        {
+            string machineName = "";
+
+            //Create Machine Name
+            switch (lcmNo)
+            {
+                case 6:
+                case 5:
+                case 4:
+                case 3:
+                    machineName = "LCM_FLR4" + "_0" + (lcmNo).ToString();
+                    break;
+                case 2:
+                case 1:
+                    machineName = "LCM_FLR04" + "_0" + (lcmNo).ToString();
+                    break;
+
+                default:
+                    break;
+            }
+            return machineName;
+        }
+        void CreateLCM()
+        {
+            int lcmNo = 1;
+            int row = 10;
+
+            for (int col = 0; col < 13; col++)//13
+            {
+                //  if (col == 0) continue;
+                //  if ((col % 2) == 0) continue;
+
+                if (col == 2 || col == 6 || col == 10
+                    || col == 4 || col == 8 || col == 12 || col == 14
+                    )
+                {
+                    string channel = "CH44" + (lcmNo).ToString();
+                    string machineName = GetLCMMachineName(lcmNo);
+                    string caption = "LCM " + (lcmNo).ToString();// "LCM " + (lcmNo).ToString();
+                    Viewbox vwChild = new Viewbox();
+                    vwChild.Stretch = Stretch.Fill;
+                    vwChild.Tag = 2;//Represent lcm
+
+                    ucLcmUcm machine = new ucLcmUcm(channel, machineName, caption, false, lcmNo, 4, this.g_frmHome);
+                    machine.Name = "lcm" + row.ToString();
+                    vwChild.Child = machine;
+                    Grid.SetColumn(vwChild, col);
+                    Grid.SetRow(vwChild, row);
+                    grdMachineHolder.Children.Add(vwChild);
+                    // machine.imgMachine.Content = "CH44" + (lcmNo).ToString();
+                    // machine.imgMachine.Content = GetLCMMachineName(lcmNo);
+                    lcmNo += 1;
+                }
+
+
+            }
+
+
+
+        }
+
+        void CreateVLC()
+        {
+            int vlcNo = 1;
+            int col = 14;
+
+            for (int row = 0; row < 18; row++)
+            {
+                if (row == 0 || row == 2 || row == 4
+                    || row == 12 || row == 14 || row == 16)
+                {
+                    string channel = "CH00" + (vlcNo).ToString();
+                    string machineName = "VLC_Drive_0" +vlcNo;
+                    string caption = "VLC " + (vlcNo).ToString();
+                    Viewbox vwChild = new Viewbox();
+                    vwChild.Stretch = Stretch.Fill;
+                    vwChild.Tag = 3;//Represent vlc
+
+                    ucVLC machine = new ucVLC(channel, machineName, caption, vlcNo,this.g_frmHome);
+                    machine.Name = "vlc" + row.ToString();
+                    vwChild.Child = machine;
+                    Grid.SetColumn(vwChild, col);
+                    Grid.SetRow(vwChild, row);
+                    grdMachineHolder.Children.Add(vwChild);
+                    vlcNo += 1;
+                }
+            }
+
+        }
+
+
+        public void RemoveHandler()
+        {
+            try
+            {
+                var result = from r in grdMachineHolder.Children.OfType<Viewbox>()
+                             select r.Child;
+                foreach (UIElement uielem in result)
+                {
+                    if (uielem is ucLcmUcm)
+                    {
+                        ucLcmUcm cm = uielem as ucLcmUcm;
+                        if (cm != null)
+                            Task.Factory.StartNew(new Action(() => cm.RemoveOPCHandler()));
+                    }
+                }
+
+            }
+            catch (Exception errMsg)
+            { }
+            finally { }
+           
+        }
+
+        public void AddHandler()
+        {
+            try
+            {
+                //System.Timers.Timer reRead = new System.Timers.Timer();
+                //reRead.Enabled = true;
+                //reRead.Start();
+                //reRead.Interval = 1000;
+                //reRead.Elapsed += (s, e) =>
+                //{
+                //    reRead.Stop();
+
+                   
+                    grdMachineHolder.Dispatcher.Invoke(new Action(() =>
+                        {
+                           var result = from r in grdMachineHolder.Children.OfType<Viewbox>()
+                                         select r.Child;                        
+
+                            foreach (UIElement uielem in result)
+                            {
+                                if (uielem is ucLcmUcm)
+                                {
+                                    ucLcmUcm cm = uielem as ucLcmUcm;
+                                    if (cm != null)
+                                        Task.Factory.StartNew(new Action(() => cm.AddOPCHandler()));
+                                }
+                            }
+                        }));
+                //};
+            }
+
+            catch (Exception errMsg)
+            {
+                MessageBox.Show(errMsg.Message);
+            }
+            finally { }
+        
+        }
+
+        public void ReRead()
+        {
+            try
+            {
+                 grdMachineHolder.Dispatcher.Invoke(new Action(() =>
+                        {
+                var result = from r in grdMachineHolder.Children.OfType<Viewbox>()
+                             select r.Child;
+
+                int intervaltime = 0;
+                foreach (UIElement uielem in result)
+                {
+                    if (uielem is ucLcmUcm)
+                    {
+                        ucLcmUcm cm = uielem as ucLcmUcm;
+                        if (cm != null)
+                        {
+                            intervaltime = 1000;
+                            Task.Factory.StartNew(new Action(() => cm.ReRead(intervaltime)));
+                            intervaltime += 300;
+                        }
+                    }
+                }
+                        }));
+            }
+            catch (Exception errMsg)
+            { }
+            finally { }
+        }
+
+        void IDisposable.Dispose()
+        {
+             
+        }
+    }
+}

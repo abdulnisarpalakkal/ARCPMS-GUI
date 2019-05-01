@@ -1,0 +1,248 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using ARCPSGUI.MachineUI;
+
+namespace ARCPSGUI.DiagnosticScreens
+{
+    /// <summary>
+    /// Interaction logic for uiPMSDiagnostic.xaml
+    /// </summary>
+    public partial class uiPMSDiagnostic : UserControl
+    {
+        frmHome g_frmHome = null;
+        public uiPMSDiagnostic(frmHome frmHome)
+        {
+            InitializeComponent();
+            this.g_frmHome = frmHome;
+        }
+
+        public void DoOnLoad()
+        {
+          
+            CreatePSCollection();
+           
+            BuildPVLCollection();
+            BuildPSTCollection();
+            BuildEESCollection();
+        }
+
+        void CreatePSCollection()
+        {
+
+            this.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    CreatePS(8, 2, 1);
+
+                }));
+
+            this.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                CreatePS(8, 4, 2);
+
+            }));
+
+            this.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                CreatePS(8, 6, 3);
+
+            }));
+
+            this.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                CreatePS(8, 8, 4);
+
+            }));
+        }
+        void CreatePS(int row, int col, int psNumber)
+        {
+            string channel = "CH45" + psNumber.ToString();
+            string machineName = "PS_FLR4_0" + psNumber.ToString();
+            string caption = "P S " + psNumber.ToString();
+         
+            Viewbox vwChild = new Viewbox();
+            vwChild.Stretch = Stretch.Fill;
+            vwChild.Tag = 1;
+            ucPS machine = null;
+             machine = new ucPS(channel, machineName, caption,this.g_frmHome);
+
+            vwChild.Name = machineName;
+            machine.Name = "PS" ;
+            vwChild.Child = machine;
+            vwChild.Width = double.NaN;
+            vwChild.Height = double.NaN;
+            Grid.SetColumn(vwChild, col);
+            Grid.SetRow(vwChild, 3);
+            grdMachineHolder.Children.Add(vwChild); 
+          
+            
+        }
+
+        void BuildPVLCollection()
+        {
+            int pvlNumber = 0;
+            for (int col = 1; col < 13; col++)
+            {
+                if (col == 3 || col == 4 || col ==12)
+                {
+                    pvlNumber += 1;
+                    CreatePVL(col, pvlNumber);
+                }
+               
+            }
+        }
+        void CreatePVL(int col, int pvlNumber)
+        {
+            string channel = "CH42" + (pvlNumber+1).ToString();
+            string machineName = "PVL_Drive_0" + (pvlNumber).ToString();
+            string caption = "P V L" + pvlNumber.ToString();
+            Viewbox vwChild = new Viewbox();
+            vwChild.Stretch = Stretch.Fill;
+            vwChild.Tag = 2;
+            ucPVL machine = new ucPVL(channel, machineName, caption, this.g_frmHome);
+            machine.Name = "PVL";
+            vwChild.Child = machine;
+            vwChild.Width = double.NaN;
+            vwChild.Height = double.NaN;
+            Grid.SetColumn(vwChild, col);
+            Grid.SetRow(vwChild,1);
+            grdMachineHolder2.Children.Add(vwChild);
+        }
+
+        void BuildPSTCollection()
+        {
+            int row = 0;
+            int pstNumber = 0;
+            int eesNumber = 0;
+            
+            for (int col = 0; col < 13; col++)
+            {
+               
+                if (col == 0 || col == 3 || col == 4 || col == 12)
+                {
+                    pstNumber += 1;
+                    CreatePST(row, col, pstNumber);
+                }
+            }
+           
+        }
+        void CreatePST(int row, int col, int pstNumber)
+        {
+            string channel = "CH42" + (pstNumber).ToString();
+            string machineName = "PST_FLR4_0" + (pstNumber).ToString();
+            string caption = "PST " + pstNumber.ToString();
+            Viewbox vwChild = new Viewbox();
+            vwChild.Stretch = Stretch.Fill;
+            vwChild.Tag = 2;
+            ucPST machine = new ucPST(channel, machineName, caption, this.g_frmHome);
+            machine.Name = "PST";
+            vwChild.Child = machine;
+            vwChild.Width = double.NaN;
+            vwChild.Height = double.NaN;
+            vwChild.Name = machineName;
+            Grid.SetColumn(vwChild, col);
+            Grid.SetRow(vwChild, 2);
+            grdMachineHolder2.Children.Add(vwChild);
+
+        }
+
+        void BuildEESCollection()
+        {
+            int row = 0;
+            int eesNumber = 0;
+
+            this.Dispatcher.BeginInvoke(new Action(() =>
+               {
+                   for (int col = 0; col < 13; col++)
+                   {
+                       if (col == 1 || col == 2 || col == 5 || col == 6 ||
+                           col == 7 || col == 8 || col == 9 || col == 10 || col == 11)
+                       {
+                           eesNumber += 1;
+                           CreateEES(row, col, eesNumber);
+                       }
+
+                   }
+               }));
+
+        }
+        void CreateEES(int row, int col, int eesNumber)
+        {
+            string channel = "CH43" + (eesNumber).ToString();
+            string machineName = "EES_FLR4_0" + (eesNumber).ToString();
+            string caption = "E E S " + eesNumber.ToString();
+            Viewbox vwChild = new Viewbox();
+            vwChild.Stretch = Stretch.Fill;
+            vwChild.Tag = 2;
+            ucEES machine = new ucEES(channel, machineName, caption, this.g_frmHome);
+            machine.Name = "EES" + eesNumber.ToString();
+            vwChild.Child = machine;
+            vwChild.Width = double.NaN;
+            vwChild.Height = double.NaN;
+            Grid.SetColumn(vwChild, col);
+            Grid.SetRow(vwChild, 2);
+            grdMachineHolder2.Children.Add(vwChild);
+
+        }
+
+        #region Window Events
+        
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //this.DragMove();
+        }
+           
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            //this.Visibility = System.Windows.Visibility.Hidden;
+           // this.Close();
+        }
+
+     
+        #endregion
+
+        void ReReadValues()
+        {
+        //    for(int i=1; i<=4; i++)
+        //    {
+        //        Viewbox vb = grdMachineHolder.FindName("PST_FLR4_0" + i) as Viewbox;
+        //        if (vb != null)
+        //        {
+        //            ucPST pst = vb.Child as ucPST;
+        //            if (pst != null)
+        //            {
+        //                pst.InitialMachineStatus();
+        //                pst.InitialeRead();
+        //            }
+        //        }
+        //    }
+
+
+        //    for (int i = 1; i <= 9; i++)
+        //    {
+        //        Viewbox vb = grdMachineHolder.FindName("EES" + i) as Viewbox;
+        //        if (vb != null)
+        //        {
+        //            ucEES ees = vb.Child as ucEES;
+        //            if (ees != null)
+        //            {
+        //                ees.InitialMachineStatus();
+        //                ees.InitialeRead();
+        //            }
+        //        }
+        //    }
+        }
+     
+    }
+}

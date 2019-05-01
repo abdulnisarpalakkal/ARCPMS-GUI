@@ -1,0 +1,163 @@
+﻿<UserControl x:Class="ARCPSGUI.DiagnosticScreens.ucParkingDiagnostic"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="414" d:DesignWidth="561"  Background="#FF969696" >
+    <Control.Resources>
+
+        <ControlTemplate x:Key="roundedLabelTrue" TargetType="{x:Type Button}">
+
+            <Border Name="Border" BorderBrush="#FF5EB12B" BorderThickness="1" 
+                   CornerRadius="50" Padding="1" >
+                <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFDEDACA" Offset="0" />
+                        <GradientStop Color="#FFFFAE03" Offset="1" />
+                        <GradientStop Color="#FFEEC466" Offset="0.261" />
+
+                    </LinearGradientBrush>
+                </Border.Background>
+
+            </Border>
+
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="maxButtonStyle" TargetType="{x:Type Button}">
+
+            <Border Name="Border" BorderBrush="#FF5EB12B" BorderThickness="1" 
+                   CornerRadius="50" Padding="1" >
+                <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFDEDACA" Offset="0" />
+                        <GradientStop Color="#FFECFF03" Offset="1" />
+                        <GradientStop Color="#FFF5BE3C" Offset="0.261" />
+
+                    </LinearGradientBrush>
+                </Border.Background>
+
+            </Border>
+
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="closestyle" TargetType="{x:Type Button}">
+
+            <Border Name="Border" BorderBrush="#FF5EB12B" BorderThickness="1" 
+                   CornerRadius="50" Padding="1" >
+                <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFDEDACA" Offset="0" />
+                        <GradientStop Color="#FFFF3131" Offset="1" />
+                        <GradientStop Color="#FFFF4B4B" Offset="0.261" />
+
+                    </LinearGradientBrush>
+                </Border.Background>
+
+            </Border>
+
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="roundedLabelTrue1" TargetType="{x:Type Label}">
+
+            <Border Name="Border" BorderBrush="#FF5EB12B" BorderThickness="1" 
+                   CornerRadius="50" Padding="1" >
+                <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#E913BE00" Offset="0.757" />
+                        <GradientStop Color="#FFBAFFBA" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+            </Border>
+
+        </ControlTemplate>
+
+        <Style x:Key="ResizeGripThumbStyle"
+               TargetType="{x:Type Thumb}">
+            <Setter Property="Stylus.IsPressAndHoldEnabled"
+                        Value="False" />
+            <Setter Property="Width"
+                        Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" />
+            <Setter Property="Height"
+                        Value="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarHeightKey}}" />
+            <Setter Property="Background"
+                        Value="#00FFFFFF" />
+            <Setter Property="HorizontalAlignment"
+                        Value="Right" />
+            <Setter Property="VerticalAlignment"
+                        Value="Bottom" />
+            <Setter Property="Cursor"
+                        Value="SizeNWSE" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Grid SnapsToDevicePixels="True"
+                                       Background="{TemplateBinding Background}">
+                            <Path HorizontalAlignment="Right"
+                                             Margin="0,0,2,2"
+                                             VerticalAlignment="Bottom"
+                                             Data="M11,0L12,0 12,12 0,12 0,11z">
+                                <Path.Fill>
+                                    <DrawingBrush TileMode="Tile"
+                                                                     Viewbox="0,0,4,4"
+                                                                     ViewboxUnits="Absolute"
+                                                                     Viewport="0,0,4,4"
+                                                                     ViewportUnits="Absolute">
+                                        <DrawingBrush.Drawing>
+                                            <DrawingGroup>
+                                                <GeometryDrawing Brush="#FFACB5BA"
+                                                                                          Geometry="M0,0L2,0 2,1 1,1 1,2 0,2z M2,2L3,2 3,1 4,1 4,3 3,3 3,4 1,4 1,3 2,3z" />
+                                                <GeometryDrawing Brush="#FFC3CED3"
+                                                                                          Geometry="M0,3L1,3 1,4 0,4z M1,2L2,2 2,3 1,3z M2,1L3,1 3,2 2,2z M3,0L4,0 4,1 3,1z" />
+                                            </DrawingGroup>
+                                        </DrawingBrush.Drawing>
+                                    </DrawingBrush>
+                                </Path.Fill>
+                            </Path>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Control.Resources>
+
+    <Control.Effect>
+            <DropShadowEffect Color="Black"
+                              Direction="270"
+                              BlurRadius="10"
+                              ShadowDepth="3" />
+    </Control.Effect>
+    <Grid>
+        <Grid HorizontalAlignment="Stretch" Name="grdMain" VerticalAlignment="Stretch"
+              Width="Auto" ShowGridLines="False" Background="{x:Null}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />            
+                <RowDefinition Height="*" />
+                <RowDefinition Height="0" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Viewbox  Grid.ColumnSpan="2"  Grid.Row="0">
+            <Label Content="Diagnostic Screen" HorizontalAlignment="Stretch"  Name="label2" VerticalAlignment="Stretch" 
+                   FontFamily="Tahoma" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="28" Background="#FF969696"
+                  Foreground="White" />
+            </Viewbox>
+            <!--<Border  Grid.Row="1"  Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="15" BorderBrush="#FF040921" Background="#FFD9DBE2">-->
+                <Grid Grid.Row="1" HorizontalAlignment="Stretch" Name="grid1" 
+                      VerticalAlignment="Stretch" Width="Auto" Grid.ColumnSpan="2" Background="#FF6F6B6B" OpacityMask="#FFBEBEBE"></Grid>
+            <!--</Border>-->
+            <!--<Viewbox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" >
+                <Label Content="Diagnostic Screen" HorizontalAlignment="Stretch" Name="label1" VerticalAlignment="Stretch" />
+            </Viewbox>-->
+        </Grid>
+    
+    </Grid>
+</UserControl>

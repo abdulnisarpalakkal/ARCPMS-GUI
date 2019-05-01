@@ -1,0 +1,8 @@
+﻿<Window x:Class="ARCPSGUI.TransactionUI.frmRptView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="frmRptView" Height="359" Width="638" Loaded="Window_Loaded">
+    <Grid>
+        <WindowsFormsHost Name="hostRpt" />
+    </Grid>
+</Window>

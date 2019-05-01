@@ -1,0 +1,916 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using System.Data;
+using Oracle.DataAccess.Client;
+
+namespace ARCPSGUI.DiagnosticScreens
+{
+    /// <summary>
+    /// Interaction logic for frmLockStatus.xaml
+    /// </summary>
+    public partial class frmLockStatus : Window
+    {
+        public frmLockStatus()
+        {
+            InitializeComponent();
+
+            IdentifyMachines();
+        }
+
+        //set done = 1
+        #region VLC Click
+        private void btnVlc1_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblVlc1LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("VLC_Drive_01");
+            }
+        }
+
+        private void btnVlc2_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblVlc2LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("VLC_Drive_02");
+            }
+        }
+
+        private void btnVlc3_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblVlc3LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("VLC_Drive_03");
+            }
+        }
+
+        private void btnVlc4_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblVlc4LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("VLC_Drive_04");
+            }
+        }
+
+        private void btnVlc5_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblVlc5LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("VLC_Drive_05");
+            }
+        }
+
+        private void btnVlc6_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblVlc6LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("VLC_Drive_06");
+            }
+        }
+        #endregion
+
+        #region PST Click
+        private void btnPst1_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblPst1LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("PST_FLR4_01");
+            }
+        }
+
+        private void btnPst2_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblPst2LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("PST_FLR4_02");
+            }
+        }
+
+        private void btnPst3_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblPst3LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("PST_FLR4_03");
+            }
+        }
+
+        private void btnPst4_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblPst4LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("PST_FLR4_04");
+            }
+        }
+        #endregion
+
+        #region PSH Click
+        private void btnPsh1_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblPsh1LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("PS_FLR4_01");
+            }
+        }
+
+        private void btnPsh2_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblPsh2LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("PS_FLR4_02");
+            }
+        }
+
+        private void btnPsh3_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblPsh3LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("PS_FLR4_03");
+            }
+        }
+
+        private void btnPsh4_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblPsh4LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("PS_FLR4_04");
+            }
+        }
+        #endregion
+
+        #region EES Click
+        private void btnEes1_Click(object sender, RoutedEventArgs e)
+        {
+            if ( lblEes1LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("EES_FLR4_01");
+            }
+        }
+
+        private void btnEes2_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblEes2LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("EES_FLR4_02");
+            }
+        }
+
+        private void btnEes3_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblEes3LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("EES_FLR4_03");
+            }
+        }
+
+        private void btnEes4_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblEes4LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("EES_FLR4_04");
+            }
+        }
+
+        private void btnEes5_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblEes5LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("EES_FLR4_05");
+            }
+        }
+
+        private void btnEes6_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblEes6LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("EES_FLR4_06");
+            }
+        }
+
+        private void btnEes7_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblEes7LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("EES_FLR4_07");
+            }
+        }
+
+        private void btnEes8_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblEes8LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("EES_FLR4_08");
+            }
+        }
+
+        private void btnEes9_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblEes9LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("EES_FLR4_09");
+            }
+        }
+        #endregion
+
+        #region LCM Click
+        private void btnLcm1_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblLcm1LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("LCM_FLR04_01");
+            }
+        }
+
+        private void btnLcm2_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblLcm2LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("LCM_FLR04_02");
+            }
+        }
+
+        private void btnLcm3_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblLcm3LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("LCM_FLR4_03");
+            }
+        }
+
+        private void btnLcm4_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblLcm4LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("LCM_FLR4_04");
+            }
+        }
+
+        private void btnLcm5_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblLcm5LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("LCM_FLR4_05");
+            }
+        }
+
+        private void btnLcm6_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblLcm6LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("LCM_FLR4_06");
+            }
+        }
+        #endregion
+
+        #region L1 UCM Click
+        private void btnL1Ucm1_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL1Ucm1LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR01_01");
+            }
+        }
+
+        private void btnL1Ucm2_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL1Ucm2LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR01_02");
+            }
+        }
+
+        private void btnL1Ucm3_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL1Ucm3LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR01_03");
+            }
+        }
+        #endregion
+
+        #region L2 UCM Click
+        private void btnL2Ucm1_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL2Ucm1LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR02_01");
+            }
+
+        }
+
+        private void btnL2Ucm2_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL2Ucm2LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR02_02");
+            }
+        }
+
+        private void btnL2Ucm3_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL2Ucm3LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR02_03");
+            }
+        }
+        #endregion
+
+        #region L3 UCM Click
+        private void btnL3Ucm1_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL3Ucm1LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR03_01");
+            }
+        }
+
+        private void btnL3Ucm2_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL3Ucm2LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR03_02");
+            }
+        }
+
+        private void btnL3Ucm3_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL3Ucm3LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR03_03");
+            }
+        }
+        #endregion
+
+        #region L5 UCM Click
+        private void btnL5Ucm1_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL5Ucm1LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR5_01");
+            }
+        }
+
+        private void btnL5Ucm2_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL5Ucm2LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR5_02");
+            }
+        }
+
+        private void btnL5Ucm3_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL5Ucm3LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR5_03");
+            }
+        }
+        #endregion
+
+        #region L6 UCM Click
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (lblL6Ucm1LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR6_01");
+            }
+        }
+
+        private void btnL6Ucm2_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL6Ucm2LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR6_02");
+            }
+        }
+
+        private void btnL6Ucm3_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL6Ucm3LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR6_03");
+            }
+        }
+        #endregion
+
+        #region L7 UCM Click
+        private void btnL7Ucm1_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL7Ucm1LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR7_01");
+            }
+        }
+
+        private void btnL7Ucm2_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL7Ucm2LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR7_02");
+            }
+        }
+
+        private void btnL7Ucm3_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL7Ucm3LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR7_03");
+            }
+        }
+        #endregion
+
+        #region L8 UCM Click
+        private void btnL8Ucm1_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL8Ucm1LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR08_01");
+            }
+        }
+
+        private void btnL8Ucm2_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL8Ucm2LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR08_02");
+            }
+        }
+
+        private void btnL8Ucm3_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL8Ucm3LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR08_03");
+            }
+        }
+        #endregion
+
+        #region L9 UCM Click
+        private void btnL9Ucm1_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL9Ucm1LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR09_01");
+            }
+        }
+
+        private void btnL9Ucm2_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL9Ucm2LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR09_02");
+            }
+        }
+
+        private void btnL9Ucm3_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblL9Ucm3LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("UCM_FLR09_03");
+            }
+        }
+        #endregion
+
+        #region PVL Click
+        private void btnPvl1_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (lblPvl1LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("PVL_Drive_01");
+            }
+        }
+
+        private void btnPvl2_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblPvl2LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("PVL_Drive_02");
+            }
+        }
+
+        private void btnPvl3_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblPvl3LockStatus.Style == (Style)FindResource("LockLabelStyle"))
+            {
+                UpdateLockStatus("PVL_Drive_03");
+            }
+        }
+
+
+        #endregion
+
+        DataTable RetrieveTriggerDetails()
+        {
+            string query = " select MACHINE,COMMAND,DONE,IS_TRIGGER from L2_TRIGGER_COMMANDS where done = 0"; // and IS_TRIGGER =1 ";
+                         
+            DataTable dt = new DataTable();
+            dt.TableName = "TBLTRIGGER";
+            using (OracleConnection con = new OracleConnection(RPMEEManageEngine.DA.Connection.connectionString))
+            {
+                if (con.State == ConnectionState.Closed) con.Open();
+
+                using (OracleCommand command = new OracleCommand(query))
+                {
+                    command.CommandText = query;
+                    command.Connection = con;
+                    OracleDataAdapter dadapter = new OracleDataAdapter(command);
+                    dadapter.Fill(dt);
+                }
+            }
+            return dt;
+        }
+
+        void UpdateLockStatus(string machineName)
+        {
+
+            if (MessageBox.Show("Do you want to Unlock", "Inform", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+            {
+                string query = " UPDATE L2_TRIGGER_COMMANDS SET DONE = 1 WHERE MACHINE = '" + machineName + "'";
+
+                using (OracleConnection con = new OracleConnection(RPMEEManageEngine.DA.Connection.connectionString))
+                {
+                    if (con.State == ConnectionState.Closed) con.Open();
+
+                    using (OracleCommand command = new OracleCommand(query))
+                    {
+                        command.CommandText = query;
+                        command.Connection = con;
+                        command.ExecuteNonQuery();
+                    }
+                }
+                IdentifyMachines();
+            }
+        }
+
+        void IdentifyMachines()
+        {
+            DataTable dt = RetrieveTriggerDetails();
+
+            if (dt == null) return;
+
+            foreach (DataRow drow in dt.Rows)
+            {
+                if (drow["MACHINE"].ToString().Contains("VLC") == true)
+                {
+                    SetVLCLockStatusOfMachine(drow);
+                }
+                else if (drow["MACHINE"].ToString().Contains("PST") == true)
+                {
+                    SetPSTLockStatusOfMachine(drow);
+                }
+                else if (drow["MACHINE"].ToString().Contains("PS") == true)
+                {
+                    SetPSLockStatusOfMachine(drow);
+                }
+                else if (drow["MACHINE"].ToString().Contains("EES") == true)
+                {
+                    SetEESLockStatusOfMachine(drow);
+                }
+                else if (drow["MACHINE"].ToString().Contains("LCM") == true)
+                {
+                    SetLCMLockStatusOfMachine(drow);
+                }
+                else if (drow["MACHINE"].ToString().Contains("UCM") == true)
+                {
+                    SetUCMLockStatusOfMachine(drow);
+                }
+                else if (drow["MACHINE"].ToString().Contains("PVL") == true)
+                {
+                    SetPVLLockStatusOfMachine(drow);
+                }
+            }
+        }
+
+        void SetVLCLockStatusOfMachine(DataRow drow)
+        {
+            int done = 0;
+            int isTrigger = 0;
+
+            int.TryParse(drow["DONE"].ToString(), out done);
+            //int.TryParse(drow["IS_TRIGGER"].ToString(), out isTrigger);
+           
+            //Style lockStyle =  done == 0 && isTrigger == 1 ? (Style)FindResource("LockLabelStyle")
+            //                   : (Style)FindResource("UnLockLabelStyle");
+
+            Style lockStyle = done == 0 ? (Style)FindResource("LockLabelStyle")
+                               : (Style)FindResource("UnLockLabelStyle");
+
+            switch (drow["MACHINE"].ToString())
+            {
+                case "VLC_Drive_01":
+                    lblVlc1LockStatus.Style = lockStyle;
+                      break;
+                case "VLC_Drive_02":
+                      lblVlc2LockStatus.Style = lockStyle;
+                    break;
+                case "VLC_Drive_03":
+                    lblVlc3LockStatus.Style = lockStyle;
+                    break;
+
+                case "VLC_Drive_04":
+                    lblVlc4LockStatus.Style = lockStyle;
+                    break;
+                case "VLC_Drive_05":
+                    lblVlc5LockStatus.Style = lockStyle;
+                    break;
+                case "VLC_Drive_06":
+                    lblVlc6LockStatus.Style = lockStyle;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        void SetPSTLockStatusOfMachine(DataRow drow)
+        {
+            int done = 0;
+            int isTrigger = 0;
+
+            int.TryParse(drow["DONE"].ToString(), out done);
+            //int.TryParse(drow["IS_TRIGGER"].ToString(), out isTrigger);
+
+            //Style lockStyle = done == 0 && isTrigger == 1 ? (Style)FindResource("LockLabelStyle")
+            //                   : (Style)FindResource("UnLockLabelStyle");
+            Style lockStyle = done == 0 ? (Style)FindResource("LockLabelStyle")
+                              : (Style)FindResource("UnLockLabelStyle");
+
+            switch (drow["MACHINE"].ToString())
+            {
+                case "PST_FLR4_01":
+                    lblPst1LockStatus.Style = lockStyle;
+                    break;
+                case "PST_FLR4_02":
+                    lblPst2LockStatus.Style = lockStyle;
+                    break;
+                case "PST_FLR4_03":
+                    lblPst3LockStatus.Style = lockStyle;
+                    break;
+                case "PST_FLR4_04":
+                    lblPst4LockStatus.Style = lockStyle;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        void SetPSLockStatusOfMachine(DataRow drow)
+        {
+            int done = 0;
+            int isTrigger = 0;
+
+            int.TryParse(drow["DONE"].ToString(), out done);
+            //int.TryParse(drow["IS_TRIGGER"].ToString(), out isTrigger);
+
+            Style lockStyle = done == 0 ? (Style)FindResource("LockLabelStyle")
+                               : (Style)FindResource("UnLockLabelStyle");
+
+            switch (drow["MACHINE"].ToString())
+            {
+                case "PS_FLR4_01":
+                    lblPsh1LockStatus.Style = lockStyle;
+                    break;
+                case "PS_FLR4_02":
+                    lblPsh2LockStatus.Style = lockStyle;
+                    break;
+                case "PS_FLR4_03":
+                    lblPsh3LockStatus.Style = lockStyle;
+                    break;
+                case "PS_FLR4_04":
+                    lblPsh4LockStatus.Style = lockStyle;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        void SetEESLockStatusOfMachine(DataRow drow)
+        {
+            int done = 0;
+            int isTrigger = 0;
+
+            int.TryParse(drow["DONE"].ToString(), out done);
+            //int.TryParse(drow["IS_TRIGGER"].ToString(), out isTrigger);
+
+            Style lockStyle = done == 0 ? (Style)FindResource("LockLabelStyle")
+                               : (Style)FindResource("UnLockLabelStyle");
+
+            switch (drow["MACHINE"].ToString())
+            {
+                case "EES_FLR4_01":
+                    lblEes1LockStatus.Style = lockStyle;
+                    break;
+                case "EES_FLR4_02":
+                    lblEes2LockStatus.Style = lockStyle;
+                    break;
+                case "EES_FLR4_03":
+                    lblEes3LockStatus.Style = lockStyle;
+                    break;
+
+                case "EES_FLR4_04":
+                    lblEes4LockStatus.Style = lockStyle;
+                    break;
+                case "EES_FLR4_05":
+                    lblEes5LockStatus.Style = lockStyle;
+                    break;
+                case "EES_FLR4_06":
+                    lblEes6LockStatus.Style = lockStyle;
+                    break;
+
+                case "EES_FLR4_07":
+                    lblEes7LockStatus.Style = lockStyle;
+                    break;
+                case "EES_FLR4_08":
+                    lblEes8LockStatus.Style = lockStyle;
+                    break;
+                case "EES_FLR4_09":
+                    lblEes9LockStatus.Style = lockStyle;
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        void SetLCMLockStatusOfMachine(DataRow drow)
+        {
+            int done = 0;
+            int isTrigger = 0;
+
+            int.TryParse(drow["DONE"].ToString(), out done);
+            //int.TryParse(drow["IS_TRIGGER"].ToString(), out isTrigger);
+
+            Style lockStyle = done == 0  ? (Style)FindResource("LockLabelStyle")
+                               : (Style)FindResource("UnLockLabelStyle");
+
+            switch (drow["MACHINE"].ToString())
+            {
+                case "LCM_FLR04_01":
+                    lblLcm1LockStatus.Style = lockStyle;
+                    break;
+                case "LCM_FLR04_02":
+                    lblLcm2LockStatus.Style = lockStyle;
+                    break;
+                case "LCM_FLR4_03":
+                    lblLcm3LockStatus.Style = lockStyle;
+                    break;
+                case "LCM_FLR4_04":
+                    lblLcm4LockStatus.Style = lockStyle;
+                    break;
+
+                case "LCM_FLR4_05":
+                    lblLcm5LockStatus.Style = lockStyle;
+                    break;
+                case "LCM_FLR4_06":
+                    lblLcm6LockStatus.Style = lockStyle;
+
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        void SetUCMLockStatusOfMachine(DataRow drow)
+        {
+            int done = 0;
+            int isTrigger = 0;
+
+            int.TryParse(drow["DONE"].ToString(), out done);
+            //int.TryParse(drow["IS_TRIGGER"].ToString(), out isTrigger);
+
+            Style lockStyle = done == 0 ? (Style)FindResource("LockLabelStyle")
+                               : (Style)FindResource("UnLockLabelStyle");
+
+            switch (drow["MACHINE"].ToString())
+            {
+               //1
+                case "UCM_FLR01_01":
+                    lblL1Ucm1LockStatus.Style = lockStyle;
+                    break;
+                case "UCM_FLR01_02":
+                    lblL1Ucm2LockStatus.Style = lockStyle;
+                    break;
+                case "UCM_FLR01_03":
+                    lblL1Ucm3LockStatus.Style = lockStyle;
+                    break;
+          
+                //2
+                case "UCM_FLR02_01":
+                    lblL2Ucm1LockStatus.Style = lockStyle;
+                    break;
+                case "UCM_FLR02_02":
+                    lblL2Ucm2LockStatus.Style = lockStyle;
+                    break;
+                case "UCM_FLR02_03":
+                    lblL2Ucm3LockStatus.Style = lockStyle;
+                    break;
+
+                //3
+                case "UCM_FLR03_01":
+                    lblL3Ucm1LockStatus.Style = lockStyle;
+                    break;
+                case "UCM_FLR03_02":
+                    lblL3Ucm2LockStatus.Style = lockStyle;
+                    break;
+                case "UCM_FLR03_03":
+                    lblL3Ucm3LockStatus.Style = lockStyle;
+                    break;
+
+                //5
+                case "UCM_FLR5_01":
+                    lblL5Ucm1LockStatus.Style = lockStyle;
+                    break;
+                case "UCM_FLR5_02":
+                    lblL5Ucm2LockStatus.Style = lockStyle;
+                    break;
+                case "UCM_FLR5_03":
+                    lblL5Ucm3LockStatus.Style = lockStyle;
+                    break;
+
+                //6
+                case "UCM_FLR6_01":
+                    lblL6Ucm1LockStatus.Style = lockStyle;
+                    break;
+                case "UCM_FLR6_02":
+                    lblL6Ucm2LockStatus.Style = lockStyle;
+                    break;
+                case "UCM_FLR6_03":
+                    lblL6Ucm3LockStatus.Style = lockStyle;
+                    break;
+
+                //7
+                case "UCM_FLR7_01":
+                    lblL7Ucm1LockStatus.Style = lockStyle;
+                    break;
+                case "UCM_FLR7_02":
+                    lblL7Ucm2LockStatus.Style = lockStyle;
+                    break;
+                case "UCM_FLR7_03":
+                    lblL7Ucm3LockStatus.Style = lockStyle;
+                    break;
+
+                //8
+                case "UCM_FLR08_01":
+                    lblL8Ucm1LockStatus.Style = lockStyle;
+                    break;
+                case "UCM_FLR08_02":
+                    lblL8Ucm2LockStatus.Style = lockStyle;
+                    break;
+                case "UCM_FLR08_03":
+                    lblL8Ucm3LockStatus.Style = lockStyle;
+                    break;
+
+
+                //9
+                case "UCM_FLR09_01":
+                    lblL9Ucm1LockStatus.Style = lockStyle;
+                    break;
+                case "UCM_FLR09_02":
+                    lblL9Ucm2LockStatus.Style = lockStyle;
+                    break;
+                case "UCM_FLR09_03":
+                    lblL9Ucm3LockStatus.Style = lockStyle;
+                    break;
+                
+                default:
+                    break;
+            }
+        }
+
+        void SetPVLLockStatusOfMachine(DataRow drow)
+        {
+            int done = 0;
+            int isTrigger = 0;
+
+            int.TryParse(drow["DONE"].ToString(), out done);
+           
+            Style lockStyle = done == 0 ? (Style)FindResource("LockLabelStyle")
+                               : (Style)FindResource("UnLockLabelStyle");
+
+            switch (drow["MACHINE"].ToString())
+            {
+                case "PVL_Drive_01":
+                    lblPvl1LockStatus.Style = lockStyle;
+                    break;
+                case "PVL_Drive_02":
+                    lblPvl2LockStatus.Style = lockStyle;
+                    break;
+                case "PVL_Drive_03":
+                    lblPvl3LockStatus.Style = lockStyle;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+}
+
+

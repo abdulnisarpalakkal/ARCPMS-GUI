@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="ARCPSGUI.TransactionUI.ucMemberData"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+                d:DesignHeight="446" d:DesignWidth="909" Background="#FFD8D8D8" Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="50" />
+            <RowDefinition  Height="5" />
+            <RowDefinition  Height="70" />
+            <RowDefinition Height="2" />
+            <RowDefinition  Height="100*"/>
+            <RowDefinition Height="5" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="15" />
+
+        </Grid.ColumnDefinitions>
+        <Viewbox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Name="viewbox1" VerticalAlignment="Stretch" >
+            <Label Content="Member Detail"  Name="label1" BorderThickness="2" BorderBrush="#FFC7C7C7" />
+        </Viewbox>
+        <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch"  Name="grid1" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="*" />
+                
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="150" /> <!--card id-->
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="250" /> <!--member name-->
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="170" /><!--mobile-->
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="180" /> <!--Plate Number-->
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="100" /> <!--Filter Button-->
+                <ColumnDefinition Width="5" />
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Column="1" HorizontalAlignment="Stretch" Name="viewbox2" VerticalAlignment="Top">
+                <Label Content="Card-ID" Name="label2" Width="111" />
+            </Viewbox>
+            <Viewbox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" Name="viewbox3" VerticalAlignment="Stretch">
+                <TextBox Name="txtCardId" Width="114" TextChanged="txtCardId_TextChanged" />
+            </Viewbox>
+            <Viewbox Grid.Column="3" HorizontalAlignment="Stretch" Name="viewbox4" VerticalAlignment="Stretch">
+                <Label Content="Name" Name="label3" HorizontalAlignment="Left" Width="189" />
+            </Viewbox>
+            <Viewbox Grid.Column="3" Grid.Row="2" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
+                <TextBox Name="txtName" Width="200" FontSize="12" BorderThickness="1" TextChanged="txtName_TextChanged" />
+            </Viewbox>
+            <Button Content="Filter" Grid.Column="9" Grid.Row="2" HorizontalAlignment="Stretch" Name="btnSearch" VerticalAlignment="Stretch"
+                    Template="{DynamicResource GlassButton}" Visibility="Hidden" />
+
+            <Viewbox Grid.Column="5" Grid.Row="0" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
+                <Label Content="Mobile" Grid.Column="5" HorizontalAlignment="Stretch" Name="label4" VerticalAlignment="Stretch" Width="134" />
+            </Viewbox>
+            
+            <Viewbox Grid.Column="7" Grid.Row="0" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
+                <Label Content="Plate#" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="134" />
+            </Viewbox>
+            <Viewbox Grid.Column="5" Grid.Row="2" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
+                <TextBox   Name="txtMobile" VerticalAlignment="Stretch" Width="200"  FontSize="12" BorderThickness="1" Height="25" TextChanged="txtMobile_TextChanged" Text="" />
+            </Viewbox>
+
+            <Viewbox Grid.Column="7" Grid.Row="2" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
+                <TextBox   Name="txtPlateNo" VerticalAlignment="Stretch" Width="200"  FontSize="12" BorderThickness="1" Height="25" Text="" TextChanged="txtPlateNo_TextChanged" />
+            </Viewbox>
+            
+        </Grid>
+        
+        <WindowsFormsHost Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" 
+                               Name="WindowsFormsHost" VerticalAlignment="Stretch" >
+        </WindowsFormsHost>
+        <Label Content="Total Records = " Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Name="lblTotalRecords" 
+               VerticalAlignment="Stretch" Width="175" FontSize="14" Visibility="Visible" />
+        <Button Content="Save" Grid.Column="1" Grid.Row="6" Height="25" HorizontalAlignment="Right" Margin="775,3,0,0" Name="btnSave" 
+                VerticalAlignment="Top" Width="101" Template="{DynamicResource GlassButton}" Click="btnSave_Click" />
+    </Grid>
+</UserControl>

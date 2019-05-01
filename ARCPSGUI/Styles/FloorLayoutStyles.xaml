@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!--<Style TargetType="{x:Type Label}">
+        <Setter Property="FontFamily" Value="Verdana" />
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="Width" Value="Auto" />
+        <Setter Property="Height" Value="Auto" />
+    </Style>-->
+
+    
+
+    <SolidColorBrush x:Key="FloorCtrlBackground" Color="#4FD2D4E9" />
+    
+   
+</ResourceDictionary>

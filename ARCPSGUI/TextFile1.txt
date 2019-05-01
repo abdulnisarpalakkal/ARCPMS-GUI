@@ -1,0 +1,244 @@
+﻿CREATE OR REPLACE
+PROCEDURE JOE.UPDATEMODEMASTER
+( MorSTART_HOUR IN NUMBER
+, MorEND_HOUR IN NUMBER
+, EveSTART_HOUR IN NUMBER
+, EveEND_HOUR IN NUMBER
+) AS
+BEGIN
+UPDATE l2_mode_master SET START_HOUR = MorSTART_HOUR, END_HOUR = MorEND_HOUR where MODE_NAME = 'morning';
+UPDATE l2_mode_master SET START_HOUR =EveSTART_HOUR, END_HOUR = EveEND_HOUR where MODE_NAME = 'evening';
+END UPDATEMODEMASTER;
+
+--parking cells
+select PSNAP.f_level_id FloorID, PSNAP.AISLE, PSNAP.F_ROW, 
+SS.FLAG slot_status, SS.DESCRIPTION Slot_Status_Description,
+ST.SLOT_TYPE_ID SLOT_TYPE, ST.SLOT_TYPE  SLOT_TYPE_DESCRIPTION,
+case when manual_block = 1 then 'Disable' else 'Active' end ActiveStatus
+from L2_Proc_SnapShot PSNAP --where  slot_type in (1,2)  and slot_status in (0,2)  --and manual_block = 0
+inner join L2_Slot_type_MASTER ST on ST.SLOT_TYPE_ID = PSNAP.SLOT_TYPE
+inner join L2_Slot_STATUS_MASTER SS on SS.FLAG = PSNAP.slot_status
+ order by f_level_id , AISLE, F_ROW
+ 
+
+ --history
+ 
+  SELECT rownum S_NO, Entry_EES, Exit_EES,entry_TIME,exit_TIME,CARD_ID,CAR_REG_NO, F_LEVEL,AISLE,F_ROW,CARWASH,
+ROTATION,CARTYPE,LOCATION,ENTRY_EES_NORTH_IMG,ENTRY_EES_south_IMG,Exit_EES_NORTH_IMG,Exit_EES_south_IMG
+FROM (
+  SELECT DISTINCT -- rownum S_NO,D:\Projects\MRS\EFT\Code\GUI\New Version\ARCPSGUI 03Mar2015\ARCPSGUI\TextFile1.txt
+    CT.GATE Entry_EES,
+    CT.EXIT_GATE Exit_EES,
+    CT.ENTRY_TIME entry_TIME,
+    CT.exit_time exit_TIME,
+    CT.CARD_ID CARD_ID,
+    CT.CAR_NUMBER CAR_REG_NO,
+    PS.F_LEVEL_ID F_LEVEL,
+    PS.AISLE AISLE,
+    PS.F_ROW F_ROW,
+    CASE
+      WHEN CT.NEED_WASH = 0
+      THEN 'FALSE'
+      WHEN CT.NEED_WASH = 1
+      THEN 'TRUE'
+    END CARWASH,
+    CASE
+      WHEN CT.IS_ROTATE = 0
+      THEN 'FALSE'
+      WHEN CT.IS_ROTATE = 1
+      THEN 'TRUE'
+    END ROTATION,
+    CASE
+      WHEN CT.car_type = 1
+      THEN 'LOW'
+      WHEN CT.car_type = 2
+      THEN 'HIGH'
+    END CARTYPE,
+    'Retrieved' LOCATION,
+    ct.entry_north_img ENTRY_EES_NORTH_IMG,
+    ct.entry_SOUTH_img ENTRY_EES_south_IMG,
+    ct.exit_north_img Exit_EES_NORTH_IMG,
+    ct.exit_SOUTH_img Exit_EES_south_IMG
+  FROM L2_PROC_SNAPSHOT_HISTORY PS,
+    L2_CUSTOMERS CT
+  WHERE CT.CARD_ID   = PS.VALUE
+  AND CT.IS_RETRIEVED = 1
+    ORDER BY CT.ENTRY_TIME
+  )TBL;
+ 
+
+ --current parks
+ 
+   SELECT rownum S_NO,
+    CT.GATE entry_gate,
+    CT.ENTRY_TIME TIME,
+    CT.CARD_ID ID,
+    CT.CAR_NUMBER CARID,
+    PS.F_LEVEL_ID F_LEVEL,
+    PS.AISLE AISLE,
+    PS.F_ROW F_ROW,
+    CASE
+      WHEN CT.NEED_WASH = 0
+      THEN 'FALSE'
+      WHEN CT.NEED_WASH = 1
+      THEN 'TRUE'
+    END CARWASH,
+    CASE
+      WHEN CT.IS_ROTATE = 0
+      THEN 'FALSE'
+      WHEN CT.IS_ROTATE = 1
+      THEN 'TRUE'
+    END ROTATION,
+    CASE
+      WHEN PS.SLOT_TYPE = 1
+      THEN 'LOW'
+      WHEN PS.SLOT_TYPE = 2
+      THEN 'HIGH'
+    END CARTYPE,
+    'PARKED' LOCATION,
+     ct.entry_north_img ENTRY_EES_NORTH_IMG,
+    ct.entry_SOUTH_img ENTRY_EES_south_IMG
+  FROM L2_PROC_SNAPSHOT PS,
+    L2_CUSTOMERS CT
+   
+  WHERE CT.CARD_ID   = PS.VALUE
+
+  AND PS.SLOT_STATUS = 2
+  and ps.manual_block=0
+  and CT.CARD_ID not in ( select customer_id from l2_ees_queue where status!=1)
+  ORDER BY CT.ENTRY_TIME;
+ 
+ ----------------------------------------------------------------------------
+                          PARKING CELLS (VW_PARKINGCELLS)
+ ------------------------------------------------------------------------------
+
+ select PSNAP.f_level_id FloorID, PSNAP.AISLE, PSNAP.F_ROW, 
+case when  slot_status = 0 then 0 else 1 end IS_Filled, -- 1=Filled (filled inclued patter and car), 0= not filled
+manual_block IS_DISABLED, -- 1 = Disable, 0 = Acitve
+case
+ when SS.FLAG = 0 then 1 -- Normal
+ when SS.FLAG = 2 then 2 --Car Occupied
+ when SS.Flag = 3 then 3 -- pallet occupied
+ when ST.SLOT_TYPE_ID = 1 then 4 -- valid empty low car parking slot
+ when ST.SLOT_TYPE_ID = 2 then 5 -- valid empty high car parking slot
+ when ST.SLOT_TYPE_ID = 0 then 6 -- Back side of VLC
+when ST.SLOT_TYPE_ID = -1 then 7 -- unusable slot
+when ST.SLOT_TYPE_ID = -2 then 8 -- vlc position
+when ST.SLOT_TYPE_ID = -3 then 9 -- lcm/ucm channel
+when ST.SLOT_TYPE_ID = -4 then 10 -- pvl
+when ST.SLOT_TYPE_ID = -5 then 11 -- pst 100
+when ST.SLOT_TYPE_ID = -6 then 12 -- pst 1000
+when ST.SLOT_TYPE_ID = -7 then 13 --EES POSITION
+ end ReservedID,
+ case
+ when SS.FLAG = 0 then 'Normal'
+ when SS.FLAG = 2 then 'Car Occupied'
+ when SS.Flag = 3 then  'Pallet occupied'
+ when ST.SLOT_TYPE_ID = 1 then  'valid empty low car parking slot'
+ when ST.SLOT_TYPE_ID = 2 then  'valid empty high car parking slot'
+ when ST.SLOT_TYPE_ID = 0 then  'Back side of VLC'
+ when ST.SLOT_TYPE_ID = -4 then 'pvl'
+when ST.SLOT_TYPE_ID = -5 then  'pst 100'
+when ST.SLOT_TYPE_ID = -6 then 'pst 1000'
+when ST.SLOT_TYPE_ID = -7 then 'EES POSITION'
+ end ReservedID_Description
+ /*
+case when manual_block = 1 then 'Disable' else 'Active' end ActiveStatus,
+SS.FLAG slot_status, SS.DESCRIPTION Slot_Status_Description,
+ST.SLOT_TYPE_ID SLOT_TYPE, ST.SLOT_TYPE  SLOT_TYPE_DESCRIPTION
+*/
+from L2_Proc_SnapShot PSNAP --where  slot_type in (1,2)  and slot_status in (0,2)  --and manual_block = 0
+inner join L2_Slot_type_MASTER ST on ST.SLOT_TYPE_ID = PSNAP.SLOT_TYPE
+inner join L2_Slot_STATUS_MASTER SS on SS.FLAG = PSNAP.slot_status
+ order by f_level_id , AISLE, F_ROW
+
+  ----------------------------------------------------------------------------
+                          Current Parking (VW_CURRENTPARKING)
+ ------------------------------------------------------------------------------
+ 
+  CREATE OR REPLACE FORCE VIEW "RPMSADMIN"."VW_CURRENTPARKING" ("S_NO", "ENTRY_GATE", "TIME", "ID", "CARID", "F_LEVEL", "AISLE", "F_ROW", "CARWASH", "ROTATION", "CARTYPE", "LOCATION", "ENTRY_EES_NORTH_IMG", "ENTRY_EES_SOUTH_IMG") AS 
+  SELECT rownum S_NO,
+    CT.GATE entry_gate,
+    CT.ENTRY_TIME TIME,
+    CT.CARD_ID ID,
+    CT.CAR_NUMBER CARID,
+    PS.F_LEVEL_ID F_LEVEL,
+    PS.AISLE AISLE,
+    PS.F_ROW F_ROW,
+    CASE
+      WHEN CT.NEED_WASH = 0
+      THEN 'FALSE'
+      WHEN CT.NEED_WASH = 1
+      THEN 'TRUE'
+    END CARWASH,
+    CASE
+      WHEN CT.IS_ROTATE = 0
+      THEN 'FALSE'
+      WHEN CT.IS_ROTATE = 1
+      THEN 'TRUE'
+    END ROTATION,
+    CASE
+      WHEN PS.SLOT_TYPE = 1
+      THEN 'LOW'
+      WHEN PS.SLOT_TYPE = 2
+      THEN 'HIGH'
+    END CARTYPE,
+    'PARKED' LOCATION,
+     ct.entry_north_img ENTRY_EES_NORTH_IMG,
+    ct.entry_SOUTH_img ENTRY_EES_south_IMG
+  FROM L2_PROC_SNAPSHOT PS,
+    L2_CUSTOMERS CT
+   
+  WHERE CT.CARD_ID   = PS.VALUE
+
+  AND PS.SLOT_STATUS = 2
+  and ps.manual_block=0
+  and CT.CARD_ID not in ( select customer_id from l2_ees_queue where status!=1)
+  ORDER BY CT.ENTRY_TIME;
+ 
+
+   ----------------------------------------------------------------------------
+                         History (vw_ParkingHistory)
+ ------------------------------------------------------------------------------
+ SELECT rownum S_NO, Entry_EES, Exit_EES,entry_TIME,exit_TIME,CARD_ID,CAR_REG_NO, F_LEVEL,AISLE,F_ROW,CARWASH,
+ROTATION,CARTYPE,LOCATION,ENTRY_EES_NORTH_IMG,ENTRY_EES_south_IMG,Exit_EES_NORTH_IMG,Exit_EES_south_IMG
+FROM (
+  SELECT DISTINCT -- rownum S_NO,
+    CT.GATE Entry_EES,
+    CT.EXIT_GATE Exit_EES,
+    CT.ENTRY_TIME entry_TIME,
+    CT.exit_time exit_TIME,
+    CT.CARD_ID CARD_ID,
+    CT.CAR_NUMBER CAR_REG_NO,
+    PS.F_LEVEL_ID F_LEVEL,
+    PS.AISLE AISLE,
+    PS.F_ROW F_ROW,
+    CASE
+      WHEN CT.NEED_WASH = 0
+      THEN 'FALSE'
+      WHEN CT.NEED_WASH = 1
+      THEN 'TRUE'
+    END CARWASH,
+    CASE
+      WHEN CT.IS_ROTATE = 0
+      THEN 'FALSE'
+      WHEN CT.IS_ROTATE = 1
+      THEN 'TRUE'
+    END ROTATION,
+    CASE
+      WHEN CT.car_type = 1
+      THEN 'LOW'
+      WHEN CT.car_type = 2
+      THEN 'HIGH'
+    END CARTYPE,
+    'Retrieved' LOCATION,
+    ct.entry_north_img ENTRY_EES_NORTH_IMG,
+    ct.entry_SOUTH_img ENTRY_EES_south_IMG,
+    ct.exit_north_img Exit_EES_NORTH_IMG,
+    ct.exit_SOUTH_img Exit_EES_south_IMG
+  FROM L2_PROC_SNAPSHOT_HISTORY PS,
+    L2_CUSTOMERS CT
+  WHERE CT.CARD_ID   = PS.VALUE
+  AND CT.IS_RETRIEVED = 1
+    ORDER BY CT.ENTRY_TIME
+  )TBL

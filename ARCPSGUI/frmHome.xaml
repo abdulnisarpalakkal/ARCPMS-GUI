@@ -1,0 +1,312 @@
+﻿<Window x:Class="ARCPSGUI.frmHome"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        Title="Emirate Financial Tower Automated Car Parking 4.0.5.4" Height="553" Width="1212" 
+        xmlns:my="clr-namespace:ARCPSGUI" WindowState="Maximized" WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow" ResizeMode="NoResize" Topmost="False" xmlns:my1="clr-namespace:ARCPSGUI.Controls"
+        Loaded="Window_Loaded" Closing="Window_Closing" MouseDoubleClick="Window_MouseDoubleClick" StateChanged="Window_StateChanged" Unloaded="Window_Unloaded">
+
+    <Grid Height="Auto" Name="grdMain" Width="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55" />
+            <RowDefinition Height="27"/>
+            <RowDefinition Height="48" />
+            <RowDefinition Height="6" />
+            <RowDefinition />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="30" />
+        </Grid.ColumnDefinitions>
+
+        <Viewbox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" Name="viewbox1" VerticalAlignment="Stretch" Stretch="Uniform">
+            <!--<Border Style="{StaticResource HeaderStyle}"  Grid.Column="0" Grid.Row="0">-->
+
+            <Label Content="Emirates Financial Tower Automated Car Parking"  Name="label1" Foreground="#FF243B62" Width="273">
+
+                <!--<Label.Effect>
+                    <DropShadowEffect Color="White"
+                              Direction="0"
+                              BlurRadius="1"
+                              ShadowDepth="1" />
+                </Label.Effect>-->
+            </Label>
+
+            <!--</Border>-->
+        </Viewbox>
+
+        <Grid Grid.Column="1" Grid.Row="6" HorizontalAlignment="Stretch" Name="grid1" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="688*" />
+            </Grid.ColumnDefinitions>
+
+            <Button  Grid.Column="2" HorizontalAlignment="Stretch" Margin="0" Name="btnHome" VerticalAlignment="Stretch" 
+                    Template="{DynamicResource GlassButton}" Click="btnHome_Click">
+                <Image Name="imgHome" ></Image>
+            </Button>
+
+            <Button  Grid.Column="1" HorizontalAlignment="Stretch" Margin="0" Name="btnClose" VerticalAlignment="Stretch" 
+                    Template="{DynamicResource GlassButton}" Click="btnClose_Click">
+                <Image Name="imgClose" ></Image>
+            </Button>
+
+            <Button Content="Lock Status" Template="{DynamicResource GlassButton}" Grid.Column="5" Height="45" HorizontalAlignment="Right" Margin="0,1,394,0" Name="btnLockStatus" VerticalAlignment="Top" Width="71" Foreground="White" FontFamily="Verdana" Click="btnLockStatus_Click" Visibility="Hidden" />
+            <Button Content="Car Wash Finish Trigger" Grid.Column="5" Height="45" HorizontalAlignment="Left" Margin="196,3,0,0" Name="btnCarWashFinish" 
+                    Template="{StaticResource GlassButton}"  VerticalAlignment="Top" Width="123" Click="btnCarWashFinish_Click" Foreground="White" FontSize="11" />
+            <TextBox Grid.Column="3" HorizontalAlignment="Left" Margin="5,3,0,0" Name="lblNasaMessage" VerticalAlignment="Top" Width="305" Height="42" Grid.ColumnSpan="3" FontSize="12" FontWeight="Bold" Foreground="#FFCE3232" Background="White" Text="" MinLines="3" IsReadOnly="True" TextWrapping="Wrap" MaxLength="5" />
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" Margin="0" Name="grdContainer"
+              VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+
+        </Grid>
+        <!--<ScrollViewer Grid.Column="1" HorizontalAlignment="Stretch" Name="scrollViewer1" 
+                      VerticalAlignment="Stretch" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" VerticalScrollBarVisibility="Hidden">
+            <StackPanel Name="stkMachineNotification" Orientation="Horizontal"></StackPanel>
+        </ScrollViewer>-->
+        <ScrollViewer Grid.Column="1" HorizontalAlignment="Stretch" Name="scrollViewer1" 
+                      VerticalAlignment="Stretch" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" VerticalScrollBarVisibility="Disabled">
+            <StackPanel Name="stkMachineNotification" Orientation="Horizontal">
+
+            </StackPanel>
+        </ScrollViewer>
+        <Label Content="lblToday" Grid.Column="1" Grid.Row="2" Height="21" HorizontalAlignment="Right" Name="lblToday" VerticalAlignment="Top" Width="135" Foreground="White" Visibility="Visible" Margin="0,0,2,0" />
+
+
+        <Label Grid.Row="2" Height="26" HorizontalAlignment="Right" Margin="0,19,53,0" Name="lblCurrentUser" 
+               VerticalAlignment="Top" Width="66" Grid.Column="1" FontSize="12" Foreground="#FF00435F" HorizontalContentAlignment="Right" />
+        <Viewbox  Grid.Column="1" Grid.Row="2"  Margin="0,16,125,2"  Width="150" VerticalAlignment="Center" HorizontalAlignment="Right" Stretch="None" Height="30">
+            <Label Content="Generator Mode" Name="lblGeneratorMode" Background="#FFF20000" Foreground="White" 
+               FontSize="15"   VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+               HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        </Viewbox>
+
+
+        <Button  Content="Log Out" Cursor="Hand"  Grid.Column="1" HorizontalAlignment="Right"
+                 Margin="0,23,28,0" Grid.Row="2" Width="46" Grid.ColumnSpan="2"   Click="btnLogOff_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <TextBlock TextDecorations="Underline">
+                <ContentPresenter />
+                    </TextBlock>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Foreground" Value="Blue" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Foreground" Value="Red" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Image Grid.Column="1" Grid.Row="2" Height="43" HorizontalAlignment="Left" Margin="5,2,0,0" Name="imgNasaLogo" Stretch="Fill" VerticalAlignment="Top" Width="86" Source="Images/NASALogo.jpg"  />
+        <Image Grid.Column="1" Grid.Row="2" Height="43" HorizontalAlignment="Left" Margin="102,2,0,0" Name="imgMrsLogo" Stretch="Fill" VerticalAlignment="Top" Width="102" Source="Images/imgMrsLogo.png" />
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="140,2,0,0" Grid.Row="1" VerticalAlignment="Top" Width="199" Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="8,0,0,0"/>
+                </Style>
+            </StackPanel.Resources>
+            <Button x:Name="cp_but" Content="CP" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" ToolTip="Current Parks" Click="cp_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="ht_but" Content="HT" HorizontalAlignment="Left" Width="25" ToolTip="History" Click="ht_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="ab_but" Content="AB" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" ToolTip="Aborted View" Click="ab_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="al_but" Content="AL" HorizontalAlignment="Left" Width="25" ToolTip="Alarms" Click="al_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="md_but" Content="MD" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" ToolTip="Member Details" Click="md_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="wait_but" Content="WT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" ToolTip="Gate Wait Hist" Click="wait_but_Click" >
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="0,2,0,0" Grid.Row="1" VerticalAlignment="Top" Width="108" Orientation="Horizontal">
+            <Button x:Name="erp_but" Content="ERP" HorizontalAlignment="Left" Width="25" Margin="8,0,0,0" IsCancel="True" ToolTip="Entry Retrival Process" Click="erp_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="pm_but" Content="PM" HorizontalAlignment="Left" Width="25" Margin="8,0,0,0" ToolTip="PMS" Click="pm_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="cw_but" Content="CW" HorizontalAlignment="Left" Width="25" Margin="8,0,0,0" ToolTip="Car Wash" Height="25" VerticalAlignment="Top" Click="cw_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="28" Margin="358,2,0,0" VerticalAlignment="Top" Width="197" Orientation="Horizontal" Grid.Column="1" Grid.RowSpan="2" Grid.Row="1">
+            <Button x:Name="sp_but" Content="SP" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Margin="8,0,0,0" Cursor="" ToolTip="Set points" Click="sp_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="ed_but" Content="ED" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Margin="8,0,0,0" Cursor="" ToolTip="ERP Diagonostic" Click="ed_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <!--<Button x:Name="pd_but" Content="PD" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Margin="8,0,0,0" Cursor="" ToolTip="PMS Diagonostic" Click="pd_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>-->
+            <Button x:Name="cc_but" Content="CC" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Margin="8,0,0,0" Cursor="" ToolTip="CM Config" Click="cc_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button Click="vlc_but_Click" x:Name="vlc_but" Content="VLC" HorizontalAlignment="Left"
+              VerticalAlignment="Top" Width="40" Height="25" Margin="8,0,0,0" Cursor="" ToolTip="VLC Config">
+                <Control.Background>
+                    <ImageBrush/>
+                </Control.Background>
+            </Button>
+            <Button x:Name="menu_but" Content="ME" HorizontalAlignment="Left" Width="25" Margin="8,0,0,3" Cursor="" ToolTip="Menu" Click="menu_but_Click"  >
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right" Height="28" Margin="0,2,0,0" VerticalAlignment="Top" Width="300" Orientation="Horizontal" Grid.Column="1" Grid.RowSpan="2" Grid.Row="1">
+            <Button x:Name="f1_but" Content="F1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Margin="8,0,0,0" Click="f1_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="f2_but" Content="F2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Margin="8,0,0,0" Click="f2_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="f3_but" Content="F3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Margin="8,0,0,0" Click="f3_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="f4_but" Content="F4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Margin="8,0,0,0" Click="f4_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="f5_but" Content="F5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Margin="8,1,0,0" Click="f5_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="f6_but" Content="F6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Margin="8,0,0,0" Click="f6_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="f7_but" Content="F7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Margin="8,0,0,0" Click="f7_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="f8_but" Content="F8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Margin="8,0,0,0" Click="f8_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="f9_but" Content="F9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Margin="8,0,0,0" Click="f9_but_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="28" Margin="571,2,0,0" VerticalAlignment="Top" Width="174" Orientation="Horizontal" Grid.Column="1" Grid.RowSpan="2" Grid.Row="1">
+            <Button x:Name="PH_but1" Content="PH" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Margin="8,0,0,0" Cursor="" ToolTip="Peak Hour Chart" Click="PH_but1_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="DR_but1" Content="DU" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="25" Height="25" Margin="8,0,0,3" Cursor="" ToolTip="Transaction Duration Chart" Click="DU_but1_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="log_but1" Content="LG" HorizontalAlignment="Left" Width="25" Margin="8,0,0,3" Cursor="" ToolTip="DB log" Click="log_but1_Click" >
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="sim_but" Content="SM" HorizontalAlignment="Left" Width="25" Margin="8,0,0,3" Cursor="" ToolTip="Kiosk Simulation" Click="sm_but_Click" >
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+
+        </StackPanel>
+
+        <Button x:Name="notifClearBut" Content="" Grid.Column="0" HorizontalAlignment="Stretch" Margin="1,0,0,0" VerticalAlignment="Stretch"  Grid.ColumnSpan="1" Click="notifClearBut_Click" VerticalContentAlignment="Top" ToolTip="Clear"  >
+            <Button.Background>
+                <ImageBrush  Stretch="Uniform" ImageSource="Images/sweep.png"/>
+            </Button.Background>
+        </Button>
+
+        <!--<Grid.Background>
+            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                <GradientStop Color="#FFA2ADB7" Offset="0" />
+                <GradientStop Color="#FFA8B2BE" Offset="1" />
+                <GradientStop Color="#FFCECECE" Offset="0.037" />
+                <GradientStop Color="#FFBABABA" Offset="0.954" />
+            </LinearGradientBrush>
+        </Grid.Background>-->
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFC4C4C4" Offset="0.008" />
+                <GradientStop Color="#FF6C6A6C" Offset="1" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+    </Grid>
+
+    <!--<Window.Background>
+        <ImageBrush ImageSource="..." />
+    </Window.Background>-->
+</Window>

@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="ARCPSGUI.TransactionUI.ucNotifications"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             d:DesignHeight="600" d:DesignWidth="800" Background="#FFD8D8D8" Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="503*"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="notificationGrid" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" 
+                  Grid.Row="2" AutoGenerateColumns="False" CanUserAddRows="False"   >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding MachineCode}" Header="MACHINE"  IsReadOnly="True" Width="100*" />
+                <DataGridTextColumn Binding="{Binding category}" Header="CATEGORY" IsReadOnly="True" Width="100*" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="DISABLE">
+                                    <Setter Property="Foreground" Value="LightCoral"/>
+                                </Trigger>
+                                <Trigger Property="Text" Value="ERROR">
+                                    <Setter Property="Foreground" Value="Red"/>
+                                </Trigger>
+                                <Trigger Property="Text" Value="MANUAL">
+                                    <Setter Property="Foreground" Value="Orange"/>
+                                </Trigger>
+                                <Trigger Property="Text" Value="TRIGGER">
+                                    <Setter Property="Foreground" Value="DarkOrange"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ErrorCode}" Header="ERROR CODE" IsReadOnly="True" Width="100*" />
+
+                <DataGridTextColumn Binding="{Binding ErrorDescription}" Header="DESCRIPTION"  IsReadOnly="True" Width="250*"  >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding NotifyTime,  StringFormat=\{0:dd-MMM-yy hh:mm:ss tt\}}" Header="TIME" IsReadOnly="True" Width="150*" />
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" Margin="350,11,350,25" TextWrapping="Wrap" Text="Notifications" VerticalAlignment="Center" FontSize="18" Height="24" Width="100"/>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" Height="30" Margin="5,5,0,0" VerticalAlignment="Top"   Orientation="Horizontal">
+            
+                                   
+            <ComboBox x:Name="filterMachine" MinWidth="100" IsEditable="True" />
+            <ComboBox x:Name="filterCategory" Margin="10,0,0,0" MinWidth="100" IsEditable="True"/>
+           
+            <xctk:DateTimePicker Margin="10,0,0,0" x:Name="filterStartDate"
+                                 Width="200"
+                                 Height="25"
+                                 VerticalAlignment="Center"
+                                 IsReadOnly="False"
+                                 Format="Custom"
+                                 FormatString="dd-MMM-yy hh:mm:s tt"
+                                 Watermark="Enter start date"
+                                 TimeFormat="Custom"
+                                 TimeFormatString="H:mm"
+                                 TimeWatermark="Enter time"
+                                />
+            <xctk:DateTimePicker Margin="10,0,0,0" x:Name="filterEndDate"
+                                 Width="200"
+                                 Height="25"
+                                 VerticalAlignment="Center"
+                                 IsReadOnly="False"
+                                 Format="Custom"
+                                 FormatString="dd-MMM-yy hh:mm:s tt"
+                                 Watermark="Enter start date"
+                                 TimeFormat="Custom"
+                                 TimeFormatString="H:mm"
+                                 TimeWatermark="Enter time"
+                                />
+            <Button x:Name="searchBut" Margin="15,0,0,0" Width="100" Content="Search" Click="searchBut_Click"  />
+        </StackPanel>
+    </Grid>
+</UserControl>

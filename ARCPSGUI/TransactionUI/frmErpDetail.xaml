@@ -1,0 +1,156 @@
+﻿<Window x:Class="ARCPSGUI.TransactionUI.frmErpDetail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ERP Detail" Height="218" Width="620" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" Background="#FFC4C4C4" ResizeMode="NoResize" Topmost="True">
+    <Control.Resources>
+
+        <ControlTemplate x:Key="TriggerButtonStyle" TargetType="{x:Type Button}">
+            <ControlTemplate.Resources>
+                <Storyboard x:Key="Timeline1">
+                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+                        <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
+                    </DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+                <Storyboard x:Key="Timeline2">
+                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+                        <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0"/>
+                    </DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+            </ControlTemplate.Resources>
+            <Border BorderBrush="#FFFFFFFF" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4" Background="#FF9A4B4B">
+                <Border x:Name="border" Background="#7F000000" BorderBrush="#FF000000" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.507*"/>
+                            <RowDefinition Height="0.493*"/>
+                        </Grid.RowDefinitions>
+                        <Border Opacity="0" HorizontalAlignment="Stretch" x:Name="glow"
+                                Width="Auto" Grid.RowSpan="2" CornerRadius="4,4,4,4">
+                            <Border.Background>
+                                <RadialGradientBrush>
+                                    <RadialGradientBrush.RelativeTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="1.702" ScaleY="2.243"/>
+                                            <SkewTransform AngleX="0" AngleY="0"/>
+                                            <RotateTransform Angle="0"/>
+                                            <TranslateTransform X="-0.368" Y="-0.152"/>
+                                        </TransformGroup>
+                                    </RadialGradientBrush.RelativeTransform>
+                                    <GradientStop Color="#FFEF1212" Offset="0"/>
+                                    <GradientStop Color="#FF7C2121" Offset="1"/>
+                                </RadialGradientBrush>
+                            </Border.Background>
+                        </Border>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Grid.RowSpan="2"/>
+                        <Border HorizontalAlignment="Stretch" Margin="0,0,0,0" x:Name="shine" Width="Auto" CornerRadius="4,4,0,0">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.494,0.889" StartPoint="0.494,0.028">
+                                    <GradientStop Color="#FFD40808" Offset="0"/>
+                                    <GradientStop Color="#00E58C84" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                    </Grid>
+                </Border>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Opacity" TargetName="shine" Value="0.4"/>
+                    <Setter Property="Background" TargetName="border" Value="#CC000000"/>
+                    <Setter Property="Visibility" TargetName="glow" Value="Hidden"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard Storyboard="{StaticResource Timeline1}"/>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard x:Name="Timeline2_BeginStoryboard" Storyboard="{StaticResource Timeline2}"/>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Control.Resources>
+    <Grid  Margin="0,0,0,2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0" />
+            <RowDefinition Height="26*" />
+            <RowDefinition Height="2" />
+            <RowDefinition Height="26*" />
+            <RowDefinition Height="2" />
+            <RowDefinition Height="26*" />
+            <RowDefinition Height="2" />
+            <RowDefinition Height="26*" />
+            <RowDefinition Height="2" />
+            <RowDefinition Height="26*" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="0"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2" />
+            <ColumnDefinition Width="75" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="2" />
+            <ColumnDefinition Width="115" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="125" />
+            <ColumnDefinition Width="2" />
+        </Grid.ColumnDefinitions>
+        <Label Content="Name" Grid.Column="1" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="5,3,0,0" Name="label1" VerticalAlignment="Top" Width="42" />
+        <Label Content="Plate#" Grid.Column="1" Grid.Row="5" Height="23" HorizontalAlignment="Left" Margin="5,3,0,0" Name="label2" VerticalAlignment="Top" Width="43" />
+        <Label Content="Type" Grid.Column="1" Grid.Row="7" Height="23" HorizontalAlignment="Left" Margin="5,3,0,0" Name="label3" VerticalAlignment="Top" Width="35" />
+        <Label Content="Rotation" Grid.Column="5" Grid.Row="7" Height="23" HorizontalAlignment="Left" Margin="5,3,0,0" Name="label4" VerticalAlignment="Top" Width="55" />
+        <Label Content="Car Wash" Grid.Column="5" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="5,3,0,0" Name="label5" VerticalAlignment="Top" Width="60" />
+        <Label Content="Customer Id" Grid.Column="1" Grid.Row="3" Height="23" HorizontalAlignment="Left" Margin="5,3,0,0" Name="label6" VerticalAlignment="Top" Width="70" />
+        <Label Content="Start Time" Grid.Column="1" Grid.Row="9" Height="23" HorizontalAlignment="Left" Margin="5,3,0,0" Name="label7" VerticalAlignment="Top" Width="64" Grid.RowSpan="2" />
+        <Label Content="Washing Status" Grid.Column="5" Grid.Row="3" Height="23" HorizontalAlignment="Left" Margin="5,3,0,0" Name="label8" VerticalAlignment="Top" Width="92" />
+        <Label Content="Duration" Grid.Column="5" Grid.Row="5" Height="23" HorizontalAlignment="Left" Margin="5,3,0,0" Name="label9" VerticalAlignment="Top" Width="84" />
+        <TextBox Grid.Column="3" Grid.Row="1" HorizontalAlignment="Stretch" Name="txtName" VerticalAlignment="Stretch" IsReadOnly="True" />
+        <TextBox Grid.Column="3" Grid.Row="3" HorizontalAlignment="Stretch" Name="txtCustomerId" VerticalAlignment="Stretch" IsReadOnly="True" />
+        <TextBox Grid.Column="3" Grid.Row="5" HorizontalAlignment="Stretch" Name="txtPlate" VerticalAlignment="Stretch" IsReadOnly="True" />
+        <TextBox Grid.Column="3" Grid.Row="7" HorizontalAlignment="Stretch" Name="txtType" VerticalAlignment="Stretch" IsReadOnly="True" />
+        <TextBox Grid.Column="3" Grid.Row="9" HorizontalAlignment="Stretch" Name="txtStartTime" VerticalAlignment="Stretch" IsReadOnly="True" />
+
+        <TextBox Grid.Column="7" Grid.Row="1" HorizontalAlignment="Stretch" Name="txtCarWash" VerticalAlignment="Stretch" IsReadOnly="True" />
+        <TextBox Grid.Column="7" Grid.Row="3" HorizontalAlignment="Stretch" Name="txtWashStatus" VerticalAlignment="Stretch" IsReadOnly="True" />
+        <TextBox Grid.Column="7" Grid.Row="5" HorizontalAlignment="Stretch" Name="txtTimer" VerticalAlignment="Stretch" IsReadOnly="True" />
+        <TextBox Grid.Column="7" Grid.Row="7" HorizontalAlignment="Stretch" Name="txtRotation" VerticalAlignment="Stretch" IsReadOnly="True" />
+        <Button ToolTip="Delete Transaction" Grid.Column="4" Grid.Row="10"  HorizontalAlignment="Stretch" Margin="0,3,60,2" Name="btnDelete" VerticalAlignment="Stretch" 
+                  Padding="0" Click="btnDelete_Click" Grid.ColumnSpan="2" >
+            <Button.Background>
+                <ImageBrush ImageSource="/ARCPSGUI;component/Images/delete_red.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button ToolTip="Complete Transaction" Grid.Column="5" Grid.Row="10"  HorizontalAlignment="Stretch" Margin="60,3,0,2" Name="btnComplete" VerticalAlignment="Stretch" 
+                Padding="0" Click="btnComplete_Click" >
+            <Button.Background>
+                <ImageBrush ImageSource="/ARCPSGUI;component/Images/complete_green.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button ToolTip="Park car back" Grid.Column="7" Grid.Row="10"  HorizontalAlignment="Center" Width="60" Margin="0,0,0,2" Name="btnPark" VerticalAlignment="Stretch" 
+                  Padding="0"  Grid.ColumnSpan="2" Click="btnPark_Click" >
+            <Button.Background>
+                <ImageBrush ImageSource="/ARCPSGUI;component/Images/return_back.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <!--<Button Name="btnTrigger" Content="Trigger" FontSize="28" FontFamily="Tahoma" FontWeight="Bold" Click="btnTrigger_Click" Template="{DynamicResource TriggerButtonStyle}" BorderThickness="0" Background="#FFB11717"  Foreground="White" Canvas.Left="0" Canvas.Top="-65" Margin="12,0,147,0" Grid.Row="10" Grid.Column="3"/>-->
+        <Button Name="btnTrigger" Content="Trigger" Grid.Column="3" HorizontalAlignment="Left" Margin="14,3,0,0" Grid.Row="10" VerticalAlignment="Top" Width="92" Height="35" Click="btnTrigger_Click" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF910B0B" Offset="0"/>
+                    <GradientStop Color="#FFE80707" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Name="btnHold" ToolTip="Hold" Grid.Column="3" HorizontalAlignment="Stretch" Margin="130,3,100,2" Grid.Row="10" VerticalAlignment="Stretch" Click="btnHold_Click"   >
+            <Button.Background>
+                <ImageBrush ImageSource="/ARCPSGUI;component/Images/icon-pause.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnResume" ToolTip="Resume" Grid.Column="3" HorizontalAlignment="Stretch" Margin="197,3,33,0" Grid.Row="10" VerticalAlignment="Top"    Click="btnResume_Click" Height="35">
+            <Button.Background>
+                <ImageBrush ImageSource="/ARCPSGUI;component/Images/icon-play.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>

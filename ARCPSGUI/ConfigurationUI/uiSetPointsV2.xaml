@@ -1,0 +1,308 @@
+﻿<UserControl x:Class="ARCPSGUI.ConfigurationUI.uiSetPointsV2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                xmlns:avalon="http://schemas.AvalonControls/AvalonControlsLibrary/Controls"
+         xmlns:dg="http://schemas.microsoft.com/wpf/2008/toolkit"
+              xmlns:my="clr-namespace:ARCPSGUI.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <!--<ObjectDataProvider x:Key="PersonCollectionDS" d:IsDataSource="True" ObjectType="{x:Type DataGrid:EntryExitStationCollection}"/>-->
+        <DataTemplate x:Key="PersonCollectionTemplate">
+            <StackPanel>
+                <TextBlock Text="{Binding Path=eesName}"/>
+                <RadioButton IsChecked="{Binding Path=entry}"/>
+
+            </StackPanel>
+        </DataTemplate>
+
+        <Style x:Key="LevelCheckboxStyle" TargetType="CheckBox">
+            <Setter Property="Background" Value="#FFF2B325" />
+            <Setter Property="BorderBrush" Value="#FFDEBC22" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF031927" Offset="0" />
+                        <GradientStop Color="#FF0606A0" Offset="1" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SelectedTabColor" TargetType="TabItem">
+            <Setter Property="Background" Value="#FFB3D0E2" />
+        </Style>
+        <Style x:Key="DefaultTabColor" TargetType="TabItem">
+            <Setter Property="Background" Value="#FFD4D0C8" />
+        </Style>
+        <Style x:Key="CurrentModeTabColor" TargetType="TabItem">
+            <Setter Property="Background" Value="#FFA6DBA6" />
+        </Style>
+
+    </UserControl.Resources>
+    <Grid Style="{StaticResource ContentGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="328*" />
+            <RowDefinition Height="15" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="221*" />
+            <ColumnDefinition Width="324*" />
+        </Grid.ColumnDefinitions>
+
+        <Viewbox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Stretch" Name="vbHeading" VerticalAlignment="Stretch" Stretch="Uniform">
+            <Border Style="{StaticResource HeaderStyle}"  Grid.Column="0" Grid.Row="0">
+                <Label Content="Set Points"  Name="lblHeading" />
+            </Border>
+        </Viewbox>
+
+        <Canvas Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Style="{StaticResource ToolBarCanvas}" Visibility="Hidden">
+            <Border>
+                <Label Canvas.Left="1" Canvas.Top="-1" Content="Set Points" Name="label1" FontFamily="Verdana" BorderBrush="#FFC7A01A" Visibility="Hidden">
+                    <Label.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFFFCB45" Offset="0" />
+                            <GradientStop Color="#FFFFB90D" Offset="1" />
+                            <GradientStop Color="#FFF5D38D" Offset="0.602" />
+                            <GradientStop Color="#FFFFB20A" Offset="1" />
+                            <GradientStop Color="#FFD8D0BF" Offset="0.117" />
+                            <GradientStop Color="Orange" Offset="0" />
+                            <GradientStop Color="#FFDACCB1" Offset="0.228" />
+                        </LinearGradientBrush>
+                    </Label.Background>
+                </Label>
+                <Border.Effect>
+                    <DropShadowEffect Color="Black"
+                              Direction="270"
+                              BlurRadius="10"
+                              ShadowDepth="3" />
+                </Border.Effect>
+
+            </Border>
+        </Canvas>
+
+        <Grid ShowGridLines="False" Margin="1,5,0,0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
+
+            <Grid Margin="52,10,432,18" Name="grid1" VerticalAlignment="Stretch" ShowGridLines="False" ClipToBounds="True" Panel.ZIndex="85">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*" />
+                    <RowDefinition Height="27*"/>
+                    <RowDefinition Height="36*" />
+                    <RowDefinition Height="36*" />
+                    <RowDefinition Height="36*" />
+                    <RowDefinition Height="37*" />
+                    <RowDefinition Height="36*" />
+                    <RowDefinition Height="37*" />
+                    <RowDefinition Height="36*" />
+                    <RowDefinition Height="28*" />
+                    <RowDefinition Height="9*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="61*" />
+                    <ColumnDefinition Width="61*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="24" BorderBrush="#FF252A30" CornerRadius="0" BorderThickness="0">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#FFF3EBEB" Offset="0.9"/>
+                            <GradientStop Color="#FFE2D1AA" Offset="0.1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+
+                <CheckBox Content="L9 - Use L2 Logic" Grid.Row="1" Grid.Column="0" Name="P_9" Style="{StaticResource LevelCheckboxStyle}" TabIndex="1" Checked="chkLevel_Checked" Unchecked="chkLevel_Unchecked" Margin="0,1,50,10" HorizontalAlignment="Right"></CheckBox>
+                <CheckBox Content="L8 - Use L2 Logic" Name="P_8" Grid.Row="2" Grid.Column="0" Style="{StaticResource LevelCheckboxStyle}" TabIndex="2" Margin="0,10" Checked="chkLevel_Checked" Unchecked="chkLevel_Unchecked"></CheckBox>
+                <CheckBox Content="L7 - Use L2 Logic" HorizontalAlignment="Left" Name="P_7" Grid.Row="3" Grid.Column="0" Style="{StaticResource LevelCheckboxStyle}" TabIndex="3" Margin="0,10" Checked="chkLevel_Checked" Unchecked="chkLevel_Unchecked" ></CheckBox>
+                <CheckBox Content="L6 - Use L2 Logic" Name="P_6" Grid.Row="4" Grid.Column="0" Style="{StaticResource LevelCheckboxStyle}" TabIndex="4" Margin="0,10" Checked="chkLevel_Checked" Unchecked="chkLevel_Unchecked"></CheckBox>
+                <CheckBox Content="L5 - Use L2 Logic" Name="P_5" Grid.Row="5" Grid.Column="0" Style="{StaticResource LevelCheckboxStyle}" TabIndex="5" Margin="0,11,0,10" Checked="chkLevel_Checked" Unchecked="chkLevel_Unchecked"></CheckBox>
+                <CheckBox Content="L4 - Use L2 Logic" Name="P_4" Grid.Row="6" Grid.Column="0" Style="{StaticResource LevelCheckboxStyle}" TabIndex="6" Margin="0,10" Checked="chkLevel_Checked" Unchecked="chkLevel_Unchecked"></CheckBox>
+                <CheckBox Content="L3 - Use L2 Logic" Name="P_3" Grid.Row="7" Grid.Column="0" Style="{StaticResource LevelCheckboxStyle}" TabIndex="7" Margin="0,10,0,11" Checked="chkLevel_Checked" Unchecked="chkLevel_Unchecked"></CheckBox>
+                <CheckBox Content="L2 - Use L2 Logic" Name="P_2" Grid.Row="8" Grid.Column="0" Style="{StaticResource LevelCheckboxStyle}" TabIndex="8" Margin="0,10" Checked="chkLevel_Checked" Unchecked="chkLevel_Unchecked"></CheckBox>
+                <CheckBox Content="L1 - Use L2 Logic" Name="P_1" Grid.Row="9" Style="{StaticResource LevelCheckboxStyle}" Margin="0,10,0,2" TabIndex="9" Checked="chkLevel_Checked" Unchecked="chkLevel_Unchecked"/>
+                <CheckBox Content="L7" HorizontalAlignment="Left" Name="FPM_7" Grid.Row="3" Grid.Column="1" Style="{StaticResource LevelCheckboxStyle}" TabIndex="3" Margin="10,10,0,0" Height="23" Unchecked="chkLevel_Unchecked" Checked="chkLevel_Checked"/>
+                <CheckBox Content="L6" Name="FPM_6" Grid.Row="4" Grid.Column="1" Style="{StaticResource LevelCheckboxStyle}" TabIndex="4" Margin="10,10,0,2" Height="22" Checked="chkLevel_Checked" Unchecked="chkLevel_Unchecked"/>
+                <CheckBox Content="L5" Name="FPM_5" Grid.Row="5" Grid.Column="1" Style="{StaticResource LevelCheckboxStyle}" TabIndex="5" Margin="10,11,0,32" Height="24" Grid.RowSpan="2" Unchecked="chkLevel_Unchecked" Checked="chkLevel_Checked"/>
+                <CheckBox Content="L4" Name="FPM_4" Grid.Row="6" Grid.Column="1" Style="{StaticResource LevelCheckboxStyle}" TabIndex="6" Margin="10,10,0,10" Unchecked="chkLevel_Unchecked" Checked="chkLevel_Checked" />
+                <Label Content="PARKING" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Background="{x:Null}" Foreground="#FF414243"/>
+                <Label Content="PMS" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontWeight="Bold" Background="{x:Null}" Foreground="#FF414243" Grid.Column="1" FontSize="14"/>
+                <CheckBox Content="L7" HorizontalAlignment="Left" x:Name="SPM_7" Grid.Row="3" Grid.Column="1" Style="{StaticResource LevelCheckboxStyle}" TabIndex="3" Margin="87,11,0,1" Height="22" Unchecked="chkLevel_Unchecked" Checked="chkLevel_Checked"/>
+                <CheckBox Content="L6" x:Name="SPM_6" Grid.Row="4" Grid.Column="1" Style="{StaticResource LevelCheckboxStyle}" TabIndex="4" Margin="87,10,0,2" Height="22" Checked="chkLevel_Checked" Unchecked="chkLevel_Unchecked"/>
+                <CheckBox Content="L5" x:Name="SPM_5" Grid.Row="5" Grid.Column="1" Style="{StaticResource LevelCheckboxStyle}" TabIndex="5" Margin="87,12,0,33" Height="24" Grid.RowSpan="2" Unchecked="chkLevel_Unchecked" Checked="chkLevel_Checked"/>
+                <CheckBox Content="L4" x:Name="SPM_4" Grid.Row="6" Grid.Column="1" Style="{StaticResource LevelCheckboxStyle}" TabIndex="6" Margin="87,10,0,10" Unchecked="chkLevel_Unchecked" Checked="chkLevel_Checked" />
+                <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Feed" VerticalAlignment="Top" RenderTransformOrigin="0.521,-0.529" FontWeight="Bold" TextDecorations="{x:Null}"/>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="89,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Store" VerticalAlignment="Top" RenderTransformOrigin="0.521,-0.529" FontWeight="Bold" TextDecorations="{x:Null}"/>
+            </Grid>
+
+            <TabControl Height="235" HorizontalAlignment="Right" Margin="0,10,10,0" Name="tabControl1" VerticalAlignment="Top" Width="394" BorderThickness="0" SelectionChanged="tabControl1_SelectionChanged">
+                <TabControl.Background>
+                    <SolidColorBrush />
+                </TabControl.Background>
+                <TabItem Header="Morning Mode" Name="tbiMorMode" Foreground="#FF0D1341"  Style="{StaticResource DefaultTabColor}" >
+                    <Grid Height="Auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="2" />
+                            <RowDefinition  Height="30"/>
+                            <RowDefinition Height="50*" />
+                            <RowDefinition Height="87*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="157*" />
+                            <ColumnDefinition Width="227*" />
+
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Morning Mode Start Time" Grid.Column="0" Grid.Row="1" Name="lblMorningModeStartTime" />
+                        <Label Content="##:##" Grid.Column="1" Grid.Row="1" Name="MorningModeStartTime" FontSize="14" />
+                        <Label Content="Morning Mode End Time" Grid.Column="0" Grid.Row="3" Name="lblMorningModeEndTime" />
+                        <Label Content="##:##" Grid.Column="1" Grid.Row="3" Name="MorningModeEndTime" FontSize="14" />
+                        <Label Content="Morning Mode Exit EES" HorizontalAlignment="Left" Margin="0,38,0,23" Grid.Row="5" VerticalAlignment="Center" Height="26" Width="134"/>
+                        <ComboBox Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="5" Height="22"  Margin="0,34,0,31" Name="cmbExitEES1" ItemsSource="{Binding}" VerticalAlignment="Center" Width="91" FontFamily="Verdana"/>
+                        <ComboBox Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="5" Height="22"  Margin="109,34,0,31" x:Name="cmbExitEES2" ItemsSource="{Binding}" VerticalAlignment="Center" Width="91" FontFamily="Verdana"/>
+                        <avalon:RangeSlider Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" x:Name="morningRangeSlider"  RangeStart="0" RangeStop="100" Height="20"
+                    RangeSelectionChanged="morningRangeSlider_RangeSelectionChanged"  />
+
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Normal Mode"  Name="tbiNorMode" HorizontalAlignment="Left"   Style="{StaticResource DefaultTabColor}" >
+
+                    <Grid Height="Auto" Name="grdNormalMode" Width="180" HorizontalAlignment="Left" VerticalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="1" />
+                            <RowDefinition />
+                            <RowDefinition Height="1" />
+                            <RowDefinition />
+                            <RowDefinition Height="1" />
+                            <RowDefinition />
+                            <RowDefinition Height="1" />
+                            <RowDefinition />
+                            <RowDefinition Height="1" />
+                            <RowDefinition />
+                            <RowDefinition Height="1" />
+                            <RowDefinition />
+                            <RowDefinition Height="1" />
+                            <RowDefinition />
+                            <RowDefinition Height="1" />
+                            <RowDefinition />
+                            <RowDefinition Height="1" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="35" />
+                            <ColumnDefinition Width="35" />
+                            <ColumnDefinition Width="37" />
+                        </Grid.ColumnDefinitions>
+                        <Viewbox Grid.Column="0" Grid.Row="0">
+                            <Label  Content="EES" FontFamily="Verdana" FontSize="18" Background="#FFB8C8EB" Foreground="#FF793800" />
+                        </Viewbox>
+                        <Viewbox Grid.Column="1" Grid.Row="0" Stretch="Fill">
+                            <Label  Content="Entry" FontFamily="Verdana" FontSize="18" HorizontalContentAlignment="Center" Background="#FFB8C8EB" Foreground="#FF793800" />
+                        </Viewbox>
+                        <Viewbox Grid.Column="2" Grid.Row="0" Stretch="Fill">
+                            <Label  Content="Exit" FontFamily="Verdana" FontSize="18" HorizontalContentAlignment="Center" Background="#FFB8C8EB" Foreground="#FF793800" />
+                        </Viewbox>
+                        <Viewbox Grid.Column="3" Grid.Row="0" Stretch="Fill">
+                            <Label  Content="Mixed" FontFamily="Verdana" FontSize="18" HorizontalContentAlignment="Center" Background="#FFB8C8EB" Foreground="#FF793800" />
+                        </Viewbox>
+
+
+                    </Grid>
+
+                </TabItem>
+                <TabItem Header="Evening Mode"  Name="tbiEveMode"  Style="{StaticResource DefaultTabColor}" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="27" />
+                            <RowDefinition Height="27"/>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="55"/>
+                            <RowDefinition />
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Evening Mode Start Time" Grid.Column="0" Grid.Row="0" Name="lblEveningModeStartTime" />
+                        <Label Content="##:##" Grid.Column="1" Grid.Row="0" Name="eveningModeStartTime" FontSize="14" />
+
+                        <Label Content="##:##" Grid.Column="1" Grid.Row="1" Name="eveningModeEndTime" FontSize="14" />
+
+                        <Label Content="Evening Mode End Time" Grid.Column="0" Grid.Row="1" Name="lblEveningModeEndTime" />
+                        
+                        <avalon:RangeSlider Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" x:Name="eveningRangeSlider"  RangeStart="0" RangeStop="100"
+                    RangeSelectionChanged="eveningRangeSlider_RangeSelectionChanged" Height="20"  />
+                        <Label Content="Evening Mode Entry EES" Grid.Column="0" Grid.Row="3" Name="lblEveningModeEntryEES" Margin="0,12,0,13"/>
+                        <ComboBox Grid.Column="1" Grid.Row="3" Height="22" HorizontalAlignment="Left" Margin="0,16,0,17" Name="cmbEntryEES1" ItemsSource="{Binding}" VerticalAlignment="Center" Width="91" FontFamily="Verdana" TabIndex="14"/>
+                        <ComboBox FontFamily="Verdana" Height="22" HorizontalAlignment="Right" Margin="0,16,6,17" Name="cmbEntryEES2" VerticalAlignment="Center" ItemsSource="{Binding}" Width="91" Grid.Column="1" Grid.Row="3" TabIndex="15"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Config"   Name="tbiConfig"  Visibility="Visible"   Style="{StaticResource DefaultTabColor}" >
+                    <Grid ClipToBounds="True" HorizontalAlignment="Stretch"  Name="grid2" ShowGridLines="False" VerticalAlignment="Stretch" Panel.ZIndex="75">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="146*" />
+                            <ColumnDefinition Width="198*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <CheckBox Content="Today Is Holiday" Grid.Row="2" Name="checkBox8" Style="{StaticResource LevelCheckboxStyle}" TabIndex="17" Margin="6,5,0,2" Visibility="Hidden" />
+                        <Label Content="Weekend 1" Grid.Row="3" Name="lblWeekendOne" Margin="0,0,5,0" Visibility="Hidden" />
+                        <Label Content="Weekend 2" Grid.Row="3" Name="lblWeekendTwo" Margin="0,22,0,0" Grid.RowSpan="2" Visibility="Hidden" />
+                        <CheckBox Content="L2 Automatic Scheduling Enabled" Name="chkbUseL2Scheduling" Style="{StaticResource LevelCheckboxStyle}" 
+                                  TabIndex="10" Grid.ColumnSpan="2" Margin="6,4,0,0" />
+                        <Grid.Background>
+                            <SolidColorBrush />
+                        </Grid.Background>
+                    </Grid>
+
+                </TabItem>
+            </TabControl>
+            <Button Content="Save" Height="31" HorizontalAlignment="Right" Margin="0,0,10,10" x:Name="btnSave" VerticalAlignment="Bottom" Width="90" FontFamily="Verdana" BorderThickness="2" TabIndex="20" Click="btnSave_Click" RenderTransformOrigin="0.036,-0.706">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFDFE8F8" Offset="0.053" />
+                        <GradientStop Color="#FF94ABCB" Offset="0.901" />
+                        <GradientStop Color="#FFF5F7F8" Offset="0.181" />
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0" />
+                        <GradientStop Color="#FFF5C24F" Offset="0.579" />
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+
+        </Grid>
+
+        <Viewbox Name="viewbox1" Height="29" Margin="13,3,145,258" Grid.Row="1" Visibility="Hidden">
+            <Label Content="Level" Name="label2" FontSize="18" Width="62" Visibility="Hidden">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="WhiteSmoke" Offset="0.805" />
+                        <GradientStop Color="#FF0058FF" Offset="1" />
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+        </Viewbox>
+
+    </Grid>
+</UserControl>

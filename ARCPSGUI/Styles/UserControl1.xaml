@@ -1,0 +1,206 @@
+﻿<UserControl x:Class="ARCPSGUI.Styles.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="113" d:DesignWidth="277" Background="#FFD8D8D8">
+    <Control.Resources>
+
+    </Control.Resources>
+    <Border BorderThickness="2" CornerRadius="2" Background="#FF805353">
+        <Border.Effect>
+            <DropShadowEffect Color="Black"
+                              Direction="270"
+                              BlurRadius="10"
+                              ShadowDepth="3" />
+        </Border.Effect>
+        <Viewbox Stretch="Fill" Height="109" Width="272">
+        <Canvas Height="191" Name="canvas1" Width="418" Style="{StaticResource ControlBackGround}">
+            
+            <Viewbox Height="35" Name="viewbox6" Width="35" Stretch="Fill" Canvas.Left="0" Canvas.Top="2">
+                <Label Content="" Height="Auto" Name="lblAuto" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                       FontFamily="Verdana" FontSize="30" FontWeight="Bold" Tag="Auto_Mode" Style="{StaticResource EnableAutoModeIndicationStyle}">
+
+                </Label>
+            </Viewbox>
+            <Viewbox Stretch="Fill" Height="29" Width="309" Canvas.Left="59" Canvas.Top="122">
+                <Canvas Canvas.Left="20" Canvas.Top="132" Height="35" Name="canvas4" Width="104" Style="{StaticResource MachineBaseStyle}"></Canvas>
+            </Viewbox>
+            <Viewbox Stretch="Fill" Height="29" Width="280" Canvas.Left="69" Canvas.Top="82">
+                <Canvas Canvas.Left="20" Canvas.Top="132" Height="35" Name="canvas14" Width="104" Style="{StaticResource MachineBaseStyle}"></Canvas>
+            </Viewbox>
+            <Border BorderBrush="Silver" BorderThickness="1" Canvas.Left="62" Canvas.Top="66" Height="16" Name="border1" Width="296">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0" />
+                        <GradientStop Color="#FFAAAABA" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Viewbox Canvas.Left="130" Canvas.Top="66" Height="66" Name="vbTrigger" Width="148" Stretch="Fill" Tag="L2_Error_Data_Register" Panel.ZIndex="85">
+                <Button Name="btnTrigger" Content="Trigger" Width="148" Height="64" Style="{StaticResource TriggerButtonStyle}" />
+            </Viewbox>
+            <Viewbox Stretch="Fill" Width="34" Canvas.Left="2" Canvas.Top="47" Height="35">
+                <Label Height="35" Content="50" Name="lblCAisle" Tag="Aisle_Data_From_Barcode_in_Dec" Style="{StaticResource AisleValueStyle}" FontSize="22" FontWeight="Bold" FontFamily="Verdana">
+                    <Label.Background>
+                        <SolidColorBrush />
+                    </Label.Background>
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF303F58" Offset="0" />
+                            <GradientStop Color="#FF03031D" Offset="1" />
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+            </Viewbox>
+            <Viewbox Stretch="Fill" Width="34" Canvas.Left="381" Canvas.Top="47" Height="35">
+                    <Label Height="35" Content="50" Name="lblDAisle" FontFamily="Verdana" Tag="Aisle_Data_From_Barcode_in_Dec" Width="Auto" Style="{StaticResource AisleValueStyle}" Foreground="#FFDE7E42" BorderBrush="#FFDB3333">
+                    <Label.Background>
+                        <SolidColorBrush />
+                    </Label.Background>
+                </Label>
+            </Viewbox>
+            <Viewbox></Viewbox>
+            <Grid Canvas.Left="59" Canvas.Top="151" Height="40" Name="grid1" Width="300" Panel.ZIndex="120">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="55*" />
+                    <ColumnDefinition Width="15*" />
+                    <ColumnDefinition Width="55*" />
+                    <ColumnDefinition Width="15*" />
+                    <ColumnDefinition Width="55*" />
+                    <ColumnDefinition Width="15*" />
+                    <ColumnDefinition Width="55*" />
+                    <ColumnDefinition Width="15*" />
+                    <ColumnDefinition Width="55*" />
+                </Grid.ColumnDefinitions>
+                <Viewbox Name="vbESSGet" Grid.Column="0" Grid.Row="0" Stretch="Fill" Height="Auto" Width="Auto">
+                    <Label Name="imgGetEES" Template="{DynamicResource CommandFalseStyle}" Content="GE" Style="{DynamicResource ForeColorForFalseCommand}" Opacity="100" Height="Auto" Width="Auto" Tag="L2_Move_Cmd" />
+                </Viewbox>
+                <Viewbox Name="vbPutEES" Grid.Column="2" Grid.Row="0" Stretch="Fill" Height="Auto" Width="Auto">
+                    <Label Name="imgEESPut" Template="{DynamicResource CommandFalseStyle}" Content="PE" Opacity="100" Height="Auto" Width="Auto" Tag="L2_Get_Cmd" Style="{DynamicResource ForeColorForFalseCommand}" />
+                </Viewbox>
+                <Viewbox Name="vbDone" Grid.Column="4" Grid.Row="0" Stretch="Fill" Height="Auto" Width="Auto">
+                    <Label Name="imgDone" Template="{DynamicResource CommandFalseStyle}" Content="D" Style="{DynamicResource ForeColorForFalseCommand}" Opacity="100" Height="Auto" Width="Auto" Tag="L2_CMD_DONE" />
+                </Viewbox>
+                <Viewbox Name="vbGetPST" Grid.Column="6" Stretch="Fill" Height="Auto" Width="Auto">
+                    <Label Name="imgGetPST" Template="{DynamicResource CommandFalseStyle}" Content="GP" Style="{DynamicResource ForeColorForFalseCommand}" Opacity="100" Height="Auto" Width="Auto" Tag="L2_CMD_DONE"></Label>
+                </Viewbox>
+                <Viewbox Name="vbPutPST" Grid.Column="8" Stretch="Fill" Height="Auto" Width="Auto">
+                    <Label Name="imgPutPST" Template="{DynamicResource CommandFalseStyle}" Content="PP" Style="{DynamicResource ForeColorForFalseCommand}" Opacity="100" Height="Auto" Width="Auto" Tag="L2_CMD_DONE"></Label>
+                </Viewbox>
+                <Grid.Background>
+                    <SolidColorBrush />
+                </Grid.Background>
+            </Grid>
+            <Border BorderBrush="Silver" BorderThickness="1" Canvas.Left="72" Canvas.Top="110" Height="12" Name="border2" Width="20">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF090C3B" Offset="0" />
+                        <GradientStop Color="#FF343DAA" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Border BorderBrush="Silver" BorderThickness="1" Height="12" Name="border3" Width="20" Canvas.Left="324" Canvas.Top="110">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF10147C" Offset="0" />
+                        <GradientStop Color="#FFB2B2C1" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Border BorderBrush="Silver" BorderThickness="1" Canvas.Left="104" Canvas.Top="110" Height="12" Name="border4" Width="20">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF090C3B" Offset="0" />
+                        <GradientStop Color="#FF343DAA" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Border BorderBrush="Silver" BorderThickness="1" Canvas.Left="91" Canvas.Top="114" Height="8" Name="border5" Width="15">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0" />
+                        <GradientStop Color="White" Offset="0.973" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Border BorderBrush="Silver" BorderThickness="1" Canvas.Left="292" Canvas.Top="111" Height="12" Name="border6" Width="20">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF090C3B" Offset="0" />
+                        <GradientStop Color="#FF343DAA" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Border BorderBrush="Silver" BorderThickness="1" Canvas.Left="311" Canvas.Top="114" Height="8" Name="border7" Width="15">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0" />
+                        <GradientStop Color="White" Offset="0.973" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Viewbox Height="36" Name="vbValMinWindow" Width="37" Stretch="Fill" Canvas.Left="1" Canvas.Top="155">
+                <Label Content="85" Height="Auto" Name="lblValMinWindow" Foreground="#FF00425F" FontFamily="Verdana" FontSize="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Normal">
+                    <Label.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="GhostWhite" Offset="0" />
+                            <GradientStop Color="#FFD8D8FC" Offset="1" />
+                        </LinearGradientBrush>
+                    </Label.Background>
+                </Label>
+            </Viewbox>
+            <Viewbox Height="36" Name="vbvalMaxWindow" Width="37" Stretch="Fill" Canvas.Left="380" Canvas.Top="155">
+                <Label Content="85" Height="Auto" Name="lblValMaxWindow" Foreground="#FF00425F" FontFamily="Verdana" FontSize="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Normal">
+                    <Label.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="GhostWhite" Offset="0" />
+                            <GradientStop Color="#FFD8D8FC" Offset="1" />
+                        </LinearGradientBrush>
+                    </Label.Background>
+                </Label>
+            </Viewbox>
+            <ed:BlockArrow HorizontalAlignment="Left" Margin="1,181,0,0" Orientation="Left" Stroke="Black" Width="20" Height="15" VerticalAlignment="Top" Canvas.Top="-40" Canvas.Left="6">
+                <ed:BlockArrow.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFFAE4B" Offset="0.341"/>
+                        <GradientStop Color="#FF1915BE" Offset="1"/>
+                    </LinearGradientBrush>
+                </ed:BlockArrow.Fill>
+            </ed:BlockArrow>
+            <ed:BlockArrow Height="15"  Orientation="Right" Stroke="Black" Canvas.Left="387" Canvas.Top="138" Width="20">
+                <ed:BlockArrow.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFFAE4B" Offset="0.341"/>
+                        <GradientStop Color="#FF1915BE" Offset="1"/>
+                    </LinearGradientBrush>
+                </ed:BlockArrow.Fill>
+            </ed:BlockArrow>
+            <Viewbox Height="43" Name="viewbox4" Width="83" Stretch="Fill" Canvas.Left="336" Canvas.Top="0">
+                <Label Content="LCM 1" Name="lblCaption" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Verdana" Width="46" OpacityMask="#FF901212" Foreground="#FFFFF24B" FontSize="11" FontWeight="Normal">
+                    <Label.Background>
+                        <SolidColorBrush />
+                    </Label.Background>
+                </Label>
+            </Viewbox>
+            <Canvas.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFE9F0F5" Offset="0" />
+                    <GradientStop Color="#FFD4D4D4" Offset="1" />
+                    <GradientStop Color="#FFCDD2DB" Offset="0.386" />
+                    <GradientStop Color="#FFE2E2E2" Offset="0.585" />
+                    <GradientStop Color="#FFB5BEC4" Offset="0.011" />
+                </LinearGradientBrush>
+            </Canvas.Background>
+        </Canvas>
+    </Viewbox>
+        <Border.BorderBrush>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFA3D2FF" Offset="0" />
+                <GradientStop Color="#FFB3C0C7" Offset="1" />
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+    </Border>
+  </UserControl>

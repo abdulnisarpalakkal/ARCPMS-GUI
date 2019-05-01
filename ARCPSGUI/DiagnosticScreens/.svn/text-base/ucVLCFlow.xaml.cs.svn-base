@@ -1,0 +1,375 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using OPC;
+using ARCPSGUI.OPC;
+
+namespace ARCPSGUI.DiagnosticScreens
+{
+    /// <summary>
+    /// Interaction logic for ucVLCFlow.xaml
+    /// </summary>
+    public partial class ucVLCFlow : UserControl
+    {
+        #region Member Variables
+        public string channel;
+        public string machineName;
+        string executedCommand;
+        string caption;
+        int DAUpdateRate = 500;
+        OPCDA.NET.RefreshGroup uGrp;
+        public bool taskCompleted = false;
+
+        string at_Floor = "At_Floor";
+        string destFloor = "DestFloor";
+
+        string cp_Start = "CP_Start";
+        string cp_Done = "CP_Done";
+        string errorDataRegisterCommand = "L2_ErrCode";
+        string machineMode = "Auto_Mode";
+        string palletPresent = "VLC.Drive4.Dek_Drive.South_Pallet_Present_Prox"; //TODO:
+
+        #endregion
+
+        public ucVLCFlow()
+        {
+            InitializeComponent();
+            InitialRead();
+            NotifyChangedValueFromOPCServer();
+
+        }
+
+        void NotifyChangedValueFromOPCServer()
+        {
+            // add a periodic data callback group and add one item to the group
+            OPCDA.NET.RefreshEventHandler dch = new OPCDA.NET.RefreshEventHandler(CompleteHandler);
+            uGrp = new OPCDA.NET.RefreshGroup(ARCPSGUI.OPC.OPCServerManagement.opcServer, DAUpdateRate, dch);
+            int rtc = ARCPSGUI.OPC.OPCServerManagement.rtc;
+
+            rtc = uGrp.Add("CH001" + "." + "VLC_Drive_01" + "." + this.machineMode);
+            rtc = uGrp.Add("CH002" + "." + "VLC_Drive_02" + "." + this.machineMode);
+            rtc = uGrp.Add("CH003" + "." + "VLC_Drive_03" + "." + this.machineMode);
+            rtc = uGrp.Add("CH004" + "." + "VLC_Drive_04" + "." + this.machineMode);
+            rtc = uGrp.Add("CH005" + "." + "VLC_Drive_05" + "." + this.machineMode);
+            rtc = uGrp.Add("CH006" + "." + "VLC_Drive_06" + "." + this.machineMode);
+
+            rtc = uGrp.Add("CH001" + "." + "VLC_Drive_01" + "." + this.cp_Done);
+            rtc = uGrp.Add("CH002" + "." + "VLC_Drive_02" + "." + this.cp_Done);
+            rtc = uGrp.Add("CH003" + "." + "VLC_Drive_03" + "." + this.cp_Done);
+            rtc = uGrp.Add("CH004" + "." + "VLC_Drive_04" + "." + this.cp_Done);
+            rtc = uGrp.Add("CH005" + "." + "VLC_Drive_05" + "." + this.cp_Done);
+            rtc = uGrp.Add("CH006" + "." + "VLC_Drive_06" + "." + this.cp_Done);
+
+
+            rtc = uGrp.Add("CH001" + "." + "VLC_Drive_01" + "." + this.cp_Start);
+            rtc = uGrp.Add("CH002" + "." + "VLC_Drive_02" + "." + this.cp_Start);
+            rtc = uGrp.Add("CH003" + "." + "VLC_Drive_03" + "." + this.cp_Start);
+            rtc = uGrp.Add("CH004" + "." + "VLC_Drive_04" + "." + this.cp_Start);
+            rtc = uGrp.Add("CH005" + "." + "VLC_Drive_05" + "." + this.cp_Start);
+            rtc = uGrp.Add("CH006" + "." + "VLC_Drive_06" + "." + this.cp_Start);
+
+
+            rtc = uGrp.Add("CH001" + "." + "VLC_Drive_01" + "." + this.destFloor);
+            rtc = uGrp.Add("CH002" + "." + "VLC_Drive_02" + "." + this.destFloor);
+            rtc = uGrp.Add("CH003" + "." + "VLC_Drive_03" + "." + this.destFloor);
+            rtc = uGrp.Add("CH004" + "." + "VLC_Drive_04" + "." + this.destFloor);
+            rtc = uGrp.Add("CH005" + "." + "VLC_Drive_05" + "." + this.destFloor);
+            rtc = uGrp.Add("CH006" + "." + "VLC_Drive_06" + "." + this.destFloor);
+
+
+            rtc = uGrp.Add("CH001" + "." + "VLC_Drive_01" + "." + this.at_Floor);
+            rtc = uGrp.Add("CH002" + "." + "VLC_Drive_02" + "." + this.at_Floor);
+            rtc = uGrp.Add("CH003" + "." + "VLC_Drive_03" + "." + this.at_Floor);
+            rtc = uGrp.Add("CH004" + "." + "VLC_Drive_04" + "." + this.at_Floor);
+            rtc = uGrp.Add("CH005" + "." + "VLC_Drive_05" + "." + this.at_Floor);
+            rtc = uGrp.Add("CH006" + "." + "VLC_Drive_06" + "." + this.at_Floor);
+
+            rtc = uGrp.Add("CH001" + "." + "VLC_Drive_01" + "." + "VLC.Drive1.Dek_Drive.South_Pallet_Present_Prox");
+            rtc = uGrp.Add("CH002" + "." + "VLC_Drive_02" + "." + "VLC.Drive2.Dek_Drive.South_Pallet_Present_Prox");
+            rtc = uGrp.Add("CH003" + "." + "VLC_Drive_03" + "." + "VLC.Drive3.Dek_Drive.South_Pallet_Present_Prox");
+            rtc = uGrp.Add("CH004" + "." + "VLC_Drive_04" + "." + "VLC.Drive4.Dek_Drive.South_Pallet_Present_Prox");
+            rtc = uGrp.Add("CH005" + "." + "VLC_Drive_05" + "." + "VLC.Drive5.Dek_Drive.South_Pallet_Present_Prox");
+            rtc = uGrp.Add("CH006" + "." + "VLC_Drive_06" + "." + "VLC.Drive6.Dek_Drive.South_Pallet_Present_Prox");
+
+        }
+
+        private void CompleteHandler(object sender, OPCDA.NET.RefreshEventArguments arg)
+        {
+            if (this.Dispatcher.CheckAccess())
+            {
+                this.Dispatcher.BeginInvoke(new OPCDA.NET.RefreshEventHandler(CompleteHandler), new object[] { sender, arg });
+                return;
+            }
+
+            OPCDA.NET.OPCItemState res = arg.items[0].OpcIRslt;
+            if (arg.Reason == OPCDA.NET.RefreshEventReason.DataChanged)
+            {            // data changes
+                if (HRESULTS.Succeeded(res.Error))
+                {
+
+                    OPCDA.NET.ItemDef opcItemDef = (OPCDA.NET.ItemDef)arg.items.GetValue(0);
+                    
+                    string tagName = this.channel + "." + this.machineName + ".";
+
+                    if(opcItemDef.OpcIDef.ItemID.Contains(this.at_Floor))
+                      ReadCurrentFloor(opcItemDef.OpcIDef.ItemID, Convert.ToInt16(res.DataValue));
+                    if (opcItemDef.OpcIDef.ItemID.Contains("South_Pallet_Present_Prox"))
+                        ReadCurrentFloor(opcItemDef.OpcIDef.ItemID, Convert.ToInt16(res.DataValue));
+
+                    Message(opcItemDef.OpcIDef.ItemID, res.DataValue);
+                   
+                }
+            }
+        }
+
+        void InitialRead()
+        {
+            OPCServerDirector opcd = new OPCServerDirector();
+
+          
+        
+
+
+            ReadCurrentFloor("VLC_Drive_01", opcd.ReadTag<Int16>("CH001" + "." + "VLC_Drive_01" + "." + this.at_Floor));
+            ReadCurrentFloor("VLC_Drive_02", opcd.ReadTag<Int16>("CH002" + "." + "VLC_Drive_02" + "." + this.at_Floor));
+            ReadCurrentFloor("VLC_Drive_03", opcd.ReadTag<Int16>("CH003" + "." + "VLC_Drive_03" + "." + this.at_Floor));
+            ReadCurrentFloor("VLC_Drive_04", opcd.ReadTag<Int16>("CH004" + "." + "VLC_Drive_04" + "." + this.at_Floor));
+            ReadCurrentFloor("VLC_Drive_05", opcd.ReadTag<Int16>("CH005" + "." + "VLC_Drive_05" + "." + this.at_Floor));
+             ReadCurrentFloor("VLC_Drive_06", opcd.ReadTag<Int16>("CH006" + "." + "VLC_Drive_06" + "." + this.at_Floor));
+
+             ReadPalletPresent("VLC_Drive_01", opcd.ReadTag<bool>("CH001" + "." + "VLC_Drive_01" + "." + "VLC.Drive1.Dek_Drive.South_Pallet_Present_Prox"));
+             ReadPalletPresent("VLC_Drive_02", opcd.ReadTag<bool>    ("CH002" + "." + "VLC_Drive_02" + "." + "VLC.Drive2.Dek_Drive.South_Pallet_Present_Prox"));
+             ReadPalletPresent("VLC_Drive_03", opcd.ReadTag<bool> ("CH003" + "." + "VLC_Drive_03" + "." + "VLC.Drive3.Dek_Drive.South_Pallet_Present_Prox"));
+             ReadPalletPresent("VLC_Drive_04", opcd.ReadTag<bool> ("CH004" + "." + "VLC_Drive_04" + "." + "VLC.Drive4.Dek_Drive.South_Pallet_Present_Prox"));
+             ReadPalletPresent("VLC_Drive_05", opcd.ReadTag<bool> ("CH005" + "." + "VLC_Drive_05" + "." + "VLC.Drive5.Dek_Drive.South_Pallet_Present_Prox"));
+              ReadPalletPresent("VLC_Drive_06", opcd.ReadTag<bool>("CH006" + "." + "VLC_Drive_06" + "." + "VLC.Drive6.Dek_Drive.South_Pallet_Present_Prox"));
+
+              Message("CH001" + "." + "VLC_Drive_01" + "." + this.machineMode, opcd.ReadTag<bool>("CH001" + "." + "VLC_Drive_01" + "." + this.machineMode));
+              Message("CH002" + "." + "VLC_Drive_02" + "." + this.machineMode, opcd.ReadTag<bool>("CH002" + "." + "VLC_Drive_02" + "." + this.machineMode));
+              Message("CH003" + "." + "VLC_Drive_03" + "." + this.machineMode, opcd.ReadTag<bool>("CH003" + "." + "VLC_Drive_03" + "." + this.machineMode));
+              Message("CH004" + "." + "VLC_Drive_04" + "." + this.machineMode, opcd.ReadTag<bool>("CH004" + "." + "VLC_Drive_04" + "." + this.machineMode));
+              Message("CH005" + "." + "VLC_Drive_05" + "." + this.machineMode, opcd.ReadTag<bool>("CH005" + "." + "VLC_Drive_05" + "." + this.machineMode));
+              Message("CH006" + "." + "VLC_Drive_06" + "." + this.machineMode, opcd.ReadTag<bool>("CH006" + "." + "VLC_Drive_06" + "." + this.machineMode));
+
+              Message("CH001" + "." + "VLC_Drive_01" + "." + this.cp_Start, opcd.ReadTag<bool>("CH001" + "." + "VLC_Drive_01" + "." + this.cp_Start));
+              Message("CH002" + "." + "VLC_Drive_02" + "." + this.cp_Start, opcd.ReadTag<bool>("CH002" + "." + "VLC_Drive_02" + "." + this.cp_Start));
+              Message("CH003" + "." + "VLC_Drive_03" + "." + this.cp_Start, opcd.ReadTag<bool>("CH003" + "." + "VLC_Drive_03" + "." + this.cp_Start));
+              Message("CH004" + "." + "VLC_Drive_04" + "." + this.cp_Start, opcd.ReadTag<bool>("CH004" + "." + "VLC_Drive_04" + "." + this.cp_Start));
+              Message("CH005" + "." + "VLC_Drive_05" + "." + this.cp_Start, opcd.ReadTag<bool>("CH005" + "." + "VLC_Drive_05" + "." + this.cp_Start));
+              Message("CH006" + "." + "VLC_Drive_06" + "." + this.cp_Start, opcd.ReadTag<bool>("CH006" + "." + "VLC_Drive_06" + "." + this.cp_Start));
+
+
+              Message("CH001" + "." + "VLC_Drive_01" + "." + this.cp_Done, opcd.ReadTag<bool>("CH001" + "." + "VLC_Drive_01" + "." + this.cp_Done));
+              Message("CH002" + "." + "VLC_Drive_02" + "." + this.cp_Done, opcd.ReadTag<bool>("CH002" + "." + "VLC_Drive_02" + "." + this.cp_Done));
+              Message("CH003" + "." + "VLC_Drive_03" + "." + this.cp_Done, opcd.ReadTag<bool>("CH003" + "." + "VLC_Drive_03" + "." + this.cp_Done));
+              Message("CH004" + "." + "VLC_Drive_04" + "." + this.cp_Done, opcd.ReadTag<bool>("CH004" + "." + "VLC_Drive_04" + "." + this.cp_Done));
+              Message("CH005" + "." + "VLC_Drive_05" + "." + this.cp_Done, opcd.ReadTag<bool>("CH005" + "." + "VLC_Drive_05" + "." + this.cp_Done));
+              Message("CH006" + "." + "VLC_Drive_06" + "." + this.cp_Done, opcd.ReadTag<bool>("CH006" + "." + "VLC_Drive_06" + "." + this.cp_Done));
+
+        }
+
+        void ReadCurrentFloor(string machineName, Int16 value)
+        {
+            int floor = 0;
+
+            if (value == 0) return;
+
+            if (value == 9) floor = 2;
+            if (value == 8) floor = 4;
+            if (value == 7) floor = 6;
+
+            if (value == 6) floor = 8;
+            if (value == 5) floor = 10;
+            if (value == 4) floor = 12;
+
+            if (value == 3) floor = 14;
+            if (value == 2) floor = 16;
+            if (value == 1) floor = 18;
+
+
+            if (machineName.Contains("VLC_Drive_01"))
+            {
+                cvVLC1.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(
+                        delegate()
+                        {
+                            Grid.SetRow(cvVLC1, floor);
+                        } ));
+                //( Grid.SetRow(cvVLC1, value));
+            }
+
+            if (machineName.Contains("VLC_Drive_02"))
+            {
+                cvVLC2.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(
+                       delegate()
+                       {
+                           Grid.SetRow(cvVLC2, floor);
+                       }));
+            }
+            if (machineName.Contains("VLC_Drive_03"))
+            {
+                cvVLC3.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(
+                        delegate()
+                        {
+                            Grid.SetRow(cvVLC3, floor);
+                        }));
+            }
+
+            if (machineName.Contains("VLC_Drive_04"))
+            {
+                cvVLC4.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(
+                        delegate()
+                        {
+                            Grid.SetRow(cvVLC4, floor);
+                        }));
+            }
+            if (machineName.Contains("VLC_Drive_05"))
+            {
+                cvVLC5.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(
+                       delegate()
+                       {
+                           Grid.SetRow(cvVLC5, floor);
+                       }));
+            }
+            if (machineName.Contains("VLC_Drive_06"))
+            {
+                cvVLC6.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(
+                       delegate()
+                       {
+                           Grid.SetRow(cvVLC6, floor);
+                       }));
+            }
+
+        }
+
+        void ReadPalletPresent(string machineName, bool value)
+        {
+            if (machineName.Contains("VLC_Drive_01"))
+            {
+                vlc1pallet.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(
+                        delegate()
+                        {
+                            vlc1pallet.Visibility = value == true ? System.Windows.Visibility.Hidden : System.Windows.Visibility.Hidden;
+                        }));
+            }
+
+            if (machineName.Contains("VLC_Drive_02"))
+            {
+                vlc2pallet.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(
+                       delegate()
+                       {
+                           vlc2pallet.Visibility = value == true ? System.Windows.Visibility.Hidden : System.Windows.Visibility.Hidden;
+                       }));
+            }
+            if (machineName.Contains("VLC_Drive_03"))
+            {
+                vlc3pallet.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(
+                        delegate()
+                        {
+                            vlc3pallet.Visibility = value == true ? System.Windows.Visibility.Hidden : System.Windows.Visibility.Hidden;
+                        }));
+            }
+
+            if (machineName.Contains("VLC_Drive_04"))
+            {
+                vlc4pallet.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(
+                        delegate()
+                        {
+                            vlc4pallet.Visibility = value == true ? System.Windows.Visibility.Hidden : System.Windows.Visibility.Hidden;
+                        }));
+            }
+            if (machineName.Contains("VLC_Drive_05"))
+            {
+                vlc5pallet.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(
+                       delegate()
+                       {
+                           vlc5pallet.Visibility = value == true ? System.Windows.Visibility.Hidden : System.Windows.Visibility.Hidden;
+                       }));
+            }
+            if (machineName.Contains("VLC_Drive_06"))
+            {
+                vlc6pallet.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(
+                       delegate()
+                       {
+                           vlc6pallet.Visibility = value == true ? System.Windows.Visibility.Hidden : System.Windows.Visibility.Hidden;
+                       }));
+            }
+        }
+
+        public void UnRegisterNotification()
+        {
+            if (uGrp != null) uGrp.Dispose();
+        }
+
+        void Message(string itemId, object value)
+        {
+            if (itemId.Contains("VLC_Drive_01"))
+            { 
+              lblVlc1Cmd.Dispatcher.BeginInvoke(new Action(() =>
+                   lblVlc1Cmd.Text = ActiveCommand(itemId, value)
+                  ));
+            }
+            if (itemId.Contains("VLC_Drive_02"))
+            {
+                lblVlc1Cmd.Dispatcher.BeginInvoke(new Action(() =>
+                     lblVlc2Cmd.Text = ActiveCommand(itemId, value)
+                    ));
+            }
+            if (itemId.Contains("VLC_Drive_03"))
+            {
+                lblVlc1Cmd.Dispatcher.BeginInvoke(new Action(() =>
+                     lblVlc3Cmd.Text = ActiveCommand(itemId, value)
+                    ));
+            }
+            if (itemId.Contains("VLC_Drive_04"))
+            {
+                lblVlc1Cmd.Dispatcher.BeginInvoke(new Action(() =>
+                     lblVlc4Cmd.Text = ActiveCommand(itemId, value)
+                    ));
+            }
+            if (itemId.Contains("VLC_Drive_05"))
+            {
+                lblVlc1Cmd.Dispatcher.BeginInvoke(new Action(() =>
+                     lblVlc5Cmd.Text = ActiveCommand(itemId, value)
+                    ));
+            }
+            if (itemId.Contains("VLC_Drive_06"))
+            {
+                lblVlc1Cmd.Dispatcher.BeginInvoke(new Action(() =>
+                     lblVlc6Cmd.Text = ActiveCommand(itemId, value)
+                    ));
+            }
+
+
+
+        }
+
+        string ActiveCommand(string itemId, object value)
+        {
+            string command = "";
+            
+             if (itemId.Contains("CP_Start") && Convert.ToBoolean(value) == true)
+            {
+                command = "Start";
+            }
+            else if (itemId.Contains("CP_Done") && Convert.ToBoolean(value) == true)
+            {
+                command = "Done";
+            }
+            else if (itemId.Contains("Auto_Mode") && Convert.ToBoolean(value) == false)
+             {
+                 command = "Manual Mode";
+             }
+            return command;
+        }
+    }
+}

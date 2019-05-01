@@ -1,0 +1,1079 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C12B9D38-76F9-4B54-B4D5-20B415D8C027}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ARCPSGUI</RootNamespace>
+    <AssemblyName>ARCPSGUI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\ARCPSGUI.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>yellow pickup.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AvalonControlsLibrary, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\AvalonControlsLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Button">
+      <HintPath>..\..\..\..\5 SEP\4 sep\KioskSimulation\Button\bin\Debug\Button.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="ExcelLibrary">
+      <HintPath>..\ExcelLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Expression.Controls, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="OpcDaNetWPF">
+      <HintPath>C:\Program Files (x86)\Advosol\OPCDA.NET Client Component Professional\OpcDaNetWPF.dll</HintPath>
+    </Reference>
+    <Reference Include="OpcNetBase">
+      <HintPath>C:\Program Files (x86)\Advosol\OPCDA.NET Client Component Professional\OpcNetBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=4.112.1.2, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\app\Administrator\product\11.2.0\client_1\odp.net\bin\2.x\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="PresentationFramework.Luna" />
+    <Reference Include="PresentationFramework.Royale" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\WPF Toolkit\v3.5.40619.1\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="TransLogic">
+      <HintPath>..\..\SafetyLogic\TransLogic\bin\Release\TransLogic.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\WPF Toolkit\v3.5.50211.1\WPFToolkit.dll</HintPath>
+      <Aliases>global</Aliases>
+    </Reference>
+    <Reference Include="WPFToolkit.Extended">
+      <HintPath>C:\Users\Sibby\Desktop\peethu\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CacheUI.cs" />
+    <Compile Include="chart\ucTransactionDurationChart.xaml.cs">
+      <DependentUpon>ucTransactionDurationChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="chart\ucPeakHourChart.xaml.cs">
+      <DependentUpon>ucPeakHourChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigurationUI\CMWindowLimitConfig.xaml.cs">
+      <DependentUpon>CMWindowLimitConfig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigurationUI\GeneralConfig.cs" />
+    <Compile Include="ConfigurationUI\ucMachineMaintenanceExcelMaping.xaml.cs">
+      <DependentUpon>ucMachineMaintenanceExcelMaping.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigurationUI\winSlotSelectionConfig.xaml.cs">
+      <DependentUpon>winSlotSelectionConfig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigurationUI\uiSetPointsV2.xaml.cs">
+      <DependentUpon>uiSetPointsV2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DB\CustomerDba.cs" />
+    <Compile Include="DB\ErrorDba.cs" />
+    <Compile Include="Model\CMData.cs" />
+    <Compile Include="Model\NotificationData.cs" />
+    <Compile Include="Model\PSData.cs" />
+    <Compile Include="Model\PSTData.cs" />
+    <Compile Include="Model\PVLData.cs" />
+    <Compile Include="Model\VLCData.cs" />
+    <Compile Include="OPC\BGOPCServerManagement.cs" />
+    <Compile Include="OPC\OpcThread.cs" />
+    <Compile Include="Popup\CMModePop.xaml.cs">
+      <DependentUpon>CMModePop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\frmDiagnosticTrigger.xaml.cs">
+      <DependentUpon>frmDiagnosticTrigger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DelayedHist.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DelayedHist.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptCurrentParks.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCurrentParks.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptHistory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptHistory.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StaticGlobalClass\CommonMethods.cs" />
+    <Compile Include="TransactionUI\ucParkHistory.xaml.cs">
+      <DependentUpon>ucParkHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\ucNotifications.xaml.cs">
+      <DependentUpon>ucNotifications.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\uiERPTasksLight.xaml.cs">
+      <DependentUpon>uiERPTasksLight.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CMModeControl.xaml.cs">
+      <DependentUpon>CMModeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TimeControl.xaml.cs">
+      <DependentUpon>TimeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ucCarDataView.xaml.cs">
+      <DependentUpon>ucCarDataView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucctrlTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucctrlTime.designer.cs">
+      <DependentUpon>ucctrlTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucFloorVLCConfig.xaml.cs">
+      <DependentUpon>ucFloorVLCConfig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucFloorVLCConfigDiagnostic.xaml.cs">
+      <DependentUpon>ucFloorVLCConfigDiagnostic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucNotificationNew.xaml.cs">
+      <DependentUpon>ucNotificationNew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucNotificationV1.xaml.cs">
+      <DependentUpon>ucNotificationV1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucRptViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucRptViewer.Designer.cs">
+      <DependentUpon>ucRptViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucWinGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucWinGrid.designer.cs">
+      <DependentUpon>ucWinGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VLCModeControl.xaml.cs">
+      <DependentUpon>VLCModeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\VLCModeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\VLCModeDialog.Designer.cs">
+      <DependentUpon>VLCModeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DB\ERPDba.cs" />
+    <Compile Include="DB\MachineJobDba.cs" />
+    <Compile Include="FloorUI\floorMachines\ucFloorCM.xaml.cs">
+      <DependentUpon>ucFloorCM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FloorUI\floorMachines\ucFloorPallet.xaml.cs">
+      <DependentUpon>ucFloorPallet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FloorUI\floorMachines\ucFloorVLC.xaml.cs">
+      <DependentUpon>ucFloorVLC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FloorUI\Service\FloorUIService.cs" />
+    <Compile Include="FloorUI\ucData\ucMachineJob.xaml.cs">
+      <DependentUpon>ucMachineJob.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FloorUI\ucFloor9.xaml.cs">
+      <DependentUpon>ucFloor9.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FloorUI\ucFloor8.xaml.cs">
+      <DependentUpon>ucFloor8.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FloorUI\ucFloor7.xaml.cs">
+      <DependentUpon>ucFloor7.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FloorUI\ucFloor6.xaml.cs">
+      <DependentUpon>ucFloor6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FloorUI\ucFloor5.xaml.cs">
+      <DependentUpon>ucFloor5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FloorUI\ucFloor2.xaml.cs">
+      <DependentUpon>ucFloor2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FloorUI\ucFloor3.xaml.cs">
+      <DependentUpon>ucFloor3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FloorUI\ucFloor4.xaml.cs">
+      <DependentUpon>ucFloor4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FloorUI\ucFloor1.xaml.cs">
+      <DependentUpon>ucFloor1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FloorUI\ucFloorParent.xaml.cs">
+      <DependentUpon>ucFloorParent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FloorUI\ucInvalidSlot.xaml.cs">
+      <DependentUpon>ucInvalidSlot.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FloorUI\ucSlot.xaml.cs">
+      <DependentUpon>ucSlot.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CarData.cs" />
+    <Compile Include="DB\CMDba.cs" />
+    <Compile Include="DB\ChartDba.cs" />
+    <Compile Include="DB\EESWaitDba.cs" />
+    <Compile Include="DB\PVLDba.cs" />
+    <Compile Include="DB\PSTDba.cs" />
+    <Compile Include="DB\PSDba.cs" />
+    <Compile Include="DB\EESDba.cs" />
+    <Compile Include="DB\GeneralDba.cs" />
+    <Compile Include="DB\SlotDba.cs" />
+    <Compile Include="DB\VLCDba.cs" />
+    <Compile Include="DiagnosticScreens\ucParkingDiagnostic_new.xaml.cs">
+      <DependentUpon>ucParkingDiagnostic_new.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigurationUI\ucPMSUnBlock.xaml.cs">
+      <DependentUpon>ucPMSUnBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmHome.xaml.cs">
+      <DependentUpon>frmHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MachineRuntimeTable\ucMachineRunTimeTable.xaml.cs">
+      <DependentUpon>ucMachineRunTimeTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MachineRuntimeTable\ucMachineRunTimeTableView.xaml.cs">
+      <DependentUpon>ucMachineRunTimeTableView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MachineUI\ucCM.xaml.cs">
+      <DependentUpon>ucCM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MachineUI\ucEES_new.xaml.cs">
+      <DependentUpon>ucEES_new.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MachineUI\ucPallet.xaml.cs">
+      <DependentUpon>ucPallet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MachineUI\ucPST_new.xaml.cs">
+      <DependentUpon>ucPST_new.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MachineUI\ucPS_new.xaml.cs">
+      <DependentUpon>ucPS_new.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MachineUI\ucPVL_new.xaml.cs">
+      <DependentUpon>ucPVL_new.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MachineUI\ucVLC_new.xaml.cs">
+      <DependentUpon>ucVLC_new.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DBLogData.cs" />
+    <Compile Include="Model\EESData.cs" />
+    <Compile Include="Model\EESWaitData.cs" />
+    <Compile Include="Model\EESZoneData.cs" />
+    <Compile Include="Model\MachineJobData.cs" />
+    <Compile Include="Model\MemberData.cs" />
+    <Compile Include="Model\QueueData.cs" />
+    <Compile Include="Model\SlotData.cs" />
+    <Compile Include="OPC\OPCServerManagement.cs" />
+    <Compile Include="OPC\OpcTags.cs" />
+    <Compile Include="OPC\OpcThread_old.cs" />
+    <Compile Include="Popup\KioskDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\KioskDataForm.Designer.cs">
+      <DependentUpon>KioskDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PhotoPop.xaml.cs">
+      <DependentUpon>PhotoPop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PMSAbortPop.xaml.cs">
+      <DependentUpon>PMSAbortPop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ReallocatePop.xaml.cs">
+      <DependentUpon>ReallocatePop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PVLPop.xaml.cs">
+      <DependentUpon>PVLPop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PSTPop.xaml.cs">
+      <DependentUpon>PSTPop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PSPop.xaml.cs">
+      <DependentUpon>PSPop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\EESPop.xaml.cs">
+      <DependentUpon>EESPop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\SlotPop.xaml.cs">
+      <DependentUpon>SlotPop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChangeTotransferPop.xaml.cs">
+      <DependentUpon>ChangeTotransferPop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\transferPop.xaml.cs">
+      <DependentUpon>transferPop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\VLCPop.xaml.cs">
+      <DependentUpon>VLCPop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CMPop.xaml.cs">
+      <DependentUpon>CMPop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessManager\SlotProcess.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Security\frmAuthenticationWindow.xaml.cs">
+      <DependentUpon>frmAuthenticationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Security\Security.cs" />
+    <Compile Include="Security\ucUser.xaml.cs">
+      <DependentUpon>ucUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StaticGlobalClass\GlobalData.cs" />
+    <Compile Include="Styles\GlassingExtension.cs" />
+    <Compile Include="Styles\UserControl1.xaml.cs">
+      <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\frmAbortDetail.xaml.cs">
+      <DependentUpon>frmAbortDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\frmErpDetail.xaml.cs">
+      <DependentUpon>frmErpDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\frmNote.xaml.cs">
+      <DependentUpon>frmNote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\frmPMSTask.xaml.cs">
+      <DependentUpon>frmPMSTask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\frmRptView.xaml.cs">
+      <DependentUpon>frmRptView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\frmShowHistoryPhoto.xaml.cs">
+      <DependentUpon>frmShowHistoryPhoto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\frmShowPhoto.xaml.cs">
+      <DependentUpon>frmShowPhoto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\ucAbortedTransactionView.xaml.cs">
+      <DependentUpon>ucAbortedTransactionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\ucAlarmView.xaml.cs">
+      <DependentUpon>ucAlarmView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\ucCMHomePositionConfig.xaml.cs">
+      <DependentUpon>ucCMHomePositionConfig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\ucDemoCM.xaml.cs">
+      <DependentUpon>ucDemoCM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\ucDemoMode.xaml.cs">
+      <DependentUpon>ucDemoMode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\ucErrorMaster.xaml.cs">
+      <DependentUpon>ucErrorMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\ucHistory.xaml.cs">
+      <DependentUpon>ucHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\ucLCMTask.xaml.cs">
+      <DependentUpon>ucLCMTask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\ucMemberData.xaml.cs">
+      <DependentUpon>ucMemberData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\ucUCMTask.xaml.cs">
+      <DependentUpon>ucUCMTask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\ucWaitHistView.xaml.cs">
+      <DependentUpon>ucWaitHistView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\ucWashingTrans.xaml.cs">
+      <DependentUpon>ucWashingTrans.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\uiCurrentTransaction.xaml.cs">
+      <DependentUpon>uiCurrentTransaction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\uiERPTasks.xaml.cs">
+      <DependentUpon>uiERPTasks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\uiVLCTask.xaml.cs">
+      <DependentUpon>uiVLCTask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionUI\winERPTasks.xaml.cs">
+      <DependentUpon>winERPTasks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="uiHome.xaml.cs">
+      <DependentUpon>uiHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucDBLogView.xaml.cs">
+      <DependentUpon>ucDBLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="utility\BlinkingControl.xaml.cs">
+      <DependentUpon>BlinkingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="utility\BlinkingEllipse.xaml.cs">
+      <DependentUpon>BlinkingEllipse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="utility\LabelTextBox.xaml.cs">
+      <DependentUpon>LabelTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="utility\MarginSetter.cs" />
+    <Compile Include="ConfigurationUI\winSetPoints.xaml.cs">
+      <DependentUpon>winSetPoints.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="utility\winRangeSlider.xaml.cs">
+      <DependentUpon>winRangeSlider.xaml</DependentUpon>
+    </Compile>
+    <Page Include="chart\ucTransactionDurationChart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="chart\ucPeakHourChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfigurationUI\CMWindowLimitConfig.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfigurationUI\ucMachineMaintenanceExcelMaping.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfigurationUI\winSlotSelectionConfig.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfigurationUI\uiSetPointsV2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CMModePop.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\frmDiagnosticTrigger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\ucParkHistory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TransactionUI\ucNotifications.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\uiERPTasksLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\CMModeControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\TimeControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ucCarDataView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ucFloorVLCConfig.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\ucFloorVLCConfigDiagnostic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\ucNotificationNew.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\ucNotificationV1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\VLCModeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DiagnosticScreens\ucParkingDiagnostic_new.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfigurationUI\ucPMSUnBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FloorUI\floorMachines\ucFloorCM.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FloorUI\floorMachines\ucFloorPallet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FloorUI\floorMachines\ucFloorVLC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FloorUI\ucData\ucMachineJob.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FloorUI\ucFloor9.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FloorUI\ucFloor8.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FloorUI\ucFloor7.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FloorUI\ucFloor6.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FloorUI\ucFloor5.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FloorUI\ucFloor2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FloorUI\ucFloor3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FloorUI\ucFloor4.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FloorUI\ucFloor1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FloorUI\ucFloorParent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FloorUI\ucInvalidSlot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FloorUI\ucSlot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MachineRuntimeTable\ucMachineRunTimeTable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MachineRuntimeTable\ucMachineRunTimeTableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MachineUI\ucCM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MachineUI\ucEES_new.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MachineUI\ucPallet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MachineUI\ucPST_new.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MachineUI\ucPS_new.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MachineUI\ucPVL_new.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MachineUI\ucVLC_new.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DB\Connection.cs" />
+    <Page Include="Popup\PhotoPop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PMSAbortPop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\ReallocatePop.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PVLPop.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PSTPop.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PSPop.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\EESPop.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\SlotPop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\ChangeTotransferPop.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\transferPop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\VLCPop.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CMPop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Security\frmAuthenticationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Security\ucUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\CommonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\FloorButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\FloorLayoutStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\GlassButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\MachineStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\UserControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\windowresources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\WindowStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\frmAbortDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TransactionUI\frmErpDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\frmNote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\frmPMSTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\frmRptView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\frmShowHistoryPhoto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\frmShowPhoto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\ucAbortedTransactionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\ucAlarmView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\ucCMHomePositionConfig.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\ucDemoCM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\ucDemoMode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\ucErrorMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\ucHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\ucLCMTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\ucMemberData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\ucUCMTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\ucWaitHistView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\ucWashingTrans.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\uiCurrentTransaction.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\uiERPTasks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\uiVLCTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionUI\winERPTasks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="uiHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ucDBLogView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="utility\BlinkingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="utility\BlinkingEllipse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="utility\LabelTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfigurationUI\winSetPoints.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="utility\winRangeSlider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Reports\DelayedHist.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DelayedHist.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptCurrentParks.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCurrentParks.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptHistory.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptHistory.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucctrlTime.resx">
+      <DependentUpon>ucctrlTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucRptViewer.resx">
+      <DependentUpon>ucRptViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucWinGrid.resx">
+      <DependentUpon>ucWinGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\VLCModeDialog.resx">
+      <DependentUpon>VLCModeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\KioskDataForm.resx">
+      <DependentUpon>KioskDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TextFile1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\wall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\wall1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\InvalidSlot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="yellow-pickup.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="yellow pickup.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Synch.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sweep.png" />
+    <Resource Include="Images\return_back.png" />
+    <Resource Include="Images\NASALogo.jpg" />
+    <Resource Include="Images\highCar.png" />
+    <Resource Include="Images\lowCar.png" />
+    <Resource Include="Images\midCar.png" />
+    <Resource Include="Images\parking_slot.png" />
+    <Resource Include="Images\restart.png" />
+    <Resource Include="Images\detach.png" />
+    <Resource Include="Images\imgMrsLogo.png" />
+    <Resource Include="Images\complete_green.png" />
+    <Resource Include="Images\delete_red.png" />
+    <Resource Include="Images\icon-pause.png" />
+    <Resource Include="Images\icon-play.png" />
+    <Content Include="Images\lock_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\unlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\skip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"$(TargetDir)$(TargetName).vshost.exe" "$(TargetName).vshost.lic"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

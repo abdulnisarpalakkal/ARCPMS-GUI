@@ -1,0 +1,86 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:floorMachines="clr-namespace:ARCPSGUI.FloorUI.floorMachines" x:Class="ARCPSGUI.FloorUI.ucSlot" 
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="40" Loaded="UserControl_Loaded" 
+             MouseRightButtonUp="UserControl_MouseRightButtonUp" PreviewMouseMove="UserControl_PreviewMouseMove" 
+             PreviewDrop="UserControl_PreviewDrop" AllowDrop="True"  >
+
+    <UserControl.Resources>
+        <Style x:Key="MyGridStyle" TargetType="{x:Type Grid}">
+            <Style.Resources>
+                <Style TargetType="{x:Type Rectangle}">
+                    <Setter Property="Fill" Value="#FF29353E" />
+                </Style>
+
+            </Style.Resources>
+        </Style>
+
+    </UserControl.Resources>
+    <UserControl.Background>
+        <ImageBrush/>
+    </UserControl.Background>
+    <Viewbox>
+        <Grid Style="{DynamicResource MyGridStyle}" Height="50" Width="40" >
+            <Image x:Name="lowCar" HorizontalAlignment="Left" Height="38" Margin="4,6,0,0" VerticalAlignment="Top" Width="32" Source="/ARCPSGUI;component/Images/lowCar.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="midCar" HorizontalAlignment="Left" Height="38" Margin="4,6,0,0" VerticalAlignment="Top" Width="32" Source="/ARCPSGUI;component/Images/midCar.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="highCar" HorizontalAlignment="Left" Height="38" Margin="4,6,0,0" VerticalAlignment="Top" Width="32" Source="/ARCPSGUI;component/Images/highCar.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Grid x:Name="slotFrameGrid" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Rectangle x:Name="blockFace"  HorizontalAlignment="Left" Height="5"  VerticalAlignment="Top" Width="40" Margin="0,45,0,0"/>
+                <Rectangle  HorizontalAlignment="Left" Height="50"  VerticalAlignment="Top" Width="5" Margin="35,0,0,0"/>
+                <Rectangle  HorizontalAlignment="Left" Height="50"  VerticalAlignment="Top" Width="5"/>
+                <Ellipse x:Name="lockImg"  Margin="16,49,14,-8" Fill="#FF17D831" Stroke="#FF080808" StrokeThickness="0.2" Height="9" Width="9" />
+                <Rectangle x:Name="disableFace"  HorizontalAlignment="Left" Height="5"  VerticalAlignment="Top" Width="40" Margin="0,45,0,0" Fill="#FFE81A06"/>
+            </Grid>
+
+
+            <floorMachines:ucFloorPallet x:Name="pallet" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,4,0,0" Height="42" Width="33"/>
+            <Grid x:Name="rehandleFace" Margin="0,20">
+                <Rectangle HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="5" Fill="#FFF1F10D"/>
+                <Rectangle HorizontalAlignment="Left" Height="10" Margin="35,0,0,0" VerticalAlignment="Top" Width="5" Fill="#FFF1F10D"/>
+
+
+            </Grid>
+
+
+        </Grid>
+    </Viewbox>
+</UserControl>

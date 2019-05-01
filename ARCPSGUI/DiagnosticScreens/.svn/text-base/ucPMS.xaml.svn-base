@@ -1,0 +1,680 @@
+﻿<UserControl xmlns:my="clr-namespace:ARCPSGUI.MachineUI"  x:Class="ARCPSGUI.DiagnosticScreens.ucPMS"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="490" d:DesignWidth="1019">
+    <Grid Background="#FFD1D1D1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35" /> <!--Heading-->
+            <RowDefinition Height="2" /> 
+            <RowDefinition Height="70"/><!--P2-->
+            <RowDefinition Height="2" />
+            <RowDefinition  Height="70"/><!--P1-->
+            <RowDefinition Height="2" />
+            <RowDefinition  Height="80"/><!--GF--> 
+            <RowDefinition Height="2" />
+            <RowDefinition  Height="70"/><!--B1-->
+            <RowDefinition Height="2" />
+            <RowDefinition  Height="70"/><!--PS2 and PS4-->
+            <RowDefinition Height="2" />
+            <RowDefinition  Height="80"/><!--PS1 and PS3-->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+           
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Grid.Row="2"  HorizontalAlignment="Stretch" Name="grdP2" VerticalAlignment="Stretch" Background="#FF72726D">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2" />
+                <RowDefinition />
+                <RowDefinition Height="2" />
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="1" Stretch="Fill">
+                <my:ucpmsPS Width="10" Height="10" />
+            </Viewbox>
+            <Viewbox Grid.Column="0" Grid.Row="3" >
+                <Label Content="6" />
+            </Viewbox>
+            <Viewbox Grid.Column="0" Grid.Row="3" >
+                <Label Content="6" />
+            </Viewbox>
+            <Viewbox Grid.Column="2" Grid.Row="3" >
+                <Label Content="7" />
+            </Viewbox>
+            <Viewbox Grid.Column="4" Grid.Row="3" >
+                <Label Content="8" />
+            </Viewbox>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="4"  HorizontalAlignment="Stretch" Name="grdP1" VerticalAlignment="Stretch" Background="#FF72726D">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2" />
+                <RowDefinition />
+                <RowDefinition Height="2" />
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="1" Stretch="Fill">
+                <my:ucpmsPS Width="10" Height="10" />
+            </Viewbox>
+            <Viewbox Grid.Column="0" Grid.Row="3" >
+                <Label Content="6" />
+            </Viewbox>
+            <Viewbox Grid.Column="0" Grid.Row="3" >
+                <Label Content="6" />
+            </Viewbox>
+            <Viewbox Grid.Column="2" Grid.Row="3" >
+                <Label Content="7" />
+            </Viewbox>
+            <Viewbox Grid.Column="4" Grid.Row="3" >
+                <Label Content="8" />
+            </Viewbox>
+        </Grid>
+        
+        <Grid Grid.Column="0" Grid.Row="6"  HorizontalAlignment="Stretch" Name="grdPPVL" VerticalAlignment="Stretch" Background="#FF72726D">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2" />
+                <RowDefinition />
+                <RowDefinition Height="2" />
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="1" Stretch="Fill">
+                <my:ucpmsPS Width="10" Height="10" />
+            </Viewbox>
+            <Viewbox Grid.Column="0" Grid.Row="3" >
+                <Label Content="6" />
+            </Viewbox>
+            <Viewbox Grid.Column="0" Grid.Row="3" >
+                <Label Content="6" />
+            </Viewbox>
+            <Viewbox Grid.Column="2" Grid.Row="3" >
+                <Label Content="7" />
+            </Viewbox>
+            <Viewbox Grid.Column="4" Grid.Row="3" >
+                <Label Content="8" />
+            </Viewbox>
+        </Grid>
+
+        <Grid Grid.Column="0" Grid.Row="8"  HorizontalAlignment="Stretch" Name="grdPST" VerticalAlignment="Stretch" Background="#FF72726D">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2" />
+                <RowDefinition />
+                <RowDefinition Height="2" />
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="1" Stretch="Fill">
+                <my:ucpmsPS Width="18" Height="10" />
+            </Viewbox>
+            <Viewbox Grid.Column="0" Grid.Row="3" >
+                <Label Content="6" />
+            </Viewbox>
+            <Viewbox Grid.Column="0" Grid.Row="3" >
+                <Label Content="6" />
+            </Viewbox>
+            <Viewbox Grid.Column="2" Grid.Row="3" >
+                <Label Content="7" />
+            </Viewbox>
+            <Viewbox Grid.Column="4" Grid.Row="3" >
+                <Label Content="8" />
+            </Viewbox>
+            <Viewbox Grid.Column="6" Grid.Row="3" >
+                <Label Content="9" />
+            </Viewbox>
+            <Viewbox Grid.Column="8" Grid.Row="3" >
+                <Label Content="9" />
+            </Viewbox>
+            <Viewbox Grid.Column="10" Grid.Row="3" >
+                <Label Content="10" />
+            </Viewbox>
+            <Viewbox Grid.Column="12" Grid.Row="3" >
+                <Label Content="11" />
+            </Viewbox>
+            <Viewbox Grid.Column="14" Grid.Row="3" >
+                <Label Content="12" />
+            </Viewbox>
+            <Viewbox Grid.Column="16" Grid.Row="3" >
+                <Label Content="13" />
+            </Viewbox>
+            <Viewbox Grid.Column="18" Grid.Row="3" >
+                <Label Content="24" />
+            </Viewbox>
+            <Viewbox Grid.Column="20" Grid.Row="3" >
+                <Label Content="25" />
+            </Viewbox>
+            <Viewbox Grid.Column="22" Grid.Row="3" >
+                <Label Content="26" />
+            </Viewbox>
+            <Viewbox Grid.Column="24" Grid.Row="3" >
+                <Label Content="27" />
+            </Viewbox>
+            <Viewbox Grid.Column="26" Grid.Row="3" >
+                <Label Content="28" />
+            </Viewbox>
+            <Viewbox Grid.Column="26" Grid.Row="3" >
+                <Label Content="29" />
+            </Viewbox>
+            <Viewbox Grid.Column="28" Grid.Row="3" >
+                <Label Content="30" />
+            </Viewbox>
+            <Viewbox Grid.Column="30" Grid.Row="3" >
+                <Label Content="31" />
+            </Viewbox>
+            <Viewbox Grid.Column="32" Grid.Row="3" >
+                <Label Content="32" />
+            </Viewbox>
+            <Viewbox Grid.Column="34" Grid.Row="3" >
+                <Label Content="33" />
+            </Viewbox>
+            <Viewbox Grid.Column="36" Grid.Row="3" >
+                <Label Content="34" />
+            </Viewbox>
+            <Viewbox Grid.Column="38" Grid.Row="3" >
+                <Label Content="35" />
+            </Viewbox>
+            <Viewbox Grid.Column="40" Grid.Row="3" >
+                <Label Content="36" />
+            </Viewbox>
+            <Viewbox Grid.Column="42" Grid.Row="3" >
+                <Label Content="37" />
+            </Viewbox>
+            <Viewbox Grid.Column="44" Grid.Row="3" >
+                <Label Content="38" />
+            </Viewbox>
+            <Viewbox Grid.Column="46" Grid.Row="3" >
+                <Label Content="39" />
+            </Viewbox>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="10"  HorizontalAlignment="Stretch" Name="grid1" VerticalAlignment="Stretch" Background="#FF72726D">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2" />
+                <RowDefinition />
+                <RowDefinition Height="2" />
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Column="4" Grid.ColumnSpan="1" Grid.Row="1" Stretch="Fill">
+                <my:ucpmsPS Width="10" Height="10" />
+            </Viewbox>
+            <Viewbox Grid.Column="0" Grid.Row="3" >
+                <Label Content="6" />
+            </Viewbox>
+            <Viewbox Grid.Column="0" Grid.Row="3" >
+                <Label Content="6" />
+            </Viewbox>
+            <Viewbox Grid.Column="2" Grid.Row="3" >
+                <Label Content="7" />
+            </Viewbox>
+            <Viewbox Grid.Column="4" Grid.Row="3" >
+                <Label Content="8" />
+            </Viewbox>
+            <Viewbox Grid.Column="6" Grid.Row="3" >
+                <Label Content="9" />
+            </Viewbox>
+            <Viewbox Grid.Column="8" Grid.Row="3" >
+                <Label Content="9" />
+            </Viewbox>
+            <Viewbox Grid.Column="10" Grid.Row="3" >
+                <Label Content="10" />
+            </Viewbox>
+            <Viewbox Grid.Column="12" Grid.Row="3" >
+                <Label Content="11" />
+            </Viewbox>
+            <Viewbox Grid.Column="14" Grid.Row="3" >
+                <Label Content="12" />
+            </Viewbox>
+            <Viewbox Grid.Column="16" Grid.Row="3" >
+                <Label Content="13" />
+            </Viewbox>
+            <Viewbox Grid.Column="18" Grid.Row="3" >
+                <Label Content="24" />
+            </Viewbox>
+            <Viewbox Grid.Column="20" Grid.Row="3" >
+                <Label Content="25" />
+            </Viewbox>
+            <Viewbox Grid.Column="22" Grid.Row="3" >
+                <Label Content="26" />
+            </Viewbox>
+            <Viewbox Grid.Column="24" Grid.Row="3" >
+                <Label Content="27" />
+            </Viewbox>
+            <Viewbox Grid.Column="26" Grid.Row="3" >
+                <Label Content="28" />
+            </Viewbox>
+            <Viewbox Grid.Column="28" Grid.Row="3" >
+                <Label Content="29" />
+            </Viewbox>
+            <Viewbox Grid.Column="30" Grid.Row="3" >
+                <Label Content="30" />
+            </Viewbox>
+            <Viewbox Grid.Column="32" Grid.Row="3" >
+                <Label Content="31" />
+            </Viewbox>
+            <Viewbox Grid.Column="34" Grid.Row="3" >
+                <Label Content="32" />
+            </Viewbox>
+            <Viewbox Grid.Column="36" Grid.Row="3" >
+                <Label Content="33" />
+            </Viewbox>
+            <Viewbox Grid.Column="38" Grid.Row="3" >
+                <Label Content="34" />
+            </Viewbox>
+            <Viewbox Grid.Column="40" Grid.Row="3" >
+                <Label Content="35" />
+            </Viewbox>
+            <Viewbox Grid.Column="42" Grid.Row="3" >
+                <Label Content="36" />
+            </Viewbox>
+            <Viewbox Grid.Column="44" Grid.Row="3" >
+                <Label Content="37" />
+            </Viewbox>
+            <Viewbox Grid.Column="46" Grid.Row="3" >
+                <Label Content="38" />
+            </Viewbox>
+            <Viewbox Grid.Column="48" Grid.Row="3" >
+                <Label Content="39" />
+            </Viewbox>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="12"  HorizontalAlignment="Stretch" Name="grid2" VerticalAlignment="Stretch" Background="#FF72726D">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2" />
+                <RowDefinition />
+                <RowDefinition Height="2" />
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="1" Stretch="Fill">
+                <my:ucpmsPS Width="15" Height="10" />
+            </Viewbox>
+            <Viewbox Grid.Column="0" Grid.Row="3" >
+                <Label Content="6" />
+            </Viewbox>
+            <Viewbox Grid.Column="0" Grid.Row="3" >
+                <Label Content="6" />
+            </Viewbox>
+            <Viewbox Grid.Column="2" Grid.Row="3" >
+                <Label Content="7" />
+            </Viewbox>
+            <Viewbox Grid.Column="4" Grid.Row="3" >
+                <Label Content="8" />
+            </Viewbox>
+            <Viewbox Grid.Column="6" Grid.Row="3" >
+                <Label Content="9" />
+            </Viewbox>
+            <Viewbox Grid.Column="8" Grid.Row="3" >
+                <Label Content="9" />
+            </Viewbox>
+            <Viewbox Grid.Column="10" Grid.Row="3" >
+                <Label Content="10" />
+            </Viewbox>
+            <Viewbox Grid.Column="12" Grid.Row="3" >
+                <Label Content="11" />
+            </Viewbox>
+            <Viewbox Grid.Column="14" Grid.Row="3" >
+                <Label Content="12" />
+            </Viewbox>
+            <Viewbox Grid.Column="16" Grid.Row="3" >
+                <Label Content="13" />
+            </Viewbox>
+            <Viewbox Grid.Column="18" Grid.Row="3" >
+                <Label Content="24" />
+            </Viewbox>
+            <Viewbox Grid.Column="20" Grid.Row="3" >
+                <Label Content="25" />
+            </Viewbox>
+            <Viewbox Grid.Column="22" Grid.Row="3" >
+                <Label Content="26" />
+            </Viewbox>
+            <Viewbox Grid.Column="24" Grid.Row="3" >
+                <Label Content="27" />
+            </Viewbox>
+            <Viewbox Grid.Column="26" Grid.Row="3" >
+                <Label Content="28" />
+            </Viewbox>
+            <Viewbox Grid.Column="26" Grid.Row="3" >
+                <Label Content="29" />
+            </Viewbox>
+            <Viewbox Grid.Column="28" Grid.Row="3" >
+                <Label Content="30" />
+            </Viewbox>
+            <Viewbox Grid.Column="30" Grid.Row="3" >
+                <Label Content="31" />
+            </Viewbox>
+            <Viewbox Grid.Column="32" Grid.Row="3" >
+                <Label Content="32" />
+            </Viewbox>
+            <Viewbox Grid.Column="34" Grid.Row="3" >
+                <Label Content="33" />
+            </Viewbox>
+            <Viewbox Grid.Column="36" Grid.Row="3" >
+                <Label Content="34" />
+            </Viewbox>
+            <Viewbox Grid.Column="38" Grid.Row="3" >
+                <Label Content="35" />
+            </Viewbox>
+            <Viewbox Grid.Column="40" Grid.Row="3" >
+                <Label Content="36" />
+            </Viewbox>
+            <Viewbox Grid.Column="42" Grid.Row="3" >
+                <Label Content="37" />
+            </Viewbox>
+            <Viewbox Grid.Column="44" Grid.Row="3" >
+                <Label Content="38" />
+            </Viewbox>
+            <Viewbox Grid.Column="46" Grid.Row="3" >
+                <Label Content="39" />
+            </Viewbox>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,138 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using System.Threading.Tasks;
+using ARCPSGUI.MachineUI;
+
+namespace ARCPSGUI.Machines
+{
+    /// <summary>
+    /// Interaction logic for ucVLClist.xaml
+    /// </summary>
+    public partial class ucVLClist : UserControl
+    {
+        bool isReadVlcCommandState = false;
+        bool isReadVlcMachineValues = false;
+        public ucVLClist()
+        {
+            InitializeComponent();
+            CreateVLC();
+        }
+
+        void CreateVLC()
+        {
+            int vlcNumber = 0;
+            for (int row = 0; row < 11; row++)
+            {
+
+                if (row % 2 != 0) continue;
+                vlcNumber += 1;
+
+                string channel = "CH00" + vlcNumber.ToString();
+                string machineName = "VLC_Drive_0" + vlcNumber ;
+                string caption = "VLC " + vlcNumber.ToString();
+                Viewbox vwChild = new Viewbox();
+                vwChild.Stretch = Stretch.Fill;
+                vwChild.Tag = 3; //represent vlc
+                ucVLC machine = new ucVLC(channel, machineName, caption, vlcNumber, this.g_frmHome);
+                machine.Name = "vlc" + row.ToString();
+                vwChild.Child = machine;
+                Grid.SetColumn(vwChild, 1);
+                Grid.SetRow(vwChild, row);
+                grdlstVLCview.Children.Add(vwChild);
+
+            }
+
+        }
+
+        public void ReadMachineState()
+        {
+
+            //grdlstVLCview.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(
+            //           delegate()
+            //           {
+            //               var result = grdlstVLCview.Children.OfType<Viewbox>();
+            //               foreach (Viewbox vb in result)
+            //               {
+            //                   ucLcmUcm machine = vb.Child as ucLcmUcm;
+            //                   if (machine != null)
+            //                   {
+            //                       Task.Factory.StartNew(() => machine.ReadVLCCommandState());
+            //                       Task.Factory.StartNew(() => machine.ReadVLCMachineValues());
+            //                   }
+            //               }
+            //           }));
+
+            //this.isReadTaskCompleted = true;
+        }
+
+        public void ReadFromOPCServer()
+        {
+            if (this.isReadVlcCommandState == false)
+            {
+                this.isReadVlcCommandState = true;
+                ReadVLCCommandState();
+            }
+            else if (this.isReadVlcMachineValues == false)
+            {
+                this.isReadVlcMachineValues = true;
+                ReadVLCMachineValues();
+            }
+           
+            else
+            {
+            
+                this.isReadVlcCommandState = false;
+                this.isReadVlcMachineValues = false;
+            }
+        }
+
+
+        void ReadVLCMachineValues()
+        {
+            //grdlstVLCview.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(
+            //         delegate()
+            //         {
+            //             var result = grdlstVLCview.Children.OfType<Viewbox>().Where(a => Convert.ToInt32(a.Tag) == 3);
+            //             foreach (Viewbox vb in result)
+            //             {
+            //                 ucLcmUcm machine = vb.Child as ucLcmUcm;
+            //                 if (machine != null)
+            //                 {
+
+            //                     Task.Factory.StartNew(() => machine.ReadVLCMachineValues());
+            //                 }
+            //             }
+            //         }));
+
+        }
+
+        void ReadVLCCommandState()
+        {
+            //grdlstVLCview.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(
+            //       delegate()
+            //       {
+            //           var result = grdlstVLCview.Children.OfType<Viewbox>().Where(a => Convert.ToInt32(a.Tag) == 3) ;
+            //           foreach (Viewbox vb in result)
+            //           {
+            //               ucLcmUcm machine = vb.Child as ucLcmUcm;
+            //               if (machine != null)
+            //               {
+
+            //                   Task.Factory.StartNew(() => machine.ReadVLCCommandState());
+            //               }
+            //           }
+            //       }));
+        }
+    }
+}

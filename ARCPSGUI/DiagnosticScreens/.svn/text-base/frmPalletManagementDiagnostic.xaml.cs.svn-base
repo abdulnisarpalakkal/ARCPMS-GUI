@@ -1,0 +1,331 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using ARCPSGUI.Styles;
+using ARCPSGUI.MachineUI;
+using System.Windows.Controls.Primitives;
+using System.Threading.Tasks;
+
+namespace ARCPSGUI.DiagnosticScreens
+{
+    /*
+     * PST
+CH421	PST_FLR4_01
+CH422	PST_FLR4_02
+CH423	PST_FLR4_03
+CH424	PST_FLR4_04
+     * 
+     * PS
+CH451	PS_FLR4_01
+CH452	PS_FLR4_02
+CH453	PS_FLR4_03
+CH454	PS_FLR4_04
+     */
+
+    /// <summary>
+    /// Interaction logic for frmPalletManagementDiagnostic.xaml
+    /// </summary>
+    public partial class frmPalletManagementDiagnostic : Window
+    {
+        //static frmPalletManagementDiagnostic pmsObj = null;
+
+        // public static frmPalletManagementDiagnostic PMSOBJ
+        // {
+        //     get
+        //     {
+        //         if (pmsObj == null)
+        //         {
+        //             pmsObj = new frmPalletManagementDiagnostic();
+        //         }
+        //         return pmsObj;
+        //     }
+        // }
+
+        public frmPalletManagementDiagnostic()
+        {
+            InitializeComponent();
+
+              //Task.Factory.StartNew(() =>  CreatePSCollection());
+            CreatePSCollection();
+           
+            BuildPVLCollection();
+            BuildPSTCollection();
+            BuildEESCollection();
+        }
+
+        void CreatePSCollection()
+        {
+            //int psNumber = 1;
+            //   this.Dispatcher.BeginInvoke(new Action(() =>
+            //        { 
+            //for (int col = 1; col <=8; col++) //8
+            //{              
+            //    if (col % 2 == 0)
+            //    {
+            //        CreatePS(8, col, psNumber);
+            //        psNumber += 1;
+            //    }
+            //}
+            //        }));
+
+
+            this.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    CreatePS(8, 2, 1);
+
+                }));
+
+            this.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                CreatePS(8, 4, 2);
+
+            }));
+
+            this.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                CreatePS(8, 6, 3);
+
+            }));
+
+            this.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                CreatePS(8, 8, 4);
+
+            }));
+        }
+        void CreatePS(int row, int col, int psNumber)
+        {
+            string channel = "CH45" + psNumber.ToString();
+            string machineName = "PS_FLR4_0" + psNumber.ToString();
+            string caption = "P S " + psNumber.ToString();
+         
+            Viewbox vwChild = new Viewbox();
+            vwChild.Stretch = Stretch.Fill;
+            vwChild.Tag = 1;
+            ucPS machine = null;
+             machine = new ucPS(channel, machineName, caption);
+            
+
+            machine.Name = "PS" ;
+            vwChild.Child = machine;
+            vwChild.Width = double.NaN;
+            vwChild.Height = double.NaN;
+            Grid.SetColumn(vwChild, col);
+            Grid.SetRow(vwChild, 3);
+            grdMachineHolder.Children.Add(vwChild); 
+          
+            
+        }
+
+        void BuildPVLCollection()
+        {
+            int pvlNumber = 0;
+            for (int col = 1; col < 13; col++)
+            {
+                if (col == 3 || col == 4 || col ==12)
+                {
+                    pvlNumber += 1;
+                    CreatePVL(col, pvlNumber);
+                }
+               
+            }
+        }
+        void CreatePVL(int col, int pvlNumber)
+        {
+            string channel = "CH42" + (pvlNumber+1).ToString();
+            string machineName = "PVL_Drive_0" + (pvlNumber).ToString();
+            string caption = "P V L" + pvlNumber.ToString();
+            Viewbox vwChild = new Viewbox();
+            vwChild.Stretch = Stretch.Fill;
+            vwChild.Tag = 2;
+            ucPVL machine = new ucPVL(channel, machineName, caption);
+            machine.Name = "PVL";
+            vwChild.Child = machine;
+            vwChild.Width = double.NaN;
+            vwChild.Height = double.NaN;
+            Grid.SetColumn(vwChild, col);
+            Grid.SetRow(vwChild,1);
+            grdMachineHolder2.Children.Add(vwChild);
+        }
+
+        void BuildPSTCollection()
+        {
+            int row = 0;
+            int pstNumber = 0;
+            int eesNumber = 0;
+            
+            for (int col = 0; col < 13; col++)
+            {
+               
+                if (col == 0 || col == 3 || col == 4 || col == 12)
+                {
+                    pstNumber += 1;
+                    CreatePST(row, col, pstNumber);
+                }
+            }
+           
+        }
+        void CreatePST(int row, int col, int pstNumber)
+        {
+            string channel = "CH42" + (pstNumber).ToString();
+            string machineName = "PST_FLR4_0" + (pstNumber).ToString();
+            string caption = "PST " + pstNumber.ToString();
+            Viewbox vwChild = new Viewbox();
+            vwChild.Stretch = Stretch.Fill;
+            vwChild.Tag = 2;
+            ucPST machine = new ucPST(channel, machineName, caption);
+            machine.Name = "PST";
+            vwChild.Child = machine;
+            vwChild.Width = double.NaN;
+            vwChild.Height = double.NaN;
+            Grid.SetColumn(vwChild, col);
+            Grid.SetRow(vwChild, 2);
+            grdMachineHolder2.Children.Add(vwChild);
+
+        }
+
+        void BuildEESCollection()
+        {
+            int row = 0;
+            int eesNumber = 0;
+
+            this.Dispatcher.BeginInvoke(new Action(() =>
+               {
+                   for (int col = 0; col < 13; col++)
+                   {
+                       if (col == 1 || col == 2 || col == 5 || col == 6 ||
+                           col == 7 || col == 8 || col == 9 || col == 10 || col == 11)
+                       {
+                           eesNumber += 1;
+                           CreateEES(row, col, eesNumber);
+                       }
+
+                   }
+               }));
+
+        }
+        void CreateEES(int row, int col, int eesNumber)
+        {
+            string channel = "CH43" + (eesNumber).ToString();
+            string machineName = "EES_FLR4_0" + (eesNumber).ToString();
+            string caption = "E E S " + eesNumber.ToString();
+            Viewbox vwChild = new Viewbox();
+            vwChild.Stretch = Stretch.Fill;
+            vwChild.Tag = 2;
+            ucEES machine = new ucEES(channel, machineName, caption, this.g_frmHome);
+            machine.Name = "EES" + eesNumber.ToString();
+            vwChild.Child = machine;
+            vwChild.Width = double.NaN;
+            vwChild.Height = double.NaN;
+            Grid.SetColumn(vwChild, col);
+            Grid.SetRow(vwChild, 2);
+            grdMachineHolder2.Children.Add(vwChild);
+
+        }
+
+        #region Window Events
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            double value = (double)this.Height / 1.6533;
+            //  grdLayOut.RowDefinitions[0].si = (int)Math.Abs(value);
+            //canvas2.Height = (int)Math.Abs(value);
+            //vbLcmUcm.Height = (int)Math.Abs(value);
+
+            // grid1.Height = (int)Math.Abs(value);
+            //  canvas2.Height = (int)Math.Abs(value);
+            //  vbLcmUcm.Height = (int)Math.Abs(value);
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //this.DragMove();
+        }
+        private void ResizeGripDragDelta(object aSender, DragDeltaEventArgs aEventArgs)
+        {
+            //double lWidth = ActualWidth + aEventArgs.HorizontalChange;
+            //double lHeight = ActualHeight + aEventArgs.VerticalChange;
+            //TrySetSize(lWidth, lHeight);
+        }
+
+        private void ResizeGripMouseDown(object aSender, MouseButtonEventArgs aEventArgs)
+        {
+            //if (aEventArgs.LeftButton == MouseButtonState.Pressed &&
+            //      aEventArgs.RightButton == MouseButtonState.Released &&
+            //      aEventArgs.MiddleButton == MouseButtonState.Released)
+            //{
+            //    Mouse.Capture(ResizeGrip);
+            //}
+        }
+
+        private void ResizeGripMouseUp(object aSender, MouseButtonEventArgs aEventArgs)
+        {
+            //if (Mouse.Captured == ResizeGrip)
+            //{
+            //    Mouse.Capture(null);
+            //}
+        }
+
+        private void TrySetSize(double aWidth, double aHeight)
+        {
+            //if (aWidth < MinWidth || aHeight < MinHeight)
+            //{
+            //    return;
+            //}
+
+            //Width = aWidth;
+            //Height = aHeight;
+        }
+
+        private void btnMaximize_Click(object sender, RoutedEventArgs e)
+        {
+            // WindowState = System.Windows.WindowState.Maximized;
+            // this.Width = System.Windows.SystemParameters.WorkArea.Width;
+            //this.Height = System.Windows.SystemParameters.WorkArea.Height;
+
+            this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            //this.Margin = new Thickness(0, 0, 10, System.Windows.SystemParameters.WorkArea.Height);
+
+            this.Top = 0; // System.Windows.SystemParameters.WorkArea.Height - this.Height;
+            this.Left = 0;
+            this.Width = System.Windows.SystemParameters.WorkArea.Width; // -this.Width; 
+            this.Height = System.Windows.SystemParameters.WorkArea.Height;
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            //this.Visibility = System.Windows.Visibility.Hidden;
+            this.Close();
+           // this.Visibility = System.Windows.Visibility.Collapsed;
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = System.Windows.WindowState.Minimized;
+        }
+
+        private void Window_ManipulationStarting(object sender, ManipulationStartingEventArgs e)
+        {
+
+        }
+
+        private void Window_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void grdToolBar_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            WindowState = System.Windows.WindowState.Normal;
+        }
+        #endregion
+    }
+}

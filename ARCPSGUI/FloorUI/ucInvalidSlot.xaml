@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="ARCPSGUI.FloorUI.ucInvalidSlot"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="40">
+    <Viewbox Stretch="Fill">
+        <Grid>
+            <Rectangle HorizontalAlignment="Left" Height="14" Stroke="Black" VerticalAlignment="Top" Width="40" Fill="#FFCFCFD8"/>
+            <Rectangle HorizontalAlignment="Left" Height="14" Stroke="Black" VerticalAlignment="Top" Width="40" Margin="0,16,0,0" Fill="#FFCFCFD8"/>
+            <Rectangle HorizontalAlignment="Left" Height="14" Stroke="Black" VerticalAlignment="Top" Width="40" Margin="0,33,0,0" Fill="#FFCFCFD8"/>
+
+        </Grid>
+    </Viewbox>
+</UserControl>

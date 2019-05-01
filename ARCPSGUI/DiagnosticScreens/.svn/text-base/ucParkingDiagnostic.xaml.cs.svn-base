@@ -1,0 +1,92 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using ARCPSGUI.Machines;
+using System.Threading.Tasks;
+
+namespace ARCPSGUI.DiagnosticScreens
+{
+    /// <summary>
+    /// Interaction logic for ucParkingDiagnostic.xaml
+    /// </summary>
+    public partial class ucParkingDiagnostic : UserControl,IDisposable
+    {
+        ucListLcmUcm lstUcmLcm = null;
+        //ucVLClist lstVlc = null;
+        frmHome g_frmHome = null;
+        private static bool enableRefresh = true;
+        public static bool EnableRefresh
+        {
+            get { return enableRefresh; }
+            set { 
+                
+                enableRefresh = value;
+                ucListLcmUcm.EnableRefresh = value;
+            }
+        }
+
+
+
+        public ucParkingDiagnostic(frmHome frmHome)
+        {
+            InitializeComponent();
+            this.g_frmHome = frmHome;
+        }
+
+        public void DoOnLoad()
+        {
+            AddLcmUcmList();
+        }
+
+        void AddLcmUcmList()
+        {
+            lstUcmLcm = new ucListLcmUcm(g_frmHome);
+            lstUcmLcm.Width = double.NaN;
+            lstUcmLcm.Height = double.NaN;
+            grid1.Children.Add(lstUcmLcm);
+        }
+
+
+        public void AddHandler()
+        {
+        // Task.Factory.StartNew(new Action(() =>  lstUcmLcm.AddHandler()));
+        }
+
+        public void RemoveHandler()
+        {
+          //  lstUcmLcm.RemoveHandler();
+        }
+
+        public void InitialReRead()
+        {
+
+          //  Task.Factory.StartNew(new Action(() => lstUcmLcm.ReRead())); 
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        public void RegisterNotification()
+        {
+            EnableRefresh = true;
+        }
+
+        public void Dispose()
+        {
+            EnableRefresh = false;
+        }
+    }
+}

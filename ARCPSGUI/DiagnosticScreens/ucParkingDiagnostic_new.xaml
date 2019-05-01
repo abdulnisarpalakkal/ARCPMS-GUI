@@ -1,0 +1,909 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:MachineUI="clr-namespace:ARCPSGUI.MachineUI" x:Class="ARCPSGUI.DiagnosticScreens.ucParkingDiagnostic_new" 
+             mc:Ignorable="d" d:DesignHeight="500" d:DesignWidth="1000" Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded" 
+             >
+    <UserControl.Resources>
+        <!--<SolidColorBrush x:Key="Brush1" Color="#FFB8C0C1"/>-->
+        <Style TargetType="Rectangle">
+            <Style.Resources>
+                <ResourceDictionary  />
+            </Style.Resources>
+            <Setter Property="StrokeThickness" Value="0.2"/>
+            <Setter Property="Stroke" Value="Black"/>
+            <Setter Property="Fill" Value="#FFB8C0C1"/>
+            <Setter Property="Fill" Value="#FF859FA2"/>
+            <!--Fill="#FF859FA2"-->
+        </Style>
+        <Style TargetType="{x:Type MachineUI:ucEES_new}" >
+            <Setter Property="Margin" Value="0,0,7,0" />
+            <!--<Setter Property="Width" Value="50" />-->
+        </Style>
+        <Style TargetType="{x:Type MachineUI:ucPST_new}" >
+            <Setter Property="Margin" Value="0,0,0,0" />
+            <!--<Setter Property="Width" Value="50" />-->
+        </Style>
+    </UserControl.Resources>
+
+    <Viewbox Stretch="Fill">
+
+        <Border  Margin="0,0,0,0"  BorderBrush="#FF909293" BorderThickness="2" >
+
+            <Grid Background="#FF6F6B6B" >
+
+
+
+
+
+
+
+                <StackPanel HorizontalAlignment="Left" Height="314" Margin="0,40,0,0" VerticalAlignment="Top" Width="22">
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type Label}">
+                            <Setter Property="Margin" Value="0,9,0,0"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Label Content="9"/>
+                    <Label Content="8"/>
+                    <Label Content="7"/>
+                    <Label Content="6"/>
+                    <Label Content="5"/>
+                    <Label Content="4"/>
+                    <Label Content="3"/>
+                    <Label Content="2"/>
+                    <Label Content="1"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" Height="26" Margin="25,20,0,0" VerticalAlignment="Top" Width="973" Orientation="Horizontal" Background="#FF9E9898" >
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type Label}">
+                            <Setter Property="Margin" Value="0,0,9,0"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Label Content="1" BorderThickness="1" />
+                    <Label Content="2"/>
+                    <Label Content="3"/>
+                    <Label Content="4"/>
+                    <Label Content="5"/>
+                    <Label Content="6"/>
+                    <Label Content="7"/>
+                    <Label Content="8"/>
+                    <Label Content="9"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" Height="26" Margin="249,20,-222,0" VerticalAlignment="Top" Width="973" Orientation="Horizontal" >
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type Label}">
+                            <Setter Property="Margin" Value="0,0,3,0"/>
+                            <!--<Setter Property="FontWeight" Value="Bold"/>-->
+                        </Style>
+                    </StackPanel.Resources>
+                    <Label Content="10"/>
+                    <Label Content="11"/>
+                    <Label Content="12"/>
+                    <Label Content="13"/>
+                    <Label Content="14"/>
+                    <Label Content="15"/>
+                    <Label Content="16"/>
+                    <Label Content="17"/>
+                    <Label Content="18"/>
+                    <Label Content="19"/>
+                    <Label Content="20"/>
+                    <Label Content="21"/>
+                    <Label Content="22"/>
+                    <Label Content="23"/>
+                    <Label Content="24"/>
+                    <Label Content="25"/>
+                    <Label Content="26"/>
+                    <Label Content="27"/>
+                    <Label Content="28"/>
+                    <Label Content="29"/>
+                    <Label Content="30"/>
+                    <Label Content="31"/>
+                    <Label Content="32"/>
+                    <Label Content="33"/>
+                    <Label Content="34"/>
+                    <Label Content="35"/>
+                    <Label Content="36"/>
+                    <Label Content="37"/>
+                    <Label Content="38"/>
+                    <Label Content="39"/>
+                </StackPanel>
+
+                <Grid Width="1000" Margin="0,0,0,0">
+                    <StackPanel Margin="21,408,9,28" Orientation="Horizontal">
+
+                        <MachineUI:ucPST_new HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="60" Margin="0,0,2,0" MachineCode="PST_FLR4_01" MachineChannel="CH421" />
+                        <MachineUI:ucEES_new HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="70" MachineCode="EES_FLR4_01" MachineChannel="CH431"  />
+
+                        <MachineUI:ucEES_new HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="70" MachineCode="EES_FLR4_02" MachineChannel="CH432"  />
+                        <MachineUI:ucPST_new HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="70" Margin="0,0,6,0" MachineCode="PST_FLR4_02" MachineChannel="CH422" />
+                        <MachineUI:ucPST_new HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="70" Margin="0,0,2,0" MachineCode="PST_FLR4_03" MachineChannel="CH423" />
+                        <MachineUI:ucEES_new HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="70" MachineCode="EES_FLR4_03" MachineChannel="CH433" />
+                        <MachineUI:ucEES_new HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="70" MachineCode="EES_FLR4_04" MachineChannel="CH434" />
+                        <MachineUI:ucEES_new HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="70" MachineCode="EES_FLR4_05" MachineChannel="CH435" />
+                        <MachineUI:ucEES_new HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="70" MachineCode="EES_FLR4_06" MachineChannel="CH436" />
+                        <MachineUI:ucEES_new HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="70" MachineCode="EES_FLR4_07" MachineChannel="CH437" />
+                        <MachineUI:ucEES_new HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="70" MachineCode="EES_FLR4_08" MachineChannel="CH438" />
+                        <MachineUI:ucEES_new HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="70" MachineCode="EES_FLR4_09" MachineChannel="CH439" />
+                        <MachineUI:ucPST_new HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="60" MachineCode="PST_FLR4_04" MachineChannel="CH424"/>
+
+
+                    </StackPanel>
+                    <MachineUI:ucPVL_new HorizontalAlignment="Left" Margin="242,368,0,0" VerticalAlignment="Top" Height="35" Width="66" MachineCode="PVL_Drive_01" MachineChannel="CH422"/>
+                    <MachineUI:ucPVL_new HorizontalAlignment="Left" Margin="317,368,0,0" VerticalAlignment="Top" Height="35" Width="66" MachineCode="PVL_Drive_02" MachineChannel="CH423"/>
+                    <MachineUI:ucPVL_new HorizontalAlignment="Left" Margin="922,368,0,0" VerticalAlignment="Top" Height="35" Width="66" MachineCode="PVL_Drive_03" MachineChannel="CH424"/>
+                    <MachineUI:ucPS_new HorizontalAlignment="Left" Margin="11,471,0,0" VerticalAlignment="Top" Width="70" Height="25" MachineCode="PS_FLR4_01" MachineChannel="CH451" MinValue="7" MaxValue="12" MinXValue="11" MaxXValue="235" RenderTransformOrigin="0.5,0.5">
+                        <MachineUI:ucPS_new.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0"/>
+                            </TransformGroup>
+                        </MachineUI:ucPS_new.RenderTransform>
+                    </MachineUI:ucPS_new>
+                    <MachineUI:ucPS_new HorizontalAlignment="Left" Margin="83,471,0,0" VerticalAlignment="Top" Width="70" Height="25" MachineChannel="CH452" MachineCode="PS_FLR4_02" MinValue="8" MaxValue="13" MinXValue="83" MaxXValue="270" RenderTransformOrigin="0.5,0.5">
+                        <MachineUI:ucPS_new.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0"/>
+                            </TransformGroup>
+                        </MachineUI:ucPS_new.RenderTransform>
+                    </MachineUI:ucPS_new>
+                    <MachineUI:ucPS_new HorizontalAlignment="Left" Margin="306,471,0,0" VerticalAlignment="Top" Width="70" Height="25" MachineCode="PS_FLR4_03" MachineChannel="CH453" MinXValue="306" MinValue="24" MaxValue="39" MaxXValue="925" RenderTransformOrigin="0.5,0.5">
+                        <MachineUI:ucPS_new.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0"/>
+                            </TransformGroup>
+                        </MachineUI:ucPS_new.RenderTransform>
+                    </MachineUI:ucPS_new>
+                    <MachineUI:ucPS_new HorizontalAlignment="Left" Margin="373,471,0,0" VerticalAlignment="Top" Width="70" Height="25" MachineCode="PS_FLR4_04" MachineChannel="CH454" MinXValue="373" MinValue="26" MaxValue="39" MaxXValue="925" RenderTransformOrigin="0.5,0.5">
+                        <MachineUI:ucPS_new.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0"/>
+                            </TransformGroup>
+                        </MachineUI:ucPS_new.RenderTransform>
+                    </MachineUI:ucPS_new>
+
+
+                </Grid>
+                <Image x:Name="detach_erp" Source="/ARCPSGUI;component/Images/detach.png" RenderTransformOrigin="0.2,0.2" Margin="4,2,976,478" MouseDown="Image_MouseDown" Width="20" Height="20"/>
+                <Border Margin="22,46,1,140" BorderThickness="1" Background="#FF686B70">
+                    <Grid x:Name="garrageGrid">
+
+
+
+                        <Rectangle  HorizontalAlignment="Left" Height="36"  VerticalAlignment="Top" Width="26" Margin="2,0,0,0"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="27,0,0,0" VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="52,0,0,0" VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="77,0,0,0" VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="102,0,0,0" VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="127,0,0,0" VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="152,0,0,0" VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="177,0,0,0" VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="202,0,0,0" VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="227,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="252,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="277,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="302,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="327,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="352,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="377,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="402,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="427,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="452,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="477,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="502,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="527,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="552,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="577,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="602,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="627,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="652,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="677,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="702,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="727,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="752,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="777,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="801,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="826,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="851,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="876,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="901,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="926,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="951,0,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="2,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="27,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="52,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle HorizontalAlignment="Left" Height="36" Margin="77,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="102,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="127,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="152,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="177,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="202,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="227,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="252,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="277,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="302,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="327,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="352,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="377,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="402,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="427,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="452,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="477,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="502,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="527,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="552,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="577,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="602,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="627,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="652,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="677,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="702,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="727,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="752,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="777,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="801,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="826,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="851,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="876,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="901,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="926,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="951,35,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="2,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="27,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="52,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="77,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="102,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="127,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="152,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="177,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="202,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="227,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="252,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="277,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="302,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="327,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="352,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="377,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="402,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="427,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="452,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="477,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="502,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="527,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="552,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="577,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="602,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="627,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="652,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="677,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="702,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="727,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="752,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="777,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="801,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="826,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="851,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="876,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="901,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="926,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="951,70,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="2,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="27,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="52,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="77,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="102,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="127,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="152,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="177,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="202,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="227,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="252,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="277,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="302,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="327,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="352,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="377,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="402,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="427,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="452,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="477,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="502,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="527,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="552,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="577,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="602,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="627,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="652,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="677,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="702,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="727,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="752,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="777,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="801,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="826,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="851,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="876,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="901,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="926,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="951,104,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="2,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="27,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="52,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="77,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="102,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="127,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="152,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="177,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="202,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="227,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="252,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="277,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="302,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="327,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="352,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="377,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="402,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="427,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="452,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="477,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="502,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="527,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="552,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="577,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="602,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="627,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="652,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="677,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="702,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="727,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="752,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="777,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="801,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="826,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="851,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="876,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="901,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="926,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="951,139,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="2,174,0,0" VerticalAlignment="Top" Width="26" />
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="27,174,0,0"  VerticalAlignment="Top" Width="26" />
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="52,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="77,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="102,174,0,0"  VerticalAlignment="Top" Width="26" />
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="127,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="152,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="177,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="202,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="227,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="252,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="277,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="302,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="327,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="352,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="377,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="402,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="427,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="452,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="477,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="502,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="527,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="552,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="577,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="602,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="627,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="652,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="677,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="702,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="727,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="752,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="777,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="801,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="826,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="851,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="876,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="901,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="926,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="951,174,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="2,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="27,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="52,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="77,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="102,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="127,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="152,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="177,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="202,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="227,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="252,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="277,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="302,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="327,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="352,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="377,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="402,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="427,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="452,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="477,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="502,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="527,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="552,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="577,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="602,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="627,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="652,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="677,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="702,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="727,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="752,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="777,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="801,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="826,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="851,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="876,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="901,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="926,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="951,209,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="2,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="27,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="52,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="77,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="102,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="127,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="152,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="177,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="202,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="227,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="252,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="277,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="302,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="327,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="352,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="377,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="402,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="427,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="452,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="477,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="502,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="527,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="552,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="577,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="602,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="627,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="652,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="677,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="702,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="727,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="752,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="777,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="801,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="826,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="851,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="876,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="901,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="926,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="951,243,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="2,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="27,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="52,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="77,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="102,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="127,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="152,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="177,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="202,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="227,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="252,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="277,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="302,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="327,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="352,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="377,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="402,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="427,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="452,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="477,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="502,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="527,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="552,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="577,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="602,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="627,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="652,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="677,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="702,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="727,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="752,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="777,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="801,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="826,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="851,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="876,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="901,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="926,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <Rectangle  HorizontalAlignment="Left" Height="36" Margin="951,278,0,0"  VerticalAlignment="Top" Width="26"/>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="0,184,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH441" MachineCode="LCM_FLR04_01" MinValue="1" MaxValue="39" MaxXValue="950">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="25,184,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH442" MachineCode="LCM_FLR04_02" MinValue="2" MaxValue="39" MaxXValue="950" MinXValue="25">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="50,184,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH443" MachineCode="LCM_FLR4_03" MinValue="3" MaxValue="39" MaxXValue="950" MinXValue="50">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="75,184,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH444" MachineCode="LCM_FLR4_04" MinValue="4" MaxValue="39" MaxXValue="950" MinXValue="75">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="100,184,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH445" MachineCode="LCM_FLR4_05" MinValue="5" MaxValue="39" MaxXValue="950" MinXValue="100">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="125,184,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH446" MachineCode="LCM_FLR4_06" MinValue="6" MaxValue="39" MaxXValue="950" MinXValue="125">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="0,219,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH331" MachineCode="UCM_FLR03_01" MinValue="1" MaxValue="39" MaxXValue="950">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="25,219,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH332" MachineCode="UCM_FLR03_02" MinValue="2" MaxValue="39" MaxXValue="950" MinXValue="25">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="50,219,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH333" MachineCode="UCM_FLR03_03" MinValue="3" MaxValue="39" MaxXValue="950" MinXValue="50">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="0,253,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH231" MachineCode="UCM_FLR02_01" MinValue="1" MaxValue="39" MaxXValue="950">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="25,253,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH232" MachineCode="UCM_FLR02_02" MinValue="2" MaxValue="39" MaxXValue="950" MinXValue="25">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="50,253,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH233" MachineCode="UCM_FLR02_03" MinValue="3" MaxValue="39" MaxXValue="950" MinXValue="50">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="0,289,0,-4" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH131" MachineCode="UCM_FLR01_01" MinValue="1" MaxValue="39" MaxXValue="950">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="25,289,0,-4" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH132" MachineCode="UCM_FLR01_02" MinValue="2" MaxValue="39" MaxXValue="950" MinXValue="25">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="50,289,0,-4" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH133" MachineCode="UCM_FLR01_03" MinValue="3" MaxValue="39" MaxXValue="950" MinXValue="50">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="0,149,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH531" MachineCode="UCM_FLR5_01" MinValue="1" MaxValue="39" MaxXValue="950">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="25,149,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH532" MachineCode="UCM_FLR5_02" MinValue="2" MaxValue="39" MaxXValue="950" MinXValue="25">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="50,149,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH533" MachineCode="UCM_FLR5_03" MinValue="3" MaxValue="39" MaxXValue="950" MinXValue="50">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="0,115,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH631" MachineCode="UCM_FLR6_01" MinValue="1" MaxValue="39" MaxXValue="950">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="25,115,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH632" MachineCode="UCM_FLR6_02" MinValue="2" MaxValue="39" MaxXValue="950" MinXValue="25">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="50,115,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH633" MachineCode="UCM_FLR6_03" MinValue="3" MaxValue="39" MaxXValue="950" MinXValue="50">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="0,80,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH731" MachineCode="UCM_FLR7_01" MinValue="1" MaxValue="39" MaxXValue="950">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="25,80,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH732" MachineCode="UCM_FLR7_02" MinValue="2" MaxValue="39" MaxXValue="950" MinXValue="25">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="50,80,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH733" MachineCode="UCM_FLR7_03" MinValue="3" MaxValue="39" MaxXValue="950" MinXValue="50">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="0,45,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH831" MachineCode="UCM_FLR08_01" MinValue="1" MaxValue="39" MaxXValue="950">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="25,45,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH832" MachineCode="UCM_FLR08_02" MinValue="2" MaxValue="39" MaxXValue="950" MinXValue="25">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="50,45,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH833" MachineCode="UCM_FLR08_03" MinValue="3" MaxValue="39" MaxXValue="950" MinXValue="50">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="0,11,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH931" MachineCode="UCM_FLR09_01" MinValue="1" MaxValue="39" MaxXValue="950">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="25,11,0,0" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH932" MachineCode="UCM_FLR09_02" MinValue="2" MaxValue="39" MaxXValue="950" MinXValue="25">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucCM HorizontalAlignment="Left" Margin="50,11,0,-1" VerticalAlignment="Top" Height="29" Width="27" RenderTransformOrigin="0.5,0.5" MachineChannel="CH933" MachineCode="UCM_FLR09_03" MinValue="3" MaxValue="39" MaxXValue="950" MinXValue="50">
+                            <MachineUI:ucCM.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucCM.RenderTransform>
+                        </MachineUI:ucCM>
+                        <MachineUI:ucVLC_new HorizontalAlignment="Left" Margin="175,305,0,-1" VerticalAlignment="Top" Height="10" Width="30" RenderTransformOrigin="0.5,0.5" MachineChannel="CH001" MachineCode="VLC_Drive_01" MaxValue="9" MinValue="1" MaxYValue="-305" MinYValue="-24" >
+                            <MachineUI:ucVLC_new.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0" Y="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucVLC_new.RenderTransform>
+                        </MachineUI:ucVLC_new>
+                        <MachineUI:ucVLC_new HorizontalAlignment="Left" Margin="250,305,0,-1" VerticalAlignment="Top" Height="10" Width="30" RenderTransformOrigin="0.5,0.5" MachineChannel="CH002" MachineCode="VLC_Drive_02" MaxValue="9" MinValue="1" MaxYValue="-305" MinYValue="-24" >
+                            <MachineUI:ucVLC_new.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0" Y="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucVLC_new.RenderTransform>
+                        </MachineUI:ucVLC_new>
+                        <MachineUI:ucVLC_new HorizontalAlignment="Left" Margin="600,305,0,-1" VerticalAlignment="Top" Height="10" Width="30" RenderTransformOrigin="0.5,0.5" MachineChannel="CH003" MachineCode="VLC_Drive_03" MaxValue="9" MinValue="1" MaxYValue="-305" MinYValue="-24" >
+                            <MachineUI:ucVLC_new.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0" Y="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucVLC_new.RenderTransform>
+                        </MachineUI:ucVLC_new>
+                        <MachineUI:ucVLC_new HorizontalAlignment="Left" Margin="700,305,0,-1" VerticalAlignment="Top" Height="10" Width="30" RenderTransformOrigin="0.5,0.5" MachineChannel="CH004" MachineCode="VLC_Drive_04" MaxValue="9" MinValue="1" MaxYValue="-305" MinYValue="-24" >
+                            <MachineUI:ucVLC_new.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0" Y="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucVLC_new.RenderTransform>
+                        </MachineUI:ucVLC_new>
+                        <MachineUI:ucVLC_new HorizontalAlignment="Left" Margin="800,305,0,-1" VerticalAlignment="Top" Height="10" Width="30" RenderTransformOrigin="0.5,0.5" MachineChannel="CH005" MachineCode="VLC_Drive_05" MaxValue="9" MinValue="1" MaxYValue="-305" MinYValue="-24" >
+                            <MachineUI:ucVLC_new.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0" Y="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucVLC_new.RenderTransform>
+                        </MachineUI:ucVLC_new>
+                        <MachineUI:ucVLC_new HorizontalAlignment="Left" Margin="899,305,0,-1" VerticalAlignment="Top" Height="10" Width="30" RenderTransformOrigin="0.5,0.5" MachineChannel="CH006" MachineCode="VLC_Drive_06" MaxValue="9" MinValue="1" MaxYValue="-305" MinYValue="-24" >
+                            <MachineUI:ucVLC_new.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0" Y="0"/>
+                                </TransformGroup>
+                            </MachineUI:ucVLC_new.RenderTransform>
+                        </MachineUI:ucVLC_new>
+                    </Grid>
+
+
+                </Border>
+
+
+            </Grid>
+
+        </Border>
+
+    </Viewbox>
+
+</UserControl>

@@ -1,0 +1,97 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ARCPSGUI.MachineUI" x:Class="ARCPSGUI.MachineUI.ucPS_new" 
+             mc:Ignorable="d" d:DesignWidth="110" Height="50" Unloaded="UserControl_Unloaded" Loaded="UserControl_Loaded"
+            MouseUp="UserControl_MouseUp"  MouseEnter="UserControl_MouseEnter" MouseLeave="UserControl_MouseLeave" >
+    <UserControl.Resources>
+        <LinearGradientBrush x:Key="MachineColor" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFAE8720" Offset="0.029"/>
+            <GradientStop Color="#FFF3D40A" Offset="0.904"/>
+        </LinearGradientBrush>
+    </UserControl.Resources>
+    <Viewbox Stretch="Fill">
+        <Grid >
+            <local:ucPallet x:Name="pallet" HorizontalAlignment="Left" Margin="7,4,0,0" VerticalAlignment="Top" Height="15" Width="109"/>
+            <Rectangle HorizontalAlignment="Left" Height="19" Margin="5,41,0,0" Stroke="#FFFBF5F5" VerticalAlignment="Top" Width="118" Fill="{DynamicResource MachineColor}"/>
+            <Rectangle Fill="{DynamicResource MachineColor}" HorizontalAlignment="Left" Height="9" Margin="5,21,0,0" Stroke="#FFFBF5F5" VerticalAlignment="Top" Width="113"/>
+            <Ellipse Fill="#FF72715D" HorizontalAlignment="Left" Height="13" Margin="10,47,0,0" Stroke="Black" VerticalAlignment="Top" Width="13" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse Fill="#FF72715D" HorizontalAlignment="Left" Height="13" Margin="24,47,0,0" Stroke="Black" VerticalAlignment="Top" Width="13" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse Fill="#FF72715D" HorizontalAlignment="Left" Height="13" Margin="93,47,0,0" Stroke="Black" VerticalAlignment="Top" Width="13" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse Fill="#FF72715D" HorizontalAlignment="Left" Height="13" Margin="107,47,0,0" Stroke="Black" VerticalAlignment="Top" Width="13" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Rectangle Fill="#FF323226" HorizontalAlignment="Left" Height="13" Margin="40,29,0,0" Stroke="#FFFBF5F5" VerticalAlignment="Top" Width="37"/>
+            <Rectangle x:Name="triggerStatus" Fill="Red" HorizontalAlignment="Left" Height="15" Margin="40,43,0,0" Stroke="Black" VerticalAlignment="Top" Width="47"/>
+            <Grid x:Name="disableGrid" Margin="0,-18,-9,-26" HorizontalAlignment="Right" Width="79" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-1.755"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Rectangle Fill="#FFB8160E" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-50.383"/>
+                            <TranslateTransform X="0.004" Y="0.085"/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Rectangle Fill="#FFB8160E" HorizontalAlignment="Left" Height="100" Margin="1,2,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="51.919"/>
+                            <TranslateTransform X="0.17" Y="-0.007"/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+
+            </Grid>
+            <Rectangle x:Name="switchOffRect" Fill="#FFF1EDED" HorizontalAlignment="Left" Height="65" Margin="0,2,0,0" Stroke="Black" VerticalAlignment="Top" Width="129" Opacity="0.6" StrokeThickness="1.2"/>
+
+        </Grid>
+    </Viewbox>
+</UserControl>

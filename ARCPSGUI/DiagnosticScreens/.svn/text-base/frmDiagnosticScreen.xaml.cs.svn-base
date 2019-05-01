@@ -1,0 +1,162 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using ARCPSGUI.Machines;
+using System.Windows.Controls.Primitives;
+
+namespace ARCPSGUI.DiagnosticScreens
+{
+    /// <summary>
+    /// Interaction logic for frmDiagnosticScreen.xaml
+    /// </summary>
+    public partial class frmDiagnosticScreen : Window
+    {
+        ucListLcmUcm lstUcmLcm = null;
+        ucVLClist lstVlc = null;
+        public frmDiagnosticScreen()
+        {
+            InitializeComponent();
+
+            AddLcmUcmList();
+            AddVlcList();
+        }
+
+        void AddLcmUcmList()
+        {
+
+            if (CacheUI.IsValueCached("DIAG") == false)
+            {
+                CacheUI.Add("DIAG", new ucListLcmUcm());
+            }
+            lstUcmLcm = CacheUI.Get("DIAG") as ucListLcmUcm;
+
+            //lstUcmLcm = new ucListLcmUcm();
+            lstUcmLcm.Width = double.NaN;
+            lstUcmLcm.Height = double.NaN;
+            grid1.Children.Add(lstUcmLcm);
+        }
+
+        void AddVlcList()
+        {
+            //lstVlc = new ucVLClist();
+            //lstVlc.Width = double.NaN;
+            //lstVlc.Height = double.NaN;
+            //grid2.Children.Add(lstVlc);
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            double value = (double)this.Height / 1.6533;
+            //  grdLayOut.RowDefinitions[0].si = (int)Math.Abs(value);
+            //canvas2.Height = (int)Math.Abs(value);
+            //vbLcmUcm.Height = (int)Math.Abs(value);
+                       
+           // grid1.Height = (int)Math.Abs(value);
+          //  canvas2.Height = (int)Math.Abs(value);
+          //  vbLcmUcm.Height = (int)Math.Abs(value);
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+        private void ResizeGripDragDelta(object aSender, DragDeltaEventArgs aEventArgs)
+        {
+            double lWidth = ActualWidth + aEventArgs.HorizontalChange;
+            double lHeight = ActualHeight + aEventArgs.VerticalChange;
+            TrySetSize(lWidth, lHeight);
+        }
+
+        private void ResizeGripMouseDown(object aSender, MouseButtonEventArgs aEventArgs)
+        {
+            //if (aEventArgs.LeftButton == MouseButtonState.Pressed &&
+            //      aEventArgs.RightButton == MouseButtonState.Released &&
+            //      aEventArgs.MiddleButton == MouseButtonState.Released)
+            //{
+            //    Mouse.Capture(ResizeGrip);
+            //}
+        }
+
+        private void ResizeGripMouseUp(object aSender, MouseButtonEventArgs aEventArgs)
+        {
+            //if (Mouse.Captured == ResizeGrip)
+            //{
+            //    Mouse.Capture(null);
+            //}
+        }
+
+        private void TrySetSize(double aWidth, double aHeight)
+        {
+            if (aWidth < MinWidth || aHeight < MinHeight)
+            {
+                return;
+            }
+
+            Width = aWidth;
+            Height = aHeight;
+        }
+
+        private void btnMaximize_Click(object sender, RoutedEventArgs e)
+        {
+            // WindowState = System.Windows.WindowState.Maximized;
+            // this.Width = System.Windows.SystemParameters.WorkArea.Width;
+            //this.Height = System.Windows.SystemParameters.WorkArea.Height;
+
+            this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            //this.Margin = new Thickness(0, 0, 10, System.Windows.SystemParameters.WorkArea.Height);
+
+            this.Top = 0; // System.Windows.SystemParameters.WorkArea.Height - this.Height;
+            this.Left = 0;
+            this.Width = System.Windows.SystemParameters.WorkArea.Width; // -this.Width; 
+            this.Height = System.Windows.SystemParameters.WorkArea.Height;
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = System.Windows.WindowState.Minimized;
+        }
+
+        private void Window_ManipulationStarting(object sender, ManipulationStartingEventArgs e)
+        {
+
+        }
+
+        private void Window_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void grdToolBar_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            WindowState = System.Windows.WindowState.Normal;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+          
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            if (grid1.Children.Contains(lstUcmLcm))
+            {
+                grid1.Children.Remove(lstUcmLcm);
+            }
+            this.Close();
+        }
+    }
+}

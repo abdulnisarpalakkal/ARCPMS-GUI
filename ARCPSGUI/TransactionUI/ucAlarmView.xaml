@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="ARCPSGUI.TransactionUI.ucAlarmView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+            d:DesignHeight="446" d:DesignWidth="909" Background="#FFD8D8D8" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="50" />
+            <RowDefinition  Height="5" />
+            <RowDefinition  Height="70" />
+            <RowDefinition Height="2" />
+            <RowDefinition  Height="100*"/>
+            <RowDefinition Height="5" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="15" />
+
+        </Grid.ColumnDefinitions>
+        <Viewbox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Name="viewbox1" VerticalAlignment="Stretch" >
+            <Label Content="Alarm"  Name="label1" BorderThickness="2" BorderBrush="#FFC7C7C7" />
+        </Viewbox>
+        <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch"  Name="grid1" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="0" />
+                <ColumnDefinition Width="75" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="75" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="254" />
+                <ColumnDefinition Width="200*" />
+            </Grid.ColumnDefinitions>
+            <Label Content="Machine" HorizontalAlignment="Stretch" Name="label2" VerticalAlignment="Stretch" FontFamily="Tahoma" 
+                   FontSize="14" Grid.Column="3" Grid.Row="0" />
+            <ComboBox HorizontalAlignment="Stretch" Name="cmbMachines" VerticalAlignment="Stretch" Grid.Column="3" Grid.Row="1"
+                      BorderBrush="#FFE2E2CD" Background="#FFFFFFE5" FontFamily="Tahoma" FontSize="14" SelectionChanged="cmbMachines_SelectionChanged">
+            </ComboBox>
+            
+            
+            <Label Content="Error Description" Grid.Column="7" Grid.Row="0" HorizontalAlignment="Stretch" Name="label3"
+                   VerticalAlignment="Stretch" FontFamily="Tahoma" FontSize="14"  />
+            <TextBox Grid.Column="7" HorizontalAlignment="Stretch" Name="txtErrorDesc" VerticalAlignment="Stretch" 
+                     BorderBrush="#FFE2E2CD" Background="#FFFFFFE5" FontFamily="Tahoma" FontSize="14" 
+                   Grid.Row="1" />
+            <Label Content="Error Code" HorizontalAlignment="Stretch" Name="lblExitEES" VerticalAlignment="Stretch" FontFamily="Tahoma" 
+                   FontSize="14" Grid.Column="5" Grid.Row="0" />
+            <ComboBox HorizontalAlignment="Stretch" Name="cmbErrorCode" VerticalAlignment="Stretch" Grid.Column="5" Grid.Row="1"
+                      BorderBrush="#FFE2E2CD" Background="#FFFFFFE5" FontFamily="Tahoma" FontSize="14" SelectionChanged="cmbErrorCode_SelectionChanged">
+            </ComboBox>
+            <Button Content="Filter" Grid.Column="9" HorizontalAlignment="Center" Name="btnFilter" VerticalAlignment="Center" Height="42" Width="57" Template="{DynamicResource GlassButton}" Click="btnFilter_Click" Margin="246,27,2,1" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+            <Label Content="Level" HorizontalAlignment="Stretch" Name="lblFloor" VerticalAlignment="Stretch" FontFamily="Tahoma" FontSize="14"
+                   Grid.Column="0" Grid.Row="0" />
+            <ComboBox HorizontalAlignment="Stretch" Name="cmbFloor" VerticalAlignment="Stretch" BorderBrush="#FFE2E2CD" Background="#FFFFFFE5"
+                      FontFamily="Tahoma" FontSize="14" SelectionChanged="cmbFloor_SelectionChanged" Grid.Column="0" Grid.Row="2">
+                <ComboBoxItem Content="All" />
+                <ComboBoxItem Content="L1" />
+                <ComboBoxItem Content="L2" />
+                <ComboBoxItem Content="L3" />
+                <ComboBoxItem Content="L4" />
+                <ComboBoxItem Content="L5" />
+                <ComboBoxItem Content="L6" />
+                <ComboBoxItem Content="L7" />
+                <ComboBoxItem Content="L8" />
+                <ComboBoxItem Content="L9" />
+            </ComboBox>
+        </Grid>
+        <!--<DataGrid AutoGenerateColumns="False" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" Items="{Binding}"  Name="dgView" VerticalAlignment="Stretch" />-->
+        <WindowsFormsHost Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" 
+                               Name="WindowsFormsHost" VerticalAlignment="Stretch" >
+        </WindowsFormsHost>
+        <Label Content="Total Records = " Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Name="lblTotalRecords" 
+               VerticalAlignment="Stretch" Width="175" FontSize="14" Visibility="Hidden" />
+        <Grid Grid.Column="1" Height="69" HorizontalAlignment="Left" Name="grid2" VerticalAlignment="Top" Width="227" Margin="570,1,0,0" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0" />
+                <RowDefinition Height="20" />
+                <RowDefinition />
+                <RowDefinition Height="2" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <CheckBox Content="Date" Name="chkDateEnable" VerticalAlignment="Stretch"  Checked="chkDateEnable_Checked" Unchecked="chkDateEnable_Unchecked" Grid.Row="1" Margin="1,1,155,22" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+            <Label Content="From" HorizontalAlignment="Stretch" Name="label5" VerticalAlignment="Stretch" FontFamily="Tahoma" FontSize="13" VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="2" />
+            <Label Content="Date" HorizontalAlignment="Stretch" Name="lblDateTo" VerticalAlignment="Stretch" FontFamily="Tahoma" FontSize="13" Grid.Row="4" Grid.Column="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
+            <WindowsFormsHost HorizontalAlignment="Stretch" Name="hostdatefrom" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="2" />
+            <WindowsFormsHost HorizontalAlignment="Stretch" Name="hostdateto" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="4" />
+        </Grid>
+        <Button Content="Delete" Grid.Column="1" Grid.Row="6" Height="25" HorizontalAlignment="Right" Margin="758,3,0,0"
+                 Template="{DynamicResource GlassButton}" Name="btnDelete" VerticalAlignment="Top" Width="92" Click="btnDelete_Click" />
+    </Grid>
+</UserControl>

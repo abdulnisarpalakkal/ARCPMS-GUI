@@ -1,0 +1,850 @@
+﻿<Window x:Class="ARCPSGUI.DiagnosticScreens.frmLockStatus"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Lock Status" Height="454" Width="935" Background="#FFD9DBE2">
+    <Window.Resources>
+        <Style x:Key="LockButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FFCBCDD0"/>
+                        <GradientStop Color="#FFAAB0B8" Offset="1"/>
+                        <GradientStop Color="#FFE4E4E5" Offset="0.47"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style x:Key="LockLabelStyle" TargetType="{x:Type Label}">
+            <Setter Property="BorderBrush" Value="#FFE81515" />
+            <Setter Property="Foreground" Value="#FFC12323" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="BorderThickness" Value="3" />
+            <Setter Property="Content" Value="Locked" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FFCBCDD0"/>
+                        <GradientStop Color="#FFAAB0B8" Offset="1"/>
+                        <GradientStop Color="#FFE4E4E5" Offset="0.47"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="UnLockLabelStyle" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="BorderThickness" Value="3" />
+            <Setter Property="Content" Value="UnLocked" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush />
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="3" />
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="3" />
+            <RowDefinition  Height="50*"/>
+            <RowDefinition Height="3" />
+            <RowDefinition  Height="50*"/>
+            <RowDefinition Height="3" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="3" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="3" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="3" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="3" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="5" />
+        </Grid.ColumnDefinitions>
+        <Border  Grid.Column="2" Grid.Row="2" BorderBrush="#FF8B949D" BorderThickness="2">
+        <Grid  HorizontalAlignment="Stretch" Name="grdVLC" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="3" />
+                <RowDefinition />
+                <RowDefinition Height="3" />
+                <RowDefinition />
+                <RowDefinition Height="3" />
+                <RowDefinition />
+                <RowDefinition Height="4" />
+                <RowDefinition />
+                <RowDefinition Height="5" />
+                <RowDefinition />
+                <RowDefinition Height="3" />
+                <RowDefinition />
+                <RowDefinition Height="3" />
+                <RowDefinition />
+                <RowDefinition Height="3" />
+                <RowDefinition />
+                <RowDefinition Height="3" />
+                <RowDefinition />
+                <RowDefinition Height="3" />
+                <RowDefinition />
+                </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition  Width="5"/>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" >
+            <Label Content="VLC" HorizontalAlignment="Stretch" Name="label1" VerticalAlignment="Stretch" FontSize="20" FontWeight="Normal" Background="#FFD8CAAE" />
+            </Viewbox>
+            <Viewbox  Grid.Column="0" Grid.Row="2" Stretch="Uniform">
+            <StackPanel Orientation="Horizontal">
+                    <Button Name="btnVlc1" Content="VLC1 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnVlc1_Click">
+                    </Button>
+                        <Label Name="lblVlc1LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+            </StackPanel>
+            </Viewbox>
+            <Viewbox  Grid.Column="0" Grid.Row="4" Stretch="Uniform">
+                <StackPanel Orientation="Horizontal">
+                        <Button Name="btnVlc2" Content="VLC2 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnVlc2_Click">
+                    </Button>
+                        <Label  Name="lblVlc2LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+            </Viewbox>
+            <Viewbox  Grid.Column="0" Grid.Row="6" Stretch="Uniform">
+                <StackPanel Orientation="Horizontal">
+                        <Button Name="btnVlc3" Content="VLC3 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnVlc3_Click">
+                    </Button>
+                        <Label  Name="lblVlc3LockStatus"  Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+            </Viewbox>
+            <Viewbox  Grid.Column="0" Grid.Row="8" Stretch="Uniform">
+                <StackPanel Orientation="Horizontal">
+                        <Button Name="btnVlc4" Content="VLC4 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnVlc4_Click">
+                    </Button>
+                        <Label  Name="lblVlc4LockStatus"  Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+            </Viewbox>
+            <Viewbox  Grid.Column="0" Grid.Row="10" Stretch="Uniform">
+                <StackPanel Orientation="Horizontal">
+                        <Button Name="btnVlc5" Content="VLC5 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnVlc5_Click">
+                    </Button>
+                        <Label Name="lblVlc5LockStatus"  Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+            </Viewbox>
+            <Viewbox  Grid.Column="0" Grid.Row="12" Stretch="Uniform">
+                <StackPanel Orientation="Horizontal">
+                        <Button Name="btnVlc6" Content="VLC6 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnVlc6_Click">
+                    </Button>
+                        <Label Name="lblVlc6LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+            </Viewbox>
+                <Viewbox Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="14" >
+                    <Label Content="PVL" HorizontalAlignment="Stretch" Name="lblPVL" VerticalAlignment="Stretch" FontSize="20" FontWeight="Normal" Background="#FFD8CAAE" />
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="16" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnPvl1" Content="PVL1 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnPvl1_Click">
+                        </Button>
+                        <Label Name="lblPvl1LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="18" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnPvl2" Content="PVL2 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnPvl2_Click">
+                        </Button>
+                        <Label Name="lblPvl2LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="20" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnPvl3" Content="PVL3 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnPvl3_Click">
+                        </Button>
+                        <Label Name="lblPvl3LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Grid.Background>
+                <SolidColorBrush />
+            </Grid.Background>
+        </Grid>
+        </Border>
+        <Border  Grid.Column="4" Grid.Row="2" BorderBrush="#FF8B949D" BorderThickness="2">
+            <Grid  HorizontalAlignment="Stretch" Name="grdPsPst" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="4" />
+                    <RowDefinition />
+                    <RowDefinition Height="5" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition  Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" >
+                    <Label Content="PST" HorizontalAlignment="Stretch" Name="lblPST" VerticalAlignment="Stretch" FontSize="20" FontWeight="Normal" Background="#FFD8CAAE" />
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="2" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnPst1" Content="PST1 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnPst1_Click">
+                        </Button>
+                        <Label  Name="lblPst1LockStatus"  Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="4" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnPst2"  Content="PST2 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnPst2_Click">
+                        </Button>
+                        <Label  Name="lblPst2LockStatus"  Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="6" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button   Name="btnPst3"  Content="PST3 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnPst3_Click">
+                        </Button>
+                        <Label  Name="lblPst3LockStatus"  Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="8" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button   Name="btnPst4"  Content="PST4 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnPst4_Click">
+                        </Button>
+                        <Label  Name="lblPst4LockStatus"  Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="10" >
+                    <Label Content="PSH" HorizontalAlignment="Stretch" Name="lblPS1" VerticalAlignment="Stretch" FontSize="20" FontWeight="Normal" Background="#FFD8CAAE" />
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="12" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button   Name="btnPsh1" Content="PSH1 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnPsh1_Click">
+                        </Button>
+                        <Label  Name="lblPsh1LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="14" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button   Name="btnPsh2" Content="PSH2 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnPsh2_Click">
+                        </Button>
+                        <Label  Name="lblPsh2LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="16" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button   Name="btnPsh3"  Content="PSH3 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnPsh3_Click">
+                        </Button>
+                        <Label  Name="lblPsh3LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="18" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button   Name="btnPsh4" Content="PSH4 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnPsh4_Click">
+                        </Button>
+                        <Label  Name="lblPsh4LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Grid.Background>
+                    <SolidColorBrush />
+                </Grid.Background>
+            </Grid>
+        </Border>
+        <Border  Grid.Column="6" Grid.Row="2" BorderBrush="#FF8B949D" BorderThickness="2">
+            <Grid  HorizontalAlignment="Stretch" Name="grdEES" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="4" />
+                    <RowDefinition />
+                    <RowDefinition Height="5" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition  Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" >
+                    <Label Content="EES" HorizontalAlignment="Stretch" Name="lblEES" VerticalAlignment="Stretch" FontSize="20" FontWeight="Normal" Background="#FFD8CAAE" />
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="2" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnEes1"  Content="EES1 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnEes1_Click">
+                        </Button>
+                        <Label  Name="lblEes1LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="4" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnEes2"  Content="EES2 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnEes2_Click">
+                        </Button>
+                        <Label  Name="lblEes2LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="6" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnEes3"  Content="EES3 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnEes3_Click">
+                        </Button>
+                        <Label  Name="lblEes3LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="8" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnEes4"  Content="EES4 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnEes4_Click">
+                        </Button>
+                        <Label  Name="lblEes4LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="10" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnEes5"  Content="EES5 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnEes5_Click">
+                        </Button>
+                        <Label  Name="lblEes5LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="12" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnEes6"  Content="EES6 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnEes6_Click">
+                        </Button>
+                        <Label  Name="lblEes6LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="14" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnEes7"  Content="EES7 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnEes7_Click">
+                        </Button>
+                        <Label  Name="lblEes7LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="16" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnEes8"  Content="EES8 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnEes8_Click">
+                        </Button>
+                        <Label  Name="lblEes8LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="18" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnEes9"  Content="EES9 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnEes9_Click">
+                        </Button>
+                        <Label  Name="lblEes9LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Grid.Background>
+                    <SolidColorBrush />
+                </Grid.Background>
+            </Grid>
+        </Border>
+        <Border  Grid.Column="8" Grid.Row="2" BorderBrush="#FF8B949D" BorderThickness="2">
+            <Grid  HorizontalAlignment="Stretch" Name="grdLCM" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="4" />
+                    <RowDefinition />
+                    <RowDefinition Height="5" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition  Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" >
+                    <Label Content="LCM" HorizontalAlignment="Stretch" Name="lblLCM" VerticalAlignment="Stretch" FontSize="20" FontWeight="Normal" Background="#FFD8CAAE" />
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="2" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnLcm1" Content="LCM1 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnLcm1_Click">
+                        </Button>
+                        <Label  Name="lblLcm1LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="4" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnLcm2"  Content="LCM2 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnLcm2_Click">
+                        </Button>
+                        <Label  Name="lblLcm2LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="6" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnLcm3" Content="LCM3 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnLcm3_Click">
+                        </Button>
+                        <Label Name="lblLcm3LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="8" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnLcm4" Content="LCM4 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnLcm4_Click">
+                        </Button>
+                        <Label  Name="lblLcm4LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="10" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnLcm5" Content="LCM5 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnLcm5_Click">
+                        </Button>
+                        <Label  Name="lblLcm5LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="12" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnLcm6" Content="LCM6 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnLcm6_Click">
+                        </Button>
+                        <Label  Name="lblLcm6LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Grid.Background>
+                    <SolidColorBrush />
+                </Grid.Background>
+            </Grid>
+        </Border>
+
+        <Border  Grid.Column="2" Grid.Row="4" BorderBrush="#FF8B949D" BorderThickness="2">
+            <Grid  HorizontalAlignment="Stretch" Name="grdUCM" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="4" />
+                    <RowDefinition />
+                   
+                    
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition  Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" >
+                    <Label Content="L1 UCM" HorizontalAlignment="Stretch" Name="lblL1UCM" VerticalAlignment="Stretch" FontSize="20" FontWeight="Normal" Background="#FFD8CAAE" />
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="2" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnL1Ucm1" Content="UCM1 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL1Ucm1_Click">
+                        </Button>
+                        <Label Name="lblL1Ucm1LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="4" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnL1Ucm2" Content="UCM2 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL1Ucm2_Click">
+                        </Button>
+                        <Label  Name="lblL1Ucm2LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="6" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnL1Ucm3" Content="UCM3 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL1Ucm3_Click">
+                        </Button>
+                        <Label  Name="lblL1Ucm3LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+              
+                <Grid.Background>
+                    <SolidColorBrush />
+                </Grid.Background>
+            </Grid>
+        </Border>
+        <Border  Grid.Column="2" Grid.Row="6" BorderBrush="#FF8B949D" BorderThickness="2">
+            <Grid  HorizontalAlignment="Stretch" Name="grdL2UCM" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="4" />
+                    <RowDefinition />
+
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition  Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" >
+                    <Label Content="L2 UCM" HorizontalAlignment="Stretch" Name="lblL2UCM" VerticalAlignment="Stretch" FontSize="20" FontWeight="Normal" Background="#FFD8CAAE" />
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="2" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnL2Ucm1" Content="UCM1 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL2Ucm1_Click">
+                        </Button>
+                        <Label Name="lblL2Ucm1LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="4" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnL2Ucm2" Content="UCM2 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL2Ucm2_Click">
+                        </Button>
+                        <Label  Name="lblL2Ucm2LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="6" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnL2Ucm3" Content="UCM3 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL2Ucm3_Click">
+                        </Button>
+                        <Label  Name="lblL2Ucm3LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+
+                <Grid.Background>
+                    <SolidColorBrush />
+                </Grid.Background>
+            </Grid>
+        </Border>
+
+        <Border  Grid.Column="4" Grid.Row="4" BorderBrush="#FF8B949D" BorderThickness="2">
+            <Grid  HorizontalAlignment="Stretch" Name="grdL3UCM" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="4" />
+                    <RowDefinition />
+
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition  Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" >
+                    <Label Content="L3 UCM" HorizontalAlignment="Stretch" Name="lblL3UCM" VerticalAlignment="Stretch" FontSize="20" FontWeight="Normal" Background="#FFD8CAAE" />
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="2" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnL3Ucm1" Content="UCM1 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL3Ucm1_Click">
+                        </Button>
+                        <Label Name="lblL3Ucm1LockStatus"  Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="4" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnL3Ucm2" Content="UCM2 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL3Ucm2_Click">
+                        </Button>
+                        <Label  Name="lblL3Ucm2LockStatus"  Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="6" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnL3Ucm3" Content="UCM3 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL3Ucm3_Click">
+                        </Button>
+                        <Label  Name="lblL3Ucm3LockStatus"  Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+
+                <Grid.Background>
+                    <SolidColorBrush />
+                </Grid.Background>
+            </Grid>
+        </Border>
+        <Border  Grid.Column="4" Grid.Row="6" BorderBrush="#FF8B949D" BorderThickness="2">
+            <Grid  HorizontalAlignment="Stretch" Name="grdL4UCM" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="4" />
+                    <RowDefinition />
+
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition  Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" >
+                    <Label Content="L5 UCM" HorizontalAlignment="Stretch" Name="lblL5UCM" VerticalAlignment="Stretch" FontSize="20" FontWeight="Normal" Background="#FFD8CAAE" />
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="2" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnL5Ucm1" Content="UCM1 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL5Ucm1_Click">
+                        </Button>
+                        <Label Name="lblL5Ucm1LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="4" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnL5Ucm2"  Content="UCM2 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL5Ucm2_Click">
+                        </Button>
+                        <Label  Name="lblL5Ucm2LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="6" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnL5Ucm3" Content="UCM3 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL5Ucm3_Click">
+                        </Button>
+                        <Label   Name="lblL5Ucm3LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+
+                <Grid.Background>
+                    <SolidColorBrush />
+                </Grid.Background>
+            </Grid>
+        </Border>
+
+        <Border  Grid.Column="6" Grid.Row="4" BorderBrush="#FF8B949D" BorderThickness="2">
+            <Grid  HorizontalAlignment="Stretch" Name="grdL6UCM" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="4" />
+                    <RowDefinition />
+
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition  Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" >
+                    <Label Content="L6 UCM" HorizontalAlignment="Stretch" Name="lblL6UCM" VerticalAlignment="Stretch" FontSize="20" FontWeight="Normal" Background="#FFD8CAAE" />
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="2" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnL6Ucm1"  Content="UCM1 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="Button_Click_1">
+                        </Button>
+                        <Label   Name="lblL6Ucm1LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="4" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnL6Ucm2"  Content="UCM2 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL6Ucm2_Click">
+                        </Button>
+                        <Label   Name="lblL6Ucm2LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="6" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnL6Ucm3"  Content="UCM3 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL6Ucm3_Click">
+                        </Button>
+                        <Label   Name="lblL6Ucm3LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+
+                <Grid.Background>
+                    <SolidColorBrush />
+                </Grid.Background>
+            </Grid>
+        </Border>
+        <Border  Grid.Column="6" Grid.Row="6" BorderBrush="#FF8B949D" BorderThickness="2">
+            <Grid  HorizontalAlignment="Stretch" Name="grdL7UCM" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="4" />
+                    <RowDefinition />
+
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition  Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" >
+                    <Label Content="L7 UCM" HorizontalAlignment="Stretch" Name="lblL7UCM" VerticalAlignment="Stretch" FontSize="20" FontWeight="Normal" Background="#FFD8CAAE" />
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="2" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnL7Ucm1" Content="UCM1 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL7Ucm1_Click">
+                        </Button>
+                        <Label Name="lblL7Ucm1LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="4" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnL7Ucm2" Content="UCM2 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL7Ucm2_Click">
+                        </Button>
+                        <Label  Name="lblL7Ucm2LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="6" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnL7Ucm3" Content="UCM3 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL7Ucm3_Click">
+                        </Button>
+                        <Label  Name="lblL7Ucm3LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+
+                <Grid.Background>
+                    <SolidColorBrush />
+                </Grid.Background>
+            </Grid>
+        </Border>
+
+        <Border  Grid.Column="8" Grid.Row="4" BorderBrush="#FF8B949D" BorderThickness="2">
+            <Grid  HorizontalAlignment="Stretch" Name="grdL8UCM" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="4" />
+                    <RowDefinition />
+
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition  Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" >
+                    <Label Content="L8 UCM" HorizontalAlignment="Stretch" Name="lblL8UCM" VerticalAlignment="Stretch" FontSize="20" FontWeight="Normal" Background="#FFD8CAAE" />
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="2" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnL8Ucm1" Content="UCM1 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL8Ucm1_Click">
+                        </Button>
+                        <Label Name="lblL8Ucm1LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="4" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnL8Ucm2" Content="UCM2 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL8Ucm2_Click">
+                        </Button>
+                        <Label  Name="lblL8Ucm2LockStatus"  Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="6" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnL8Ucm3"  Content="UCM3 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL8Ucm3_Click">
+                        </Button>
+                        <Label  Name="lblL8Ucm3LockStatus"  Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+
+                <Grid.Background>
+                    <SolidColorBrush />
+                </Grid.Background>
+            </Grid>
+        </Border>
+        <Border  Grid.Column="8" Grid.Row="6" BorderBrush="#FF8B949D" BorderThickness="2">
+            <Grid  HorizontalAlignment="Stretch" Name="grdL9UCM" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="4" />
+                    <RowDefinition />
+
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition  Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" >
+                    <Label Content="L9 UCM" HorizontalAlignment="Stretch" Name="lblL9UCM" VerticalAlignment="Stretch" FontSize="20" FontWeight="Normal" Background="#FFD8CAAE" />
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="2" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button  Name="btnL9Ucm1"  Content="UCM1 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL9Ucm1_Click">
+                        </Button>
+                        <Label  Name="lblL9Ucm1LockStatus"  Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="4" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button   Name="btnL9Ucm2"   Content="UCM2 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL9Ucm2_Click">
+                        </Button>
+                        <Label   Name="lblL9Ucm2LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Viewbox  Grid.Column="0" Grid.Row="6" Stretch="Uniform">
+                    <StackPanel Orientation="Horizontal">
+                        <Button   Name="btnL9Ucm3"  Content="UCM3 Unlock" FontSize="26" Style="{StaticResource LockButtonStyle}" Click="btnL9Ucm3_Click">
+                        </Button>
+                        <Label   Name="lblL9Ucm3LockStatus" Style="{StaticResource UnLockLabelStyle}"/>
+                    </StackPanel>
+                </Viewbox>
+
+                <Grid.Background>
+                    <SolidColorBrush />
+                </Grid.Background>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

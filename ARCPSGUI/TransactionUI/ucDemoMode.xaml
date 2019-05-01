@@ -1,0 +1,215 @@
+﻿<UserControl x:Class="ARCPSGUI.TransactionUI.ucDemoMode"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="468" d:DesignWidth="1209" xmlns:my="clr-namespace:ARCPSGUI.TransactionUI" Loaded="UserControl_Loaded">
+    <Control.Resources>
+        <Style x:Key="cmGrayBorder" TargetType="{x:Type Button}">
+            <Setter Property="BorderBrush" Value="#FFEFEFEF" />
+        </Style>
+        <Style x:Key="cmGreenBorder" TargetType="{x:Type Button}">
+            <Setter Property="BorderBrush" Value="#FF77C172" />
+        </Style>
+        <ControlTemplate x:Key="GlassButtonGreen" TargetType="{x:Type Button}">
+        <ControlTemplate.Resources>
+            <Storyboard x:Key="Timeline1">
+                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="Timeline2">
+                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0"/>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </ControlTemplate.Resources>
+        <Border BorderBrush="#FFFFFFFF" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
+            <Border x:Name="border" Background="#7F36651A" BorderBrush="#FF000000" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.507*"/>
+                        <RowDefinition Height="0.493*"/>
+                    </Grid.RowDefinitions>
+                    <Border Opacity="0" HorizontalAlignment="Stretch" x:Name="glow"
+                                Width="Auto" Grid.RowSpan="2" CornerRadius="4,4,4,4">
+                        <Border.Background>
+                            <RadialGradientBrush>
+                                <RadialGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="1.702" ScaleY="2.243"/>
+                                        <SkewTransform AngleX="0" AngleY="0"/>
+                                        <RotateTransform Angle="0"/>
+                                        <TranslateTransform X="-0.368" Y="-0.152"/>
+                                    </TransformGroup>
+                                </RadialGradientBrush.RelativeTransform>
+                                <GradientStop Color="#FF57B146" Offset="0"/>
+                                <GradientStop Color="#003FB13F" Offset="1"/>
+                            </RadialGradientBrush>
+                        </Border.Background>
+                    </Border>
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Grid.RowSpan="2"/>
+                    <Border HorizontalAlignment="Stretch" Margin="0,0,0,0" x:Name="shine" Width="Auto" CornerRadius="4,4,0,0">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.494,0.889" StartPoint="0.494,0.028">
+                                <GradientStop Color="#FF6CB73B" Offset="0"/>
+                                <GradientStop Color="#0030A375" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                    </Border>
+                </Grid>
+            </Border>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" TargetName="shine" Value="0.4"/>
+                <Setter Property="Background" TargetName="border" Value="#CC000000"/>
+                <Setter Property="Visibility" TargetName="glow" Value="Hidden"/>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard Storyboard="{StaticResource Timeline1}"/>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard x:Name="Timeline2_BeginStoryboard" Storyboard="{StaticResource Timeline2}"/>
+                </Trigger.ExitActions>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    </Control.Resources>
+    <TabControl SelectionChanged="TabControl_SelectionChanged" Background="#00B7B7B0">
+        <TabItem Header="Demo Mode CM">
+            <Grid Name="grdMachineHolder" Height="Auto"  Width="Auto" Background="#FF969696">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="2" />
+                    <RowDefinition />
+                    <RowDefinition Height="5" />
+                    <RowDefinition />
+                    <RowDefinition Height="5" />
+                    <RowDefinition />
+                    <RowDefinition Height="5" />
+                    <RowDefinition />
+                    <RowDefinition Height="5" />
+                    <RowDefinition />
+                    <RowDefinition Height="5" />
+                    <RowDefinition />
+                    <RowDefinition Height="5" />
+                    <RowDefinition />
+                    <RowDefinition Height="5" />
+                    <RowDefinition />
+                    <RowDefinition Height="5" />
+                    <RowDefinition />
+                    <!--<RowDefinition Height="5" />
+            <RowDefinition />-->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="35" />
+                    <!--floorno-->
+                    <ColumnDefinition Width="5" />
+
+                    <ColumnDefinition Width="25*" />
+                    <!--lcm1-->
+                    <ColumnDefinition Width="5" />
+
+                    <ColumnDefinition Width="25*" />
+                    <!--lcm2-->
+                    <ColumnDefinition Width="5" />
+
+                    <ColumnDefinition Width="25*" />
+                    <!--lcm3-->
+                    <ColumnDefinition Width="5" />
+
+                    <ColumnDefinition Width="25*" />
+                    <!--lcm4-->
+                    <ColumnDefinition Width="5" />
+
+                    <ColumnDefinition Width="25*" />
+                    <!--lcm5-->
+                    <ColumnDefinition Width="5" />
+
+                    <ColumnDefinition Width="25*" />
+                    <!--lcm6-->
+                    <ColumnDefinition Width="10" />
+
+                    <ColumnDefinition Width="25*" />
+                    <!--vlc-->
+                    <ColumnDefinition Width="*" />
+
+
+                </Grid.ColumnDefinitions>
+                <!--<Canvas Grid.Column="17" Grid.Row="0" Grid.RowSpan="18" Background="#FF584646">
+            <StackPanel  Grid.Column="13" Grid.Row="0" Height="40" Name="stackPanel1" Width="1" Background="#FF97B15B" />
+        </Canvas>-->
+                <Viewbox  Grid.Row="18"  HorizontalAlignment="Stretch" Name="viewbox1" VerticalAlignment="Stretch" Stretch="Fill">
+                    <Button Content="L1" Height="28" Name="label1" Template="{DynamicResource GlassButton}" Foreground="White" Click="label1_Click" FontSize="10" />
+                </Viewbox>
+                <Viewbox  Grid.Row="16"  HorizontalAlignment="Stretch" Name="vb2" VerticalAlignment="Stretch" Stretch="Fill">
+                    <Button Content="L2" Height="28" Name="lbl2" Template="{DynamicResource GlassButton}" Foreground="White" Click="lbl2_Click" FontSize="10" />
+                </Viewbox>
+                <Viewbox  Grid.Row="14"  HorizontalAlignment="Stretch" Name="vb3" VerticalAlignment="Stretch" Stretch="Fill">
+                    <Button Content="L3" Height="28" Name="lbl3" Template="{DynamicResource GlassButton}" Foreground="White" Click="lbl3_Click" FontSize="10" />
+                </Viewbox>
+
+                <Viewbox  Grid.Row="12"  HorizontalAlignment="Stretch" Name="vb4" VerticalAlignment="Stretch" Stretch="Fill">
+                    <Button Content="L4" Height="28" Name="lbl4" Template="{DynamicResource GlassButton}" Foreground="White" Click="lbl4_Click" FontSize="10" />
+                </Viewbox>
+                <Viewbox  Grid.Row="10"  HorizontalAlignment="Stretch" Name="vb5" VerticalAlignment="Stretch" Stretch="Fill">
+                    <Button Content="L5" Height="28" Name="lbl5" Template="{DynamicResource GlassButton}" Foreground="White" Click="lbl5_Click" FontSize="10" />
+                </Viewbox>
+                <Viewbox  Grid.Row="8"  HorizontalAlignment="Stretch" Name="vb6" VerticalAlignment="Stretch" Stretch="Fill">
+                    <Button Content="L6" Height="28" Name="lbl6" Template="{DynamicResource GlassButton}" Foreground="White" Click="lbl6_Click" FontSize="10" />
+                </Viewbox>
+
+                <Viewbox  Grid.Row="6"  HorizontalAlignment="Stretch" Name="vb7" VerticalAlignment="Stretch" Stretch="Fill">
+                    <Button Content="L7" Height="28" Name="lbl7" Template="{DynamicResource GlassButton}" Background="White" Foreground="White" FontSize="10" Click="lbl7_Click" />
+                </Viewbox>
+                <Viewbox  Grid.Row="4"  HorizontalAlignment="Stretch" Name="vb8" VerticalAlignment="Stretch" Stretch="Fill">
+                    <Button Content="L8" Height="28" Name="lbl8" Template="{DynamicResource GlassButton}" Foreground="White" Click="lbl8_Click" FontSize="10" />
+                </Viewbox>
+                <Viewbox  Grid.Row="2"  HorizontalAlignment="Stretch" Name="vb9" VerticalAlignment="Stretch" Stretch="Fill">
+                    <Button Content="L9" Height="28" Name="lbl9" Template="{DynamicResource GlassButton}" Click="lbl9_Click" Background="White" Foreground="White" FontSize="10" />
+                </Viewbox>
+                <Line   Grid.ColumnSpan="15" Grid.Row="1" Height="7" HorizontalAlignment="Stretch"
+                Name="border1" VerticalAlignment="Stretch" Width="1204" Fill="#FF963C3C" Stroke="#FFC44444" StrokeThickness="3" />
+                <Button Content="Start" Grid.Column="14" Grid.Row="18" HorizontalAlignment="Right" Template="{DynamicResource GlassButton}" Name="btnStart" VerticalAlignment="Bottom" Click="btnStart_Click" Height="44" Width="81" />
+            </Grid>
+        </TabItem>
+        <TabItem Header="Demo Mode PSH And VLC">
+            <Grid Height="390" Name="grd2" Width="1166">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55" />
+                    <RowDefinition Height="178*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.Column="1" HorizontalAlignment="Stretch" Margin="0" Name="viewbox2" VerticalAlignment="Stretch" Stretch="Uniform">
+                    <Label Content="Pallet Shuttle" Height="23" Name="label3" Width="133" />
+                </Viewbox>
+                <Viewbox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" Name="viewbox3" VerticalAlignment="Stretch">
+                    <Label Content="VLC" Name="label2" Width="133" Height="23" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+                </Viewbox>
+                <Button Content="Start" Grid.Column="9" Grid.Row="7" Height="49" HorizontalAlignment="Right" Template="{DynamicResource GlassButton}"
+                       Name="btnStart1" VerticalAlignment="Bottom" Width="81" Click="btnStart1_Click" FlowDirection="LeftToRight" Margin="0,0,246,0" />
+            </Grid>
+        </TabItem>
+    </TabControl>
+</UserControl>

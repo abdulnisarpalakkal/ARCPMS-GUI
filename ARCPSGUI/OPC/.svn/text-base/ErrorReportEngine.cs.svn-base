@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ARCPSGUI.OPC
+{
+    public class ErrorReportEngine
+    {
+
+        // public static System.IO.FileStream fs = new FileStream(@"C:\FOR DEMO\ErrorLog.txt", FileMode.Append);
+       // public static System.IO.StreamWriter processLogFile = new System.IO.StreamWriter(@"C:\FOR DEMO\GUILOG.txt", true);
+        //public static System.IO.StreamWriter ErrorLogFile = new System.IO.StreamWriter(@"C:\FOR DEMO\ErrorLog.txt", true);
+        //public static System.IO.StreamWriter BlockUnblockLogFile = new System.IO.StreamWriter(@"C:\FOR DEMO\BlockUnblock.txt", true);
+
+        public void Notification(string message)
+        {
+            //try
+            //{
+            //    if (processLogFile != null)
+            //    {
+            //        if (string.IsNullOrEmpty(message) == false && string.IsNullOrWhiteSpace(message) == false)
+            //        {
+            //            processLogFile.WriteLine(message);
+            //            processLogFile.Flush();
+            //        }
+            //    }
+
+            //}
+            //catch (Exception errMsg)
+            //{
+
+            //}
+        }
+    }
+}

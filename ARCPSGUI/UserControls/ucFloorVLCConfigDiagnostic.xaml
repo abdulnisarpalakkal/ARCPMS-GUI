@@ -1,0 +1,37 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ARCPSGUI.UserControls" x:Class="ARCPSGUI.UserControls.ucFloorVLCConfigDiagnostic" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="700"  >
+
+    
+    <Grid Background="#FF849295">
+        <Viewbox>
+        <StackPanel  x:Name="configPanel" HorizontalAlignment="Stretch"  Margin="2,50,10,2" VerticalAlignment="Stretch"  Orientation="Vertical" >
+            <StackPanel.Resources>
+                <Style TargetType="local:ucFloorVLCConfig">
+                    <Setter Property="Margin" Value="0,5,0,0"/>
+                </Style>
+            </StackPanel.Resources>
+            
+            <local:ucFloorVLCConfig Margin="0"  floor="9"/>
+            <local:ucFloorVLCConfig Margin="0"  floor="8"/>
+            <local:ucFloorVLCConfig Margin="0"  floor="7"/>
+            
+            <local:ucFloorVLCConfig Margin="0"  floor="6"/>
+            <local:ucFloorVLCConfig Margin="0"  floor="5"/>
+            <local:ucFloorVLCConfig Margin="0"  floor="4"/>
+            
+            <local:ucFloorVLCConfig Margin="0"  floor="3"/>
+            <local:ucFloorVLCConfig Margin="0"  floor="2"/>
+            <local:ucFloorVLCConfig Margin="0"  floor="1"/>
+        </StackPanel>
+        </Viewbox>
+        <TextBlock HorizontalAlignment="Center" Margin="0,5,0,0" TextWrapping="Wrap" Text="FLOOR WRT VLC CONFIGURATION" VerticalAlignment="Top" Foreground="#FFCDD6D8" FontWeight="Bold" FontSize="18" />
+
+    </Grid>
+    
+</UserControl>

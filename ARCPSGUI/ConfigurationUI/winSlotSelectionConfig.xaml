@@ -1,0 +1,179 @@
+﻿<Window
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:utility="clr-namespace:ARCPSGUI.utility" x:Class="ARCPSGUI.ConfigurationUI.winSlotSelectionConfig" 
+             mc:Ignorable="d" Title="Slot Configuration"
+             Height="400" Width="769.118"  Topmost="True" Loaded="Window_Loaded" Unloaded="Window_Unloaded" WindowStyle="ToolWindow" ResizeMode="NoResize" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}"  >
+    <Window.Resources>
+        <Style x:Key="MyGridStyle" TargetType="{x:Type Grid}">
+            <Style.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Foreground" Value="#FFA60303" />
+                </Style>
+                <Style TargetType="{x:Type CheckBox}">
+                    <Setter Property="Foreground" Value="#FFA60303" />
+                </Style>
+
+            </Style.Resources>
+        </Style>
+        <Style x:Key="MyGridStyle2" TargetType="{x:Type Grid}">
+            <Style.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Foreground" Value="#FFA60303" />
+                </Style>
+                <Style TargetType="{x:Type CheckBox}">
+                    <Setter Property="Foreground" Value="#FFA60303" />
+                </Style>
+
+            </Style.Resources>
+        </Style>
+
+        <SolidColorBrush x:Key="Brush1" Color="Black"/>
+
+    </Window.Resources>
+
+    <!--<Viewbox Stretch="Uniform">-->
+    <Grid Height="370" Width="761" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}">
+        <TextBlock HorizontalAlignment="Left" Margin="346,10,0,0" TextWrapping="Wrap" Text="Slot Configuration" VerticalAlignment="Top" FontSize="14" />
+        <GroupBox x:Name="basementGroup" Header="Basement" HorizontalAlignment="Left" Margin="37,53,0,0" VerticalAlignment="Top" Width="279" Height="287" BorderThickness="0.5" >
+            <Grid HorizontalAlignment="Left" Height="257" Margin="9,5,0,0" VerticalAlignment="Top" Width="256" Background="#FFD6D6CC" Style="{DynamicResource MyGridStyle}">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80*"/>
+                    <ColumnDefinition Width="61*"/>
+                    <ColumnDefinition Width="73*"/>
+                    <ColumnDefinition Width="42*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="32*"/>
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Left" Margin="23,6,0,0" TextWrapping="Wrap" Text="EES1" VerticalAlignment="Top" Height="16" Width="25"/>
+                <utility:LabelTextBox x:Name="EES1_zone_start" Grid.Column="1" HorizontalAlignment="Left" Margin="26,6,0,0" VerticalAlignment="Top" Height="17" PreviewKeyUp="EES_zone_start_PreviewKeyUp" Width="31"/>
+                <utility:LabelTextBox x:Name="EES1_zone_end" Grid.Column="2" HorizontalAlignment="Left" Margin="26,6,0,0" VerticalAlignment="Top" Height="17" PreviewKeyUp="EES_zone_end_PreviewKeyUp" Width="31"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,2,0,0" TextWrapping="Wrap" Text="EES2" VerticalAlignment="Top" Grid.Row="1" Height="16" Width="25"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,3,0,0" TextWrapping="Wrap" Text="EES3" VerticalAlignment="Top" Grid.Row="2" Height="16" Width="25"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,5,0,0" TextWrapping="Wrap" Text="EES4" VerticalAlignment="Top" Grid.Row="3" Height="16" Width="25"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,6,0,0" TextWrapping="Wrap" Text="EES5" VerticalAlignment="Top" Grid.Row="4" Height="16" Width="25"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,5,0,0" TextWrapping="Wrap" Text="EES6" VerticalAlignment="Top" Grid.Row="5" Height="16" Width="25"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,6,0,0" TextWrapping="Wrap" Text="EES7" VerticalAlignment="Top" Grid.Row="6" Height="16" Width="25"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,5,0,0" TextWrapping="Wrap" Text="EES8" VerticalAlignment="Top" Grid.Row="7" Height="16" Width="25"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,6,0,0" TextWrapping="Wrap" Text="EES9" VerticalAlignment="Top" Grid.Row="8" Height="16" Width="25"/>
+                <utility:LabelTextBox x:Name="EES2_zone_start" Grid.Column="1" HorizontalAlignment="Left" Margin="26,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="1" PreviewKeyUp="EES_zone_start_PreviewKeyUp" Width="31"/>
+                <utility:LabelTextBox x:Name="EES2_zone_end" PreviewKeyUp="EES_zone_end_PreviewKeyUp" Grid.Column="2" HorizontalAlignment="Left" Margin="26,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="1" Width="31"/>
+                <utility:LabelTextBox x:Name="EES3_zone_start" Grid.Column="1" HorizontalAlignment="Left" Margin="26,4,0,0" VerticalAlignment="Top" Height="17" Grid.Row="2" PreviewKeyUp="EES_zone_start_PreviewKeyUp" Width="31" />
+                <utility:LabelTextBox x:Name="EES3_zone_end" PreviewKeyUp="EES_zone_end_PreviewKeyUp" Grid.Column="2" HorizontalAlignment="Left" Margin="26,4,0,0" VerticalAlignment="Top" Height="17" Grid.Row="2" Width="31"/>
+                <utility:LabelTextBox x:Name="EES4_zone_start" Grid.Column="1" HorizontalAlignment="Left" Margin="26,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="3" PreviewKeyUp="EES_zone_start_PreviewKeyUp" Width="31"/>
+                <utility:LabelTextBox x:Name="EES4_zone_end" PreviewKeyUp="EES_zone_end_PreviewKeyUp" Grid.Column="2" HorizontalAlignment="Left" Margin="26,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="3" Width="31"/>
+                <utility:LabelTextBox x:Name="EES5_zone_start" Grid.Column="1" HorizontalAlignment="Left" Margin="26,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="4" PreviewKeyUp="EES_zone_start_PreviewKeyUp" Width="31"/>
+                <utility:LabelTextBox x:Name="EES5_zone_end" PreviewKeyUp="EES_zone_end_PreviewKeyUp" Grid.Column="2" HorizontalAlignment="Left" Margin="26,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="4" Width="31"/>
+                <utility:LabelTextBox x:Name="EES6_zone_start" Grid.Column="1" HorizontalAlignment="Left" Margin="26,4,0,0" VerticalAlignment="Top" Height="17" Grid.Row="5" PreviewKeyUp="EES_zone_start_PreviewKeyUp" Width="31"/>
+                <utility:LabelTextBox x:Name="EES6_zone_end" PreviewKeyUp="EES_zone_end_PreviewKeyUp" Grid.Column="2" HorizontalAlignment="Left" Margin="26,4,0,0" VerticalAlignment="Top" Height="17" Grid.Row="5" Width="31"/>
+                <utility:LabelTextBox x:Name="EES7_zone_start" PreviewKeyUp="EES_zone_start_PreviewKeyUp" Grid.Column="1" HorizontalAlignment="Left" Margin="26,5,0,0" VerticalAlignment="Top" Height="17" Grid.Row="6" Width="31"/>
+                <utility:LabelTextBox x:Name="EES7_zone_end" PreviewKeyUp="EES_zone_end_PreviewKeyUp" Grid.Column="2" HorizontalAlignment="Left" Margin="26,5,0,0" VerticalAlignment="Top" Height="17" Grid.Row="6" Width="31"/>
+                <utility:LabelTextBox x:Name="EES8_zone_start" Grid.Column="1" HorizontalAlignment="Left" Margin="26,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="7" PreviewKeyUp="EES_zone_start_PreviewKeyUp" Width="31"/>
+                <utility:LabelTextBox x:Name="EES8_zone_end" PreviewKeyUp="EES_zone_end_PreviewKeyUp" Grid.Column="2" HorizontalAlignment="Left" Margin="26,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="7" Width="31"/>
+                <utility:LabelTextBox x:Name="EES9_zone_start" Grid.Column="1" HorizontalAlignment="Left" Margin="26,5,0,0" VerticalAlignment="Top" Height="17" Grid.Row="8" PreviewKeyUp="EES_zone_start_PreviewKeyUp" Width="31"/>
+                <utility:LabelTextBox x:Name="EES9_zone_end" PreviewKeyUp="EES_zone_end_PreviewKeyUp" Grid.Column="2" HorizontalAlignment="Left" Margin="26,5,0,0" VerticalAlignment="Top" Height="17" Grid.Row="8" Width="31"/>
+                <utility:LabelTextBox x:Name="EES1_base_ref_aisle" PreviewKeyUp="EES_base_ref_aisle_PreviewKeyUp" Grid.Column="3" HorizontalAlignment="Left" Margin="9,6,0,0" VerticalAlignment="Top" Height="17"  Width="31"/>
+                <utility:LabelTextBox x:Name="EES2_base_ref_aisle" PreviewKeyUp="EES_base_ref_aisle_PreviewKeyUp" Grid.Column="3" HorizontalAlignment="Left" Margin="9,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="1" Width="31"/>
+                <utility:LabelTextBox x:Name="EES3_base_ref_aisle" PreviewKeyUp="EES_base_ref_aisle_PreviewKeyUp" Grid.Column="3" HorizontalAlignment="Left" Margin="9,4,0,0" VerticalAlignment="Top" Height="17" Grid.Row="2" Width="31"/>
+                <utility:LabelTextBox x:Name="EES4_base_ref_aisle" PreviewKeyUp="EES_base_ref_aisle_PreviewKeyUp" Grid.Column="3" HorizontalAlignment="Left" Margin="9,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="3" Width="31"/>
+                <utility:LabelTextBox x:Name="EES5_base_ref_aisle" PreviewKeyUp="EES_base_ref_aisle_PreviewKeyUp" Grid.Column="3" HorizontalAlignment="Left" Margin="9,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="4" Width="31"/>
+                <utility:LabelTextBox x:Name="EES6_base_ref_aisle" PreviewKeyUp="EES_base_ref_aisle_PreviewKeyUp" Grid.Column="3" HorizontalAlignment="Left" Margin="9,4,0,0" VerticalAlignment="Top" Height="17" Grid.Row="5" Width="31"/>
+                <utility:LabelTextBox x:Name="EES7_base_ref_aisle" PreviewKeyUp="EES_base_ref_aisle_PreviewKeyUp" Grid.Column="3" HorizontalAlignment="Left" Margin="9,5,0,0" VerticalAlignment="Top" Height="17" Grid.Row="6" Width="31"/>
+                <utility:LabelTextBox x:Name="EES8_base_ref_aisle" PreviewKeyUp="EES_base_ref_aisle_PreviewKeyUp" Grid.Column="3" HorizontalAlignment="Left" Margin="9,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="7" Width="31"/>
+                <utility:LabelTextBox x:Name="EES9_base_ref_aisle" PreviewKeyUp="EES_base_ref_aisle_PreviewKeyUp" Grid.Column="3" HorizontalAlignment="Left" Margin="9,5,0,0" VerticalAlignment="Top" Height="17" Grid.Row="8" Width="31"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="nonBasementGroup" Header="Non Basement" HorizontalAlignment="Left" Margin="328,53,0,0" VerticalAlignment="Top" Width="279" Height="287" BorderThickness="0.5" >
+            <Grid HorizontalAlignment="Left" Height="257" Margin="19,4,0,0" VerticalAlignment="Top" Width="238" Background="#FFD6D6CC" Style="{DynamicResource MyGridStyle}">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="74*"/>
+                    <ColumnDefinition Width="63*"/>
+                    <ColumnDefinition Width="49*"/>
+                    <ColumnDefinition Width="52*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="32*"/>
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Left" Margin="23,6,0,0" TextWrapping="Wrap" Text="EES1" VerticalAlignment="Top" Height="16" Width="25"/>
+                <utility:LabelTextBox x:Name="EES1_zone_start_nonbase" Grid.Column="1" HorizontalAlignment="Left" Margin="26,6,0,0" VerticalAlignment="Top" Height="17" PreviewKeyUp="EES_zone_start_nonbase_PreviewKeyUp" Width="31"/>
+                <utility:LabelTextBox x:Name="EES1_zone_end_nonbase" Grid.Column="2" HorizontalAlignment="Left" Margin="13,6,0,0" VerticalAlignment="Top" Height="17" PreviewKeyUp="EES_zone_end_nonbase_PreviewKeyUp" Width="31"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,2,0,0" TextWrapping="Wrap" Text="EES2" VerticalAlignment="Top" Grid.Row="1" Height="16" Width="25"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,3,0,0" TextWrapping="Wrap" Text="EES3" VerticalAlignment="Top" Grid.Row="2" Height="16" Width="25"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,5,0,0" TextWrapping="Wrap" Text="EES4" VerticalAlignment="Top" Grid.Row="3" Height="16" Width="25"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,6,0,0" TextWrapping="Wrap" Text="EES5" VerticalAlignment="Top" Grid.Row="4" Height="16" Width="25"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,5,0,0" TextWrapping="Wrap" Text="EES6" VerticalAlignment="Top" Grid.Row="5" Height="16" Width="25"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,6,0,0" TextWrapping="Wrap" Text="EES7" VerticalAlignment="Top" Grid.Row="6" Height="16" Width="25"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,5,0,0" TextWrapping="Wrap" Text="EES8" VerticalAlignment="Top" Grid.Row="7" Height="16" Width="25"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,6,0,0" TextWrapping="Wrap" Text="EES9" VerticalAlignment="Top" Grid.Row="8" Height="16" Width="25"/>
+                <utility:LabelTextBox x:Name="EES2_zone_start_nonbase" PreviewKeyUp="EES_zone_start_nonbase_PreviewKeyUp" Grid.Column="1" HorizontalAlignment="Left" Margin="26,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="1" Width="31"/>
+                <utility:LabelTextBox x:Name="EES2_zone_end_nonbase" PreviewKeyUp="EES_zone_end_nonbase_PreviewKeyUp" Grid.Column="2" HorizontalAlignment="Left" Margin="13,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="1" Width="31"/>
+                <utility:LabelTextBox x:Name="EES3_zone_start_nonbase" PreviewKeyUp="EES_zone_start_nonbase_PreviewKeyUp" Grid.Column="1" HorizontalAlignment="Left" Margin="26,4,0,0" VerticalAlignment="Top" Height="17" Grid.Row="2" Width="31"/>
+                <utility:LabelTextBox x:Name="EES3_zone_end_nonbase" PreviewKeyUp="EES_zone_end_nonbase_PreviewKeyUp" Grid.Column="2" HorizontalAlignment="Left" Margin="13,4,0,0" VerticalAlignment="Top" Height="17" Grid.Row="2" Width="31"/>
+                <utility:LabelTextBox x:Name="EES4_zone_start_nonbase" PreviewKeyUp="EES_zone_start_nonbase_PreviewKeyUp" Grid.Column="1" HorizontalAlignment="Left" Margin="26,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="3" Width="31"/>
+                <utility:LabelTextBox x:Name="EES4_zone_end_nonbase" PreviewKeyUp="EES_zone_end_nonbase_PreviewKeyUp" Grid.Column="2" HorizontalAlignment="Left" Margin="13,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="3" Width="31"/>
+                <utility:LabelTextBox x:Name="EES5_zone_start_nonbase" PreviewKeyUp="EES_zone_start_nonbase_PreviewKeyUp" Grid.Column="1" HorizontalAlignment="Left" Margin="26,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="4" Width="31"/>
+                <utility:LabelTextBox x:Name="EES5_zone_end_nonbase" PreviewKeyUp="EES_zone_end_nonbase_PreviewKeyUp" Grid.Column="2" HorizontalAlignment="Left" Margin="13,3,0,9" Grid.Row="4" Width="31"/>
+                <utility:LabelTextBox x:Name="EES6_zone_start_nonbase" PreviewKeyUp="EES_zone_start_nonbase_PreviewKeyUp" Grid.Column="1" HorizontalAlignment="Left" Margin="26,4,0,0" VerticalAlignment="Top" Height="17" Grid.Row="5" Width="31"/>
+                <utility:LabelTextBox x:Name="EES6_zone_end_nonbase" PreviewKeyUp="EES_zone_end_nonbase_PreviewKeyUp" Grid.Column="2" HorizontalAlignment="Left" Margin="13,4,0,0" VerticalAlignment="Top" Height="17" Grid.Row="5" Width="31"/>
+                <utility:LabelTextBox x:Name="EES7_zone_start_nonbase" PreviewKeyUp="EES_zone_start_nonbase_PreviewKeyUp" Grid.Column="1" HorizontalAlignment="Left" Margin="26,5,0,0" VerticalAlignment="Top" Height="17" Grid.Row="6" Width="31"/>
+                <utility:LabelTextBox x:Name="EES7_zone_end_nonbase" PreviewKeyUp="EES_zone_end_nonbase_PreviewKeyUp" Grid.Column="2" HorizontalAlignment="Left" Margin="13,5,0,0" VerticalAlignment="Top" Height="17" Grid.Row="6" Width="31"/>
+                <utility:LabelTextBox x:Name="EES8_zone_start_nonbase" PreviewKeyUp="EES_zone_start_nonbase_PreviewKeyUp" Grid.Column="1" HorizontalAlignment="Left" Margin="26,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="7" Width="31"/>
+                <utility:LabelTextBox x:Name="EES8_zone_end_nonbase" PreviewKeyUp="EES_zone_end_nonbase_PreviewKeyUp" Grid.Column="2" HorizontalAlignment="Left" Margin="13,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="7" Width="31"/>
+                <utility:LabelTextBox x:Name="EES9_zone_start_nonbase" PreviewKeyUp="EES_zone_start_nonbase_PreviewKeyUp" Grid.Column="1" HorizontalAlignment="Left" Margin="26,5,0,0" VerticalAlignment="Top" Height="17" Grid.Row="8" Width="31"/>
+                <utility:LabelTextBox x:Name="EES9_zone_end_nonbase" PreviewKeyUp="EES_zone_end_nonbase_PreviewKeyUp" Grid.Column="2" HorizontalAlignment="Left" Margin="13,5,0,0" VerticalAlignment="Top" Height="17" Grid.Row="8" Width="31"/>
+                <utility:LabelTextBox x:Name="EES1_nonbase_ref_aisle" PreviewKeyUp="EES_nonbase_ref_aisle_PreviewKeyUp" Grid.Column="3" HorizontalAlignment="Left" Margin="14,6,0,0" VerticalAlignment="Top" Height="17"  Width="31"/>
+                <utility:LabelTextBox x:Name="EES2_nonbase_ref_aisle" PreviewKeyUp="EES_nonbase_ref_aisle_PreviewKeyUp" Grid.Column="3" HorizontalAlignment="Left" Margin="14,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="1" Width="31"/>
+                <utility:LabelTextBox x:Name="EES3_nonbase_ref_aisle" PreviewKeyUp="EES_nonbase_ref_aisle_PreviewKeyUp" Grid.Column="3" HorizontalAlignment="Left" Margin="14,4,0,0" VerticalAlignment="Top" Height="17" Grid.Row="2" Width="31"/>
+                <utility:LabelTextBox x:Name="EES4_nonbase_ref_aisle" PreviewKeyUp="EES_nonbase_ref_aisle_PreviewKeyUp" Grid.Column="3" HorizontalAlignment="Left" Margin="14,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="3" Width="31"/>
+                <utility:LabelTextBox x:Name="EES5_nonbase_ref_aisle" PreviewKeyUp="EES_nonbase_ref_aisle_PreviewKeyUp" Grid.Column="3" HorizontalAlignment="Left" Margin="14,3,0,9" Grid.Row="4" Width="31"/>
+                <utility:LabelTextBox x:Name="EES6_nonbase_ref_aisle" PreviewKeyUp="EES_nonbase_ref_aisle_PreviewKeyUp" Grid.Column="3" HorizontalAlignment="Left" Margin="14,4,0,0" VerticalAlignment="Top" Height="17" Grid.Row="5" Width="31"/>
+                <utility:LabelTextBox x:Name="EES7_nonbase_ref_aisle" PreviewKeyUp="EES_nonbase_ref_aisle_PreviewKeyUp" Grid.Column="3" HorizontalAlignment="Left" Margin="14,5,0,0" VerticalAlignment="Top" Height="17" Grid.Row="6" Width="31"/>
+                <utility:LabelTextBox x:Name="EES8_nonbase_ref_aisle" PreviewKeyUp="EES_nonbase_ref_aisle_PreviewKeyUp" Grid.Column="3" HorizontalAlignment="Left" Margin="14,3,0,0" VerticalAlignment="Top" Height="17" Grid.Row="7" Width="31"/>
+                <utility:LabelTextBox x:Name="EES9_nonbase_ref_aisle" PreviewKeyUp="EES_nonbase_ref_aisle_PreviewKeyUp" Grid.Column="3" HorizontalAlignment="Left" Margin="14,5,0,0" VerticalAlignment="Top" Height="17" Grid.Row="8" Width="31"/>
+            </Grid>
+        </GroupBox>
+        <Button Content="Apply" HorizontalAlignment="Left" Margin="640,277,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <GroupBox x:Name="expandGroup" Header="Expand" HorizontalAlignment="Left" Margin="615,54,0,0" VerticalAlignment="Top" Height="109" Width="139" BorderThickness="0.5">
+            <Grid Margin="3,10,1,8" Background="#FFD6D6CC" Style="{DynamicResource MyGridStyle}">
+                <CheckBox x:Name="expandZoneCheck" Content="Expand Zone" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,8,0,0" FlowDirection="RightToLeft" Padding="25,0,0,0" Grid.IsSharedSizeScope="True" Checked="expandZoneCheck_Checked" Unchecked="expandZoneCheck_Unchecked"/>
+                <TextBlock HorizontalAlignment="Left" Margin="5,37,0,0" TextWrapping="Wrap" Text="Expand Number" VerticalAlignment="Top" RenderTransformOrigin="0.396,-1.776"/>
+                <utility:LabelTextBox x:Name="expandNumberText" HorizontalAlignment="Left" Margin="95,39,0,0" VerticalAlignment="Top" Height="17" Width="18" PreviewKeyUp="expandNumberText_PreviewKeyUp"/>
+            </Grid>
+        </GroupBox>
+        <StackPanel Margin="640,189,50,121" Orientation="Vertical" utility:MarginSetter.Margin="0,5,0,0">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type RadioButton}">
+                    <Setter Property="Foreground" Value="#FFC3D83B" />
+                </Style>
+            </StackPanel.Resources>
+            <RadioButton x:Name="customizeRadio" Content="Customize" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="slotSelectionGroup" Checked="customizeRadio_Checked" Unchecked="customizeRadio_Unchecked"  />
+            <RadioButton x:Name="peakHourRadio" Content="Peak Hour" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="slotSelectionGroup" Checked="peakHourRadio_Checked" Unchecked="peakHourRadio_Unchecked"/>
+            <RadioButton x:Name="defaultRadio" Content="Default" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="slotSelectionGroup" Checked="defaultRadio_Checked" Unchecked="defaultRadio_Unchecked"/>
+
+        </StackPanel>
+        <TextBlock x:Name="selectionTypeText" HorizontalAlignment="Left" TextAlignment="Center" Margin="615,318,0,0" TextWrapping="Wrap" Text="######" VerticalAlignment="Top" Width="136" Foreground="#FF7EEC3F" />
+
+    </Grid>
+    <!--</Viewbox>-->
+</Window>

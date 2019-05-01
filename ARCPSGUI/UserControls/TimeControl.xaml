@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="ARCPSGUI.Controls.TimeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="15" d:DesignWidth="100">
+    <Grid x:Name="LayoutRoot" Width="Auto" Height="Auto">
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="0.1*"/>
+
+            <ColumnDefinition Width="0.02*"/>
+
+            <ColumnDefinition Width="0.1*"/>
+
+       
+
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Name="hour" Focusable="True" PreviewKeyDown="Down">
+
+            <!--<TextBox x:Name="mmTxt"  VerticalAlignment="Center" FontFamily="Verdana" FontSize="14" 
+                     PreviewTextInput="mmTxt_PreviewTextInput" Background="#FFF5F5F8" GotFocus="mmTxt_GotFocus" 
+                      />-->
+            <ComboBox x:Name="cmbHours"  VerticalAlignment="Center" FontFamily="Verdana" FontSize="14" 
+                     PreviewTextInput="mmTxt_PreviewTextInput" Background="#FFF5F5F8" GotFocus="mmTxt_GotFocus" 
+                      />
+          
+            <!--<TextBox x:Name="mmTxt" TextWrapping="Wrap" Text="{Binding Path=Hours, ElementName=UserControl, Mode=Default}"
+
+                 TextAlignment="Center" VerticalAlignment="Center" FontFamily="Verdana" FontSize="14" 
+                     PreviewTextInput="mmTxt_PreviewTextInput" MaxLines="1" MaxLength="2" Background="#FFF5F5F8" />-->
+
+        </Grid>
+
+        <Grid  Grid.Column="1">
+
+            <TextBlock  x:Name="sep1" TextWrapping="Wrap" VerticalAlignment="Center" Background="{x:Null}" FontFamily="Verdana"
+
+                  FontSize="11" Text=":" TextAlignment="Center" Height="13" Margin="0,-1,0,0" HorizontalAlignment="Center" />
+
+        </Grid>
+
+        <Grid  Grid.Column="2" x:Name="min" Focusable="True" PreviewKeyDown="Down">
+
+            <!--<TextBox  x:Name="ddTxt" VerticalAlignment="Center" FontFamily="Verdana" FontSize="14"
+                       Background="#FFF5F5FF" GotFocus="ddTxt_GotFocus" />-->
+            <ComboBox  x:Name="cmbMinutes" VerticalAlignment="Center" FontFamily="Verdana" FontSize="14"
+                       Background="#FFF5F5FF" GotFocus="ddTxt_GotFocus" />
+            <!--<TextBox  x:Name="ddTxt"  TextWrapping="Wrap" Text="{Binding Path=Minutes, ElementName=UserControl, Mode=Default}"
+
+                  TextAlignment="Center" VerticalAlignment="Center" FontFamily="Verdana" FontSize="14" MaxLength="2" MaxLines="1" Background="#FFF5F5FF" />-->
+
+        </Grid>
+
+        <!--<Grid  Grid.Column="3">
+
+            <TextBlock x:Name="sep2"  TextWrapping="Wrap" VerticalAlignment="Center" Background="{x:Null}" FontFamily="Goudy Stout"
+
+                 FontSize="14" Text=":" TextAlignment="Center"/>
+
+        </Grid>-->
+
+        <!--<Grid  Grid.Column="4" Name="sec" Focusable="True" KeyDown="Down">
+
+            <TextBox x:Name="yyTxt"  TextWrapping="Wrap" Text="{Binding Path=Seconds, ElementName=UserControl, Mode=Default}"
+
+                 TextAlignment="Center" VerticalAlignment="Center" FontFamily="Goudy Stout" FontSize="14"/>
+
+        </Grid>-->
+
+
+
+    </Grid>
+</UserControl>
